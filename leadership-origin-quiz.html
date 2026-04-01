@@ -1132,10 +1132,13 @@ function submitGate() {
     return;
   }
 
-  // Store for potential integration
+  // Store lead data for webhook + result display
   window.__quizLead = { name, email, timestamp: new Date().toISOString() };
 
   showResult();
+
+  // Fire webhook asynchronously (non-blocking — result page shows immediately)
+  sendQuizWebhook();
 }
 
 // ===== RESULTS =====
@@ -1289,6 +1292,37 @@ function retakeQuiz() {
   document.getElementById('progressBar').style.width = '0%';
   document.getElementById('progressBar').style.background = 'linear-gradient(90deg, var(--orange), var(--orange-bright))';
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ===== WEBHOOK INTEGRATION =====
+async function sendQuizWebhook() {
+  const lead = window.__quizLead;
+  if (!lead || !lead.email) return;
+
+  const payload = {
+    email:        lead.email,
+    first_name:   lead.name || '',
+    quiz_outcome: lead.profile || '',
+    source:       'leadership-origin-quiz',
+    timestamp:    lead.timestamp
+  };
+
+  try {
+    const res = await fetch('/api/quiz-webhook', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+      console.log('[Quiz] Webhook sent successfully');
+    } else {
+      const data = await res.json().catch(() => ({}));
+      console.warn('[Quiz] Webhook response:', res.status, data);
+    }
+  } catch (err) {
+    console.warn('[Quiz] Webhook network error:', err.message);
+  }
 }
 </script>
 
