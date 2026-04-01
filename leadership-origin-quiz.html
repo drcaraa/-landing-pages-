@@ -945,7 +945,8 @@ const profiles = {
       respond: "Precise and effective \u2014 and rarely spontaneous, rarely collaborative in the way that would let others carry some of the weight. The Architect does not send you into rooms unprepared. But it does cost you openhandedness and the quality of genuine delegation."
     },
     selfLed: "The goal is not to dismantle the Architect. It is to let this part take a seat beside you rather than run ahead. When guided by Self \u2014 the calm, confident centre that does not need to control to feel secure \u2014 you hold a high standard without being held hostage by it.",
-    growthEdge: "Leading from security, not anticipation of loss"
+    growthEdge: "Leading from security, not anticipation of loss",
+    landingPage: "architect-landing.html"
   },
   B: {
     letter: "B",
@@ -965,7 +966,8 @@ const profiles = {
       respond: "Warm, attuned, often exactly what the other person needed to feel heard. The gap is directionality \u2014 the willingness to move toward what creates temporary discomfort in service of genuine, honest leadership."
     },
     selfLed: "Self-led leadership is not about caring less. It is about caring from a different address \u2014 from the security of knowing who you are, not from fear of disconnection. You hold the relationship AND deliver the truth it needs. Not as competing acts. As one.",
-    growthEdge: "Caring from worth, not from fear of disconnection"
+    growthEdge: "Caring from worth, not from fear of disconnection",
+    landingPage: "carrier-landing.html"
   },
   C: {
     letter: "C",
@@ -985,7 +987,8 @@ const profiles = {
       respond: "Swift, decisive, execution-oriented. The gap appears in responses that require being with something rather than doing something \u2014 holding space, listening through difficulty, meeting a moment without solving it."
     },
     selfLed: "Self-led leadership is not about achieving less. It is about achieving from a different address \u2014 from the security of knowing that you already are enough. You pursue excellence without it pursuing you. You celebrate the result without being defined by whether it arrived.",
-    growthEdge: "Achieving from identity, not conditional belonging"
+    growthEdge: "Achieving from identity, not conditional belonging",
+    landingPage: "performer-landing.html"
   },
   D: {
     letter: "D",
@@ -1005,7 +1008,8 @@ const profiles = {
       respond: "Immediate and often effective \u2014 but the gap between Receive and Respond is shorter than it needs to be for the quality of decision you are actually capable of. One breath, one anchor, one practised pause \u2014 that is the work."
     },
     selfLed: "Self-led leadership is not about slowing down. It is about building a practice that expands the pause between Receive and Respond \u2014 not to hesitate, but to choose. When the part that moves fast has access to a Self that meets the moment with calm rather than urgency, the intensity becomes precision rather than pressure.",
-    growthEdge: "Responding from groundedness, not from activation"
+    growthEdge: "Responding from groundedness, not from activation",
+    landingPage: "sentinel-landing.html"
   }
 };
 
@@ -1252,11 +1256,11 @@ function showResult() {
     <!-- CTA -->
     <div class="result-cta" style="border-top-color: ${profile.color}">
       <p class="cta-overline" style="color: ${profile.color}">Your Next Step</p>
-      <h3>Take This Into Your Next Real Moment</h3>
-      <p class="cta-body">Your profile isn't a label \u2014 it's a map. The Virtual Mind gives you a space to practise the RPR method in real time, with your specific pattern in focus.</p>
-      <a href="#" class="btn-cta" style="background: ${profile.color}">Try Virtual Mind \u2014 Free</a>
+      <h3>Go Deeper Into Your Profile</h3>
+      <p class="cta-body">You've named the pattern. Now understand what it's protecting, how it shapes every decision you make, and the specific path to Self-led leadership built for your profile.</p>
+      <a href="${profile.landingPage}" class="btn-cta" style="background: ${profile.color}">Explore Your Full ${profile.name} Profile</a>
       <br>
-      <a href="#" class="btn-cta-secondary">Learn about GroundID Leader \u2014 live 6-week cohort with Dr. Cara</a>
+      <a href="https://delphi.ai/drcara" class="btn-cta-secondary" style="margin-top: 24px; display: inline-block;">Or try Virtual Mind \u2014 Free</a>
     </div>
 
     <!-- Retake -->
