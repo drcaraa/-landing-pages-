@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Architect | DR CARA Connected Leadership</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --accent: #c84200;
+      --accent-light: #e05a1a;
+      --accent-pale: #fff9f4;
+      --accent-faded: #fda54f;
+      --gold: #C9A850;
+      --dark: #2A2320;
+      --body-text: #4A3F38;
+      --muted: #A09080;
+      --muted-light: #8A7060;
+      --light-text: #C0B0A0;
+      --cream: #F5F0EB;
+      --white: #FFFFFF;
+      --serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--body-text);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+    .site-header {
+      padding: 28px 48px;
+      border-bottom: 2.5px solid var(--accent);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+    }
+    .tagline {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* PROFILE BADGE */
+    .profile-badge {
+      padding-top: 56px;
+      padding-bottom: 8px;
+    }
+    .badge-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .badge-sub {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      color: var(--muted-light);
+      letter-spacing: 0.08em;
+      margin-top: 6px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 40px 0 48px;
+    }
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      line-height: 1.22;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      color: var(--body-text);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 2.5px solid var(--accent);
+      margin: 0;
+    }
+    .divider--gold {
+      border-top-color: var(--gold);
+    }
+
+    /* CALLOUT BOX */
+    .callout {
+      background: var(--accent-pale);
+      border-left: 5px solid var(--accent);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .callout p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .callout-accent {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--accent);
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    /* SECTION HEADERS */
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding-top: 56px;
+      margin-bottom: 12px;
+    }
+    .section-headline {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.28;
+      margin-bottom: 24px;
+    }
+    .section-headline--lg {
+      font-size: 2.2rem;
+    }
+
+    /* BODY COPY */
+    .body-copy {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* CENTERED DIVIDER TEXT */
+    .divider-text {
+      text-align: center;
+      padding: 48px 0;
+    }
+    .divider-text span {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    /* BLOCKQUOTE */
+    .pull-quote {
+      border-left: 4px solid var(--accent);
+      padding: 8px 0 8px 28px;
+      margin: 40px 0;
+    }
+    .pull-quote p {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--accent);
+      line-height: 1.55;
+    }
+
+    /* ANCHOR BOX */
+    .anchor-box {
+      background: var(--accent-pale);
+      padding: 36px 40px;
+      margin: 48px 0;
+    }
+    .anchor-box .anchor-title {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .anchor-box p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* RPR STEPS */
+    .rpr-step {
+      border-top: 2px solid var(--accent);
+      padding: 28px 0 36px;
+    }
+    .rpr-step-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .rpr-step-num {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--accent-faded);
+    }
+    .rpr-step-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .rpr-step-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .rpr-step p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* DARK PANEL */
+    .dark-panel {
+      background: var(--dark);
+      padding: 48px 44px;
+      margin: 48px 0;
+    }
+    .dark-panel .panel-headline {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+    .dark-panel p {
+      font-size: 0.92rem;
+      color: var(--light-text);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .dark-panel p:last-child { margin-bottom: 0; }
+    .dark-panel .panel-anchor {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-top: 28px;
+    }
+
+    /* TAKE THIS FURTHER */
+    .offer-headline {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.28;
+      margin-bottom: 16px;
+    }
+    .offer-meta {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    /* OUTCOMES */
+    .outcome {
+      margin-bottom: 36px;
+    }
+    .outcome-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .outcome p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* INCLUDES LIST */
+    .includes-box {
+      background: var(--accent-pale);
+      border-left: 5px solid var(--accent);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .includes-box .includes-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+    }
+    .includes-box ul {
+      list-style: none;
+      padding: 0;
+    }
+    .includes-box li {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      padding: 7px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .includes-box li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* GUARANTEE */
+    .guarantee-box {
+      background: var(--accent-pale);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .guarantee-box .guarantee-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .guarantee-box p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      padding: 64px 0 48px;
+    }
+    .cta-headline {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      color: var(--accent);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .cta-sub {
+      font-size: 1.05rem;
+      color: var(--body-text);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 18px 44px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .cta-button:hover {
+      background: var(--accent-light);
+    }
+    .cta-alt {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+    .cta-alt a {
+      color: var(--muted);
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      border-top: 2.5px solid var(--gold);
+      padding: 48px 0 56px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .footer-quote {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .footer-info {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .site-header { padding: 20px 24px; }
+      .container { padding: 0 20px; }
+      .hero-headline { font-size: 2rem; }
+      .section-headline { font-size: 1.6rem; }
+      .section-headline--lg { font-size: 1.8rem; }
+      .offer-headline { font-size: 1.8rem; }
+      .cta-headline { font-size: 1.9rem; }
+      .callout, .anchor-box, .includes-box, .guarantee-box { padding: 24px 24px; }
+      .dark-panel { padding: 36px 28px; }
+      .pull-quote p { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="logo">DR&nbsp;&nbsp;CARA</span>
+      <span class="tagline">Connected Leadership</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- PROFILE BADGE -->
+    <div class="profile-badge">
+      <div class="badge-label">A &nbsp;|&nbsp; The Architect &nbsp;|&nbsp; Leads from Mastery</div>
+      <div class="badge-sub">IFS Type: Manager, Perfectionist/Controller &nbsp;&nbsp;|&nbsp;&nbsp; Anchor Pillar: Conquer Control</div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1 class="hero-headline">You don't have a performance problem. You have a preparation compulsion.</h1>
+      <p class="hero-sub">That distinction matters more than you know. Because one is a gap in skill. The other is a pattern that has been protecting you for a very long time, and it is extraordinarily good at its job.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- INTRO CALLOUT -->
+    <div class="callout">
+      <p>You have built a career on getting it right. On seeing what others miss before it becomes a problem. On holding a standard that most people around you do not even know you are holding.</p>
+      <p>That level of mastery is real. And it has cost you something that no performance review has ever named.</p>
+      <p>The weight accumulated in the process of becoming who you are, not from outside you, but from the standard you have carried. Your capability has addressed everything around it. It was not designed to address itself.</p>
+      <p>I help you understand exactly what is driving the pattern underneath your leadership, so you can lead from your full capability, lead from security rather than from anticipation, and finally stop paying the invisible price of it.</p>
+      <p class="callout-accent">Not behavioral adjustment. Driver-level work. That is why the results stay.</p>
+    </div>
+
+    <!-- YOUR PATTERN, SEEN CLEARLY -->
+    <div class="section-label">Your Pattern, Seen Clearly</div>
+    <h2 class="section-headline section-headline--lg">You lead from Mastery. That is both your greatest strength and your heaviest burden.</h2>
+
+    <p class="body-copy">There is a part of you that has been working overtime for a very long time, and it is extraordinarily good at its job. It plans ahead. It catches things before they fall. It holds a standard that very few people around you are even aware of.</p>
+    <p class="body-copy">Because of it, you are reliable in a way that looks effortless from the outside, even when it costs you considerably on the inside.</p>
+    <p class="body-copy">In Internal Family Systems terms, this is a Manager part, a Perfectionist/Controller, that developed in response to environments where staying in control prevented pain. It learned that preparation prevented failure. This part protected you. And it still does, even when the original threat no longer exists.</p>
+
+    <!-- WHAT NO ONE HAS NAMED YET -->
+    <div class="divider-text">
+      <span>-- What no one has named yet --</span>
+    </div>
+
+    <div class="pull-quote">
+      <p>The over-preparation is not the problem. The over-preparation is the answer your nervous system found to a much deeper question, one about what happens to your value as a person if something fails on your watch.</p>
+    </div>
+
+    <p class="body-copy">Underneath the mastery is a belief, not about failure itself, but about what failure means about you. The control is not about outcomes. It is about identity.</p>
+    <p class="body-copy">And because you are genuinely excellent, the strategy appears to be working. That is the trap. The pattern protects itself by succeeding. Every well-controlled outcome confirms the strategy. No one from the outside can see what it costs you to maintain it.</p>
+    <p class="body-copy">The fatigue is not from the work. It is from the surveillance. The constant forward scan for what might need managing before it becomes a problem. The difficulty delegating, not because you do not trust your team, but because your nervous system cannot exhale until you have reviewed, adjusted, and handed it back. The inner critic that reviews every decision after the fact, even the good ones.</p>
+    <p class="body-copy">That is the invisible price. And capability alone was never designed to address it.</p>
+
+    <!-- ANCHOR: CONQUER CONTROL -->
+    <div class="divider-text">
+      <span>-- Your Anchor: Conquer Control --</span>
+    </div>
+
+    <div class="anchor-box">
+      <div class="anchor-title">Conquer Control</div>
+      <p>Conquer Control is the practice of distinguishing what you can genuinely influence from what you cannot, and releasing the latter without losing authority or standard. It is the shift from managing outcomes to leading people. From reactive execution to strategic, chosen response.</p>
+    </div>
+
+    <!-- RPR METHOD -->
+    <div class="section-label">The RPR Method Applied to Your Pattern</div>
+    <h2 class="section-headline">Receive. Perceive. Respond.</h2>
+    <p class="body-copy">The RPR Method is the operational core of Connected Leadership. Here is exactly how your pattern shapes each step, and where the opening lives.</p>
+
+    <div class="rpr-step">
+      <div class="rpr-step-header">
+        <span class="rpr-step-num">01</span>
+        <span class="rpr-step-label">Receive</span>
+      </div>
+      <div class="rpr-step-title">Before it lands, the filter is already running</div>
+      <p>Before information arrives, the pattern has already begun categorizing it. By the time it reaches conscious processing, it has been threat-assessed and routed into a control strategy. The first question underneath everything: is this in hand? Is this under control? That filter is fast, efficient, and nearly invisible to you.</p>
+    </div>
+
+    <div class="rpr-step">
+      <div class="rpr-step-header">
+        <span class="rpr-step-num">02</span>
+        <span class="rpr-step-label">Perceive</span>
+      </div>
+      <div class="rpr-step-title">Through the management lens</div>
+      <p>You perceive with extraordinary clarity, but through one consistent filter: what do I need to control here? This systematically underweights what does not require managing, including people doing perfectly fine without your intervention, and the quality of genuine delegation. The information that gets through is accurate. The information that gets filtered out is what makes rooms smaller and calendars fuller than they need to be.</p>
+    </div>
+
+    <div class="rpr-step">
+      <div class="rpr-step-header">
+        <span class="rpr-step-num">03</span>
+        <span class="rpr-step-label">Respond</span>
+      </div>
+      <div class="rpr-step-title">Precise, effective, and rarely fully shared</div>
+      <p>The response that comes from this pattern is precise and often exactly right. What it rarely produces is the spontaneity, the genuine collaboration, the moment of letting someone else carry the weight alongside you. The Architect does not send you into rooms unprepared. But it does cost you openhandedness, the quality of genuine delegation, and the relief of ever fully trusting that something will hold without you.</p>
+    </div>
+
+    <!-- THE SHIFT -->
+    <div class="section-label">The Shift</div>
+
+    <div class="dark-panel">
+      <div class="panel-headline">The shift is not about leading less precisely. It is about leading from security rather than anticipation.</div>
+      <p>When guided by Self, the calm and confident center that does not need to control to feel secure, you hold a high standard without being held hostage by it. The preparation is still there. The foresight is still there. The team still benefits from your extraordinary attention to what others miss.</p>
+      <p>The difference is that the leadership flows from trust rather than from the anticipation of loss. And that changes the quality of every decision, every delegation, and every room you walk into.</p>
+      <p>The Architect who leads from trust rather than from anticipation becomes the leader whose team moves faster, because they are not waiting for approval. The leader whose calendar opens, because the work gets distributed rather than reclaimed. The leader who builds something that does not require their constant architecture to hold it.</p>
+      <p>That leader is already inside you. This work makes the path to them legible.</p>
+      <div class="panel-anchor">Anchor Pillar: Conquer Control</div>
+    </div>
+
+    <!-- TAKE THIS FURTHER -->
+    <div class="section-label">Take This Further</div>
+    <h2 class="offer-headline">GroundID Leader: The 12-Week Experience</h2>
+    <div class="offer-meta">$9,000 total &nbsp;&nbsp;|&nbsp;&nbsp; $3,000/month x 3 &nbsp;&nbsp;|&nbsp;&nbsp; 10 leaders maximum &nbsp;&nbsp;|&nbsp;&nbsp; Quarterly cohorts</div>
+
+    <div class="dark-panel">
+      <div class="panel-headline">The pattern you named today doesn't lift on its own.</div>
+      <p>Every year a leader operates from this pattern without understanding it, it deepens. The gap between the leader you are and the leader you are fully capable of being does not close on its own.</p>
+      <div class="panel-headline" style="margin-top: 20px; margin-bottom: 0;">That is the work. And it starts here.</div>
+    </div>
+
+    <!-- WHAT YOU WALK AWAY WITH -->
+    <h3 class="section-headline" style="padding-top: 12px;">What you walk away with</h3>
+
+    <div class="outcome">
+      <div class="outcome-title">A precise diagnostic map of your leadership driver</div>
+      <p>Not a personality profile. An IFS-grounded understanding of the Perfectionist/Controller part, what activates it, what it is protecting, and what it costs when it runs unchecked.</p>
+    </div>
+
+    <div class="outcome">
+      <div class="outcome-title">The internal shift that makes genuine delegation possible</div>
+      <p>Not strategies for managing the impulse to take back control. The driver-level work that makes letting go feel safe rather than reckless.</p>
+    </div>
+
+    <div class="outcome">
+      <div class="outcome-title">A decision-making posture built on trust, not anticipation</div>
+      <p>The shift from forward-scanning for risk to leading from the security of who you already are. This is the specific change the Architect has been trying to produce on their own and has not been able to reach.</p>
+    </div>
+
+    <div class="outcome">
+      <div class="outcome-title">Permanent change</div>
+      <p>You have already tried behavioral adjustment. It held for a while. This work operates at the level below behavior, which is why the results stay.</p>
+    </div>
+
+    <!-- INCLUDES -->
+    <div class="includes-box">
+      <div class="includes-title">What the 12 weeks include</div>
+      <ul>
+        <li>12 live 90-minute sessions with Dr. Cara (20 min psycho-educational teaching, 30 min dialogue, 40 min live RPR coaching)</li>
+        <li>RPR Practice Deck shipped before Week 1, so the framework is in your hands from Day 1</li>
+        <li>30-day Virtual Mind pre-access, available in real time between sessions</li>
+        <li>Peer cohort of maximum 10 leaders, quarterly enrollment</li>
+        <li>90-day post-program community access</li>
+        <li>Leadership Identity Brief, a personalized map of your pattern and your path forward</li>
+      </ul>
+    </div>
+
+    <!-- GUARANTEE -->
+    <div class="guarantee-box">
+      <div class="guarantee-title">The Risk Is Gone</div>
+      <p>Two sessions. Full refund of Month 1. No explanation required. The guarantee is structured specifically for this work: the first two sessions are where the work begins and where you will know whether the container is operating at the level you need. That is more than enough to know.</p>
+    </div>
+
+    <!-- FINAL CTA -->
+    <hr class="divider">
+
+    <section class="cta-section">
+      <h2 class="cta-headline">Lead from security, not control.</h2>
+      <p class="cta-sub">The GroundID Leader 12-Week Experience is built for leaders like you. The preparation that got you here is real. This work adds the foundation underneath it that lets you finally exhale.</p>
+      <a href="#" class="cta-button">Reserve Your Seat in GroundID Leader</a>
+      <p class="cta-alt">Or begin with Virtual Mind, free. <a href="https://delphi.ai/drcara">delphi.ai/drcara</a></p>
+    </section>
+
+    <hr class="divider divider--gold">
+
+    <!-- FOOTER -->
+    <footer class="site-footer" style="border: none; padding-top: 40px;">
+      <div class="footer-quote">"You lead well. Now lead as yourself."</div>
+      <div class="footer-info">Dr. Cara Alexander &nbsp;&nbsp;|&nbsp;&nbsp; Connected Leadership &nbsp;&nbsp;|&nbsp;&nbsp; drcara.net &nbsp;&nbsp;|&nbsp;&nbsp; @drcaraa</div>
+    </footer>
+
+  </main>
+
+</body>
+</html>

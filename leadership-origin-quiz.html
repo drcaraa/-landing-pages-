@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leadership Origin Profile | DR. CARA Connected Leadership</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #E8600A;
+      --orange-bright: #FF7A1A;
+      --orange-dark: #C44D00;
+      --orange-light: #FFF0E5;
+      --orange-glow: #FFE8D4;
+      --architect: #c84200;
+      --carrier: #c89000;
+      --performer: #d81360;
+      --sentinel: #df4f0f;
+      --gold: #C9A850;
+      --dark: #2A2320;
+      --body-text: #4A3F38;
+      --muted: #A09080;
+      --muted-light: #8A7060;
+      --cream: #FFFAF5;
+      --white: #FFFFFF;
+      --serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--body-text);
+      background: var(--cream);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    .site-header {
+      padding: 28px 48px;
+      border-bottom: 3px solid var(--orange);
+      background: var(--white);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--orange);
+      letter-spacing: 0.12em;
+    }
+    .tagline {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ===== INTRO SCREEN ===== */
+    .intro-screen {
+      text-align: center;
+      padding: 80px 0 60px;
+    }
+    .intro-screen .overline {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .intro-screen h1 {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .intro-screen .subtitle {
+      font-size: 1.05rem;
+      color: var(--body-text);
+      line-height: 1.75;
+      max-width: 540px;
+      margin: 0 auto 40px;
+    }
+    .intro-badges {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .intro-badge {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 2px;
+      color: var(--white);
+    }
+    .intro-badge--a { background: var(--architect); }
+    .intro-badge--b { background: var(--carrier); }
+    .intro-badge--c { background: var(--performer); }
+    .intro-badge--d { background: var(--sentinel); }
+
+    .intro-meta {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .intro-meta-item {
+      text-align: center;
+    }
+    .intro-meta-item .num {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--orange);
+      display: block;
+    }
+    .intro-meta-item .label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .btn-start {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--orange);
+      border: none;
+      padding: 18px 56px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 3px;
+    }
+    .btn-start:hover {
+      background: var(--orange-bright);
+    }
+
+    .intro-quote {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(160,144,128,0.25);
+    }
+    .intro-quote p {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--muted-light);
+      line-height: 1.6;
+    }
+    .intro-quote .attr {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-top: 8px;
+      font-style: normal;
+    }
+
+    /* ===== QUIZ SCREEN ===== */
+    .quiz-screen { display: none; padding: 60px 0 80px; }
+
+    .progress-bar-wrap {
+      background: rgba(160,144,128,0.15);
+      height: 4px;
+      border-radius: 2px;
+      margin-bottom: 48px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--orange), var(--orange-bright));
+      border-radius: 2px;
+      transition: width 0.5s ease;
+      width: 0%;
+    }
+
+    .question-counter {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .question-text {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.35;
+      margin-bottom: 36px;
+    }
+
+    .options-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      width: 100%;
+      text-align: left;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--body-text);
+      line-height: 1.65;
+      background: var(--white);
+      border: 1.5px solid rgba(160,144,128,0.25);
+      padding: 20px 24px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border-radius: 2px;
+    }
+    .option-btn:hover {
+      border-color: var(--orange);
+      background: var(--orange-light);
+    }
+    .option-btn.selected {
+      border-color: var(--orange);
+      background: var(--orange-glow);
+      border-width: 2px;
+    }
+    .option-letter {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--orange);
+      flex-shrink: 0;
+      width: 24px;
+      text-align: center;
+      line-height: 1.65;
+    }
+    .option-text {
+      flex: 1;
+    }
+
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(160,144,128,0.15);
+    }
+    .btn-back {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 0;
+      transition: color 0.2s;
+    }
+    .btn-back:hover { color: var(--dark); }
+    .btn-back:disabled { opacity: 0.3; cursor: default; }
+    .btn-back:disabled:hover { color: var(--muted); }
+
+    .btn-next {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--orange);
+      border: none;
+      padding: 14px 40px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 3px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .btn-next.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .btn-next.active:hover {
+      background: var(--orange-bright);
+    }
+
+    /* ===== EMAIL GATE SCREEN ===== */
+    .gate-screen { display: none; padding: 80px 0; text-align: center; }
+
+    .gate-screen .overline {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .gate-screen h2 {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .gate-screen .gate-sub {
+      font-size: 0.95rem;
+      color: var(--body-text);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 40px;
+    }
+
+    .gate-form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .gate-input {
+      width: 100%;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--dark);
+      background: var(--white);
+      border: 1.5px solid rgba(160,144,128,0.3);
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .gate-input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px var(--orange-light);
+    }
+    .gate-input::placeholder {
+      color: var(--muted);
+    }
+    .btn-reveal {
+      width: 100%;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--orange);
+      border: none;
+      padding: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 4px;
+      border-radius: 3px;
+    }
+    .btn-reveal:hover {
+      background: var(--orange-bright);
+    }
+    .gate-privacy {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+    .gate-skip {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 0.72rem;
+      color: var(--muted);
+      cursor: pointer;
+      border: none;
+      background: none;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+    .gate-skip:hover { color: var(--body-text); }
+
+    /* ===== RESULT SCREEN ===== */
+    .result-screen { display: none; padding: 60px 0 80px; }
+
+    .result-header {
+      text-align: center;
+      padding-bottom: 48px;
+    }
+    .result-profile-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .result-overline {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .result-title {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .result-leads {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    /* Score bars */
+    .score-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 480px;
+      margin: 40px auto 0;
+    }
+    .score-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .score-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      width: 90px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .score-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(160,144,128,0.12);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .score-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 1s ease;
+    }
+    .score-pct {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--muted);
+      width: 36px;
+      flex-shrink: 0;
+    }
+
+    /* Result body */
+    .result-divider {
+      border: none;
+      border-top: 2.5px solid var(--orange);
+      margin: 48px 0 0;
+    }
+
+    .result-section {
+      padding: 48px 0 0;
+    }
+    .result-section-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .result-section-title {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .result-body {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .result-callout {
+      border-left: 5px solid var(--orange);
+      padding: 28px 32px;
+      margin: 36px 0;
+      background: var(--white);
+    }
+    .result-callout p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+    .result-callout .callout-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .result-quote {
+      border-left: 4px solid var(--orange);
+      padding: 8px 0 8px 28px;
+      margin: 40px 0;
+    }
+    .result-quote p {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    /* RPR in results */
+    .rpr-result-step {
+      border-top: 1.5px solid rgba(160,144,128,0.2);
+      padding: 24px 0;
+    }
+    .rpr-result-step:last-child { padding-bottom: 0; }
+    .rpr-result-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .rpr-result-body {
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    /* CTA Section */
+    .result-cta {
+      text-align: center;
+      padding: 56px 0;
+      margin-top: 48px;
+      border-top: 2.5px solid var(--orange);
+    }
+    .result-cta .cta-overline {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .result-cta h3 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .result-cta .cta-body {
+      font-size: 0.92rem;
+      color: var(--body-text);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+    .btn-cta {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--orange);
+      border: none;
+      padding: 18px 48px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border-radius: 3px;
+    }
+    .btn-cta:hover {
+      background: var(--orange-bright);
+    }
+    .btn-cta-secondary {
+      display: inline-block;
+      margin-top: 16px;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--muted-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .btn-cta-secondary:hover { color: var(--dark); }
+
+    .result-retake {
+      text-align: center;
+      padding: 32px 0 0;
+    }
+    .btn-retake {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      background: none;
+      border: 1px solid rgba(160,144,128,0.3);
+      padding: 12px 32px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-retake:hover {
+      border-color: var(--orange);
+      color: var(--dark);
+    }
+
+    /* FOOTER */
+    .site-footer {
+      padding: 32px 48px;
+      border-top: 1px solid rgba(160,144,128,0.2);
+      text-align: center;
+    }
+    .footer-text {
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .footer-note {
+      font-size: 0.64rem;
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.5;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* TRANSITIONS */
+    .screen-fade {
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .site-header { padding: 20px 24px; }
+      .container { padding: 0 20px; }
+      .intro-screen { padding: 48px 0 40px; }
+      .intro-screen h1 { font-size: 2rem; }
+      .intro-badges { gap: 10px; }
+      .intro-badge { font-size: 0.6rem; padding: 6px 14px; }
+      .intro-meta { gap: 24px; }
+      .question-text { font-size: 1.35rem; }
+      .option-btn { padding: 16px 18px; font-size: 0.88rem; }
+      .gate-screen h2 { font-size: 1.7rem; }
+      .result-title { font-size: 2rem; }
+      .score-label { width: 72px; font-size: 0.65rem; }
+      .result-section-title { font-size: 1.5rem; }
+      .result-cta h3 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="logo">DR. CARA</span>
+      <span class="tagline">Connected Leadership</span>
+    </div>
+  </header>
+
+  <!-- ===== INTRO SCREEN ===== -->
+  <div id="intro" class="intro-screen container screen-fade">
+    <p class="overline">Psychology-Based Leadership Assessment</p>
+    <h1>The Leadership<br>Origin Profile</h1>
+    <p class="subtitle">Discover the protective leadership pattern most active in your daily decisions &mdash; and map a path to Self-led leadership.</p>
+
+    <div class="intro-badges">
+      <span class="intro-badge intro-badge--a">The Architect</span>
+      <span class="intro-badge intro-badge--b">The Carrier</span>
+      <span class="intro-badge intro-badge--c">The Performer</span>
+      <span class="intro-badge intro-badge--d">The Sentinel</span>
+    </div>
+
+    <div class="intro-meta">
+      <div class="intro-meta-item">
+        <span class="num">12</span>
+        <span class="label">Questions</span>
+      </div>
+      <div class="intro-meta-item">
+        <span class="num">4</span>
+        <span class="label">Profiles</span>
+      </div>
+      <div class="intro-meta-item">
+        <span class="num">3</span>
+        <span class="label">Minutes</span>
+      </div>
+    </div>
+
+    <button class="btn-start" onclick="startQuiz()">Begin the Assessment</button>
+
+    <div class="intro-quote">
+      <p>&ldquo;The only control you have is how you receive, perceive, and respond.&rdquo;</p>
+      <p class="attr">&mdash; Dr. Cara Alexander</p>
+    </div>
+  </div>
+
+  <!-- ===== QUIZ SCREEN ===== -->
+  <div id="quiz" class="quiz-screen container">
+    <div class="progress-bar-wrap">
+      <div id="progressBar" class="progress-bar-fill"></div>
+    </div>
+    <p id="questionCounter" class="question-counter"></p>
+    <h2 id="questionText" class="question-text"></h2>
+    <ul id="optionsList" class="options-list"></ul>
+    <div class="quiz-nav">
+      <button id="btnBack" class="btn-back" onclick="prevQuestion()" disabled>Back</button>
+      <button id="btnNext" class="btn-next" onclick="nextQuestion()">Next</button>
+    </div>
+  </div>
+
+  <!-- ===== EMAIL GATE SCREEN ===== -->
+  <div id="gate" class="gate-screen container">
+    <p class="overline">Your Profile Is Ready</p>
+    <h2>Where should we send<br>your full results?</h2>
+    <p class="gate-sub">Enter your details below to unlock your Leadership Origin Profile with personalised insights, your RPR pattern, and your Connected Leadership growth path.</p>
+
+    <div class="gate-form">
+      <input type="text" id="gateName" class="gate-input" placeholder="First name">
+      <input type="email" id="gateEmail" class="gate-input" placeholder="Email address">
+      <button class="btn-reveal" onclick="submitGate()">Reveal My Profile</button>
+      <p class="gate-privacy">We respect your inbox. No spam, ever. Unsubscribe any time.</p>
+    </div>
+    <button class="gate-skip" onclick="showResult()">Skip &mdash; show my results now</button>
+  </div>
+
+  <!-- ===== RESULT SCREEN ===== -->
+  <div id="result" class="result-screen container"></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p class="footer-text">Connected Leadership &middot; Dr. Cara Alexander &middot; drcara.net</p>
+    <p class="footer-note">This assessment applies IFS as a conceptual and educational framework &mdash; not as therapy. Leaders experiencing significant distress should consult a credentialed mental health professional.</p>
+  </footer>
+
+<script>
+// ===== QUESTIONS DATA =====
+const questions = [
+  {
+    id: 1,
+    text: "When an unexpected challenge lands on your desk, your first internal move is usually:",
+    options: [
+      { letter: "A", text: "Assess the full scope and build a plan before anyone else knows you're concerned." },
+      { letter: "B", text: "Consider how it affects your team and what you can do to protect them from it." },
+      { letter: "C", text: "Shift into execution mode \u2014 find the fastest path to resolution." },
+      { letter: "D", text: "Feel the urgency register in your body and move to address it immediately." }
+    ]
+  },
+  {
+    id: 2,
+    text: "In a meeting where the conversation starts going sideways, you:",
+    options: [
+      { letter: "A", text: "Intervene with a reframe or redirect \u2014 you can't watch it unravel." },
+      { letter: "B", text: "Manage the relational temperature, even if it costs you your own position in the room." },
+      { letter: "C", text: "Stay focused on the outcome and guide the group back toward the goal." },
+      { letter: "D", text: "Find it difficult to hold back \u2014 something in you needs to address it now." }
+    ]
+  },
+  {
+    id: 3,
+    text: "When you receive critical feedback \u2014 even respectfully delivered \u2014 your first response is:",
+    options: [
+      { letter: "A", text: "Analyse it thoroughly. You need to understand exactly where the gap was." },
+      { letter: "B", text: "Wonder what it means for how you're perceived and how it affects the relationship." },
+      { letter: "C", text: "Assess it against your performance and move quickly to address the gap." },
+      { letter: "D", text: "Feel it in your body before you can think through it clearly." }
+    ]
+  },
+  {
+    id: 4,
+    text: "At the end of a difficult week where a lot went wrong, the loudest voice inside says:",
+    options: [
+      { letter: "A", text: "\u201CWhat could I have done differently to prevent this?\u201D" },
+      { letter: "B", text: "\u201CDid I let people down? Are they okay?\u201D" },
+      { letter: "C", text: "\u201CHow do I recover the ground I lost?\u201D" },
+      { letter: "D", text: "\u201CI'm exhausted \u2014 not sure how much longer I can run at this pace.\u201D" }
+    ]
+  },
+  {
+    id: 5,
+    text: "When a team member is underperforming, your default approach tends to be:",
+    options: [
+      { letter: "A", text: "Build a structured improvement plan with clear expectations and outcomes." },
+      { letter: "B", text: "Have a warm conversation first \u2014 you need to understand what's really happening." },
+      { letter: "C", text: "Address the performance gap directly \u2014 the work is too important to wait." },
+      { letter: "D", text: "Deal with it immediately. Unresolved tensions sit uneasily in your system." }
+    ]
+  },
+  {
+    id: 6,
+    text: "The leadership feedback that tends to stay with you the longest is:",
+    options: [
+      { letter: "A", text: "\u201CYou're too controlling\u201D or \u201CYou make it hard for others to take real initiative.\u201D" },
+      { letter: "B", text: "\u201CYou avoid hard conversations\u201D or \u201CYou accommodate when you should push.\u201D" },
+      { letter: "C", text: "\u201CYou push too hard\u201D or \u201CPeople feel the output matters more than they do.\u201D" },
+      { letter: "D", text: "\u201CYou're reactive\u201D or \u201CYou escalate situations instead of de-escalating them.\u201D" }
+    ]
+  },
+  {
+    id: 7,
+    text: "On your best leadership day, the feeling you carry is:",
+    options: [
+      { letter: "A", text: "Prepared, capable, and in full command of the situation." },
+      { letter: "B", text: "Connected \u2014 your team trusts you, and you can feel it in the room." },
+      { letter: "C", text: "Effective \u2014 things moved, goals were reached, real progress was made." },
+      { letter: "D", text: "Present \u2014 fully in the room, energised, operating at full capacity." }
+    ]
+  },
+  {
+    id: 8,
+    text: "What you most wish others understood about how you lead:",
+    options: [
+      { letter: "A", text: "The preparation and foresight behind what looks effortless from the outside." },
+      { letter: "B", text: "How much you genuinely care about the people \u2014 not just the outcomes." },
+      { letter: "C", text: "The standard you hold yourself to first, before you ask it of anyone else." },
+      { letter: "D", text: "The intensity isn't aggression. It's investment. It means you care deeply." }
+    ]
+  },
+  {
+    id: 9,
+    text: "When you're not at your best as a leader, the pattern that tends to show up is:",
+    options: [
+      { letter: "A", text: "Taking things back rather than trusting others to carry them \u2014 over-control." },
+      { letter: "B", text: "Absorbing tension rather than addressing it \u2014 over-accommodation." },
+      { letter: "C", text: "Pushing past what's sustainable for yourself and those around you." },
+      { letter: "D", text: "Responding to urgency with more urgency, when clarity would serve better." }
+    ]
+  },
+  {
+    id: 10,
+    text: "The statement that most closely mirrors your internal leadership experience, day to day:",
+    options: [
+      { letter: "A", text: "\u201CI need to stay two steps ahead \u2014 if I stop planning, something falls through.\u201D" },
+      { letter: "B", text: "\u201CI'm responsible for the emotional fabric of this team, not just the results.\u201D" },
+      { letter: "C", text: "\u201CMy value is in what I produce. When output slows, something in me goes quiet.\u201D" },
+      { letter: "D", text: "\u201CWhen things break, everyone looks to me \u2014 and I'm expected to move fast.\u201D" }
+    ]
+  },
+  {
+    id: 11,
+    text: "In a rare moment of genuine stillness \u2014 no urgency, no performance pressure \u2014 you feel:",
+    options: [
+      { letter: "A", text: "Slightly uneasy. Like you're waiting for the next thing that needs managing." },
+      { letter: "B", text: "Relieved, but aware you should probably be checking in with someone." },
+      { letter: "C", text: "Grateful for the pause \u2014 but already thinking about what comes next." },
+      { letter: "D", text: "Surprised. These moments are rare enough that they don't quite feel normal." }
+    ]
+  },
+  {
+    id: 12,
+    text: "The version of yourself as a leader that you most want to grow into:",
+    options: [
+      { letter: "A", text: "Someone who can lead with full effectiveness without needing to control the outcome." },
+      { letter: "B", text: "Someone who can hold the relationship AND deliver the truth the relationship needs." },
+      { letter: "C", text: "Someone who pursues excellence without being defined by whether they reached it." },
+      { letter: "D", text: "Someone who can meet intensity with groundedness \u2014 rather than matching it." }
+    ]
+  }
+];
+
+// ===== PROFILES DATA =====
+const profiles = {
+  A: {
+    letter: "A",
+    name: "The Architect",
+    leadsFrom: "Mastery",
+    color: "#c84200",
+    ifsType: "Manager \u2014 Perfectionist/Controller",
+    pillar: "Conquer Control",
+    tagline: "You lead from Mastery. And it is both your greatest strength and your heaviest burden.",
+    pattern: "There is a part of you that has been working overtime for a very long time \u2014 and it is extraordinarily good at its job. It plans ahead. It catches things before they fall. It holds a standard that very few people around you are even aware of. Because of it, you are reliable in a way that looks effortless from the outside, even when it costs you considerably on the inside.",
+    ifsLens: "In IFS terms, the Architect is a Manager \u2014 a Perfectionist/Controller \u2014 that developed in response to environments where staying in control prevented pain. It learned that preparation prevented failure. This part protected you. And it still does, even when the original threat no longer exists.",
+    protecting: "Underneath the mastery is a deeper belief \u2014 not about failure itself, but about what failure means about you. The Architect guards against conditional worth: the belief that if the plan falls apart, you fall apart with it. The control is not about outcomes. It is about identity.",
+    anchor: "Conquer Control is your anchor. The work is not about letting go of excellence \u2014 it is about learning to lead from security rather than from anticipation of failure. That shift changes everything.",
+    rpr: {
+      receive: "Before information arrives, the Architect has already begun categorising it. By the time it reaches conscious processing, it has been threat-assessed and routed into a control strategy. Much is filtered through: Is this in hand? Is this under control?",
+      perceive: "With extraordinary clarity \u2014 but through the management filter: what do I need to control here, rather than what is actually true here? This systematically underweights what doesn't require managing \u2014 including people doing fine without your intervention.",
+      respond: "Precise and effective \u2014 and rarely spontaneous, rarely collaborative in the way that would let others carry some of the weight. The Architect does not send you into rooms unprepared. But it does cost you openhandedness and the quality of genuine delegation."
+    },
+    selfLed: "The goal is not to dismantle the Architect. It is to let this part take a seat beside you rather than run ahead. When guided by Self \u2014 the calm, confident centre that does not need to control to feel secure \u2014 you hold a high standard without being held hostage by it.",
+    growthEdge: "Leading from security, not anticipation of loss"
+  },
+  B: {
+    letter: "B",
+    name: "The Carrier",
+    leadsFrom: "Connection",
+    color: "#c89000",
+    ifsType: "Manager \u2014 Caretaker/People Pleaser",
+    pillar: "Recognize Value",
+    tagline: "You lead from Connection. And the weight of it is invisible to everyone but you.",
+    pattern: "The most invisible kind of leadership burden is the one that looks like care. You hold the relational temperature of every room you enter. You notice when someone is struggling before they say a word. Your team trusts you genuinely \u2014 and the weight of being responsible for that trust, of managing every interaction so it lands well, has become so familiar you've stopped noticing it is there.",
+    ifsLens: "In IFS terms, the Carrier is a Manager \u2014 a Caretaker/People Pleaser \u2014 that developed in response to environments where connection felt conditional. It learned that maintaining warmth and staying attuned to others was safety. That approval meant you were okay. That disapproval \u2014 even mild \u2014 was worth very hard work to avoid.",
+    protecting: "The part beneath the Carrier holds a fear of disconnection \u2014 of leading in a way that creates distance and being left to navigate things alone. It works quietly to ensure that never happens, even when it means absorbing what should be addressed, accommodating what should be challenged, and staying smaller than your leadership requires.",
+    anchor: "Recognize Value is your anchor. The most foundational shift will come from recognising your own worth as inherent rather than relational \u2014 not contingent on whether the room responded well.",
+    rpr: {
+      receive: "Before information is processed as content, it has already been processed as relationship. What does this mean for us? What do they need from me right now? Relational processing consistently precedes truth processing.",
+      perceive: "The filter is approval-calibrated: before something registers as true, it has been checked against how it lands. You are extraordinarily skilled at reading rooms \u2014 and systematically discount information that threatens the room's goodwill.",
+      respond: "Warm, attuned, often exactly what the other person needed to feel heard. The gap is directionality \u2014 the willingness to move toward what creates temporary discomfort in service of genuine, honest leadership."
+    },
+    selfLed: "Self-led leadership is not about caring less. It is about caring from a different address \u2014 from the security of knowing who you are, not from fear of disconnection. You hold the relationship AND deliver the truth it needs. Not as competing acts. As one.",
+    growthEdge: "Caring from worth, not from fear of disconnection"
+  },
+  C: {
+    letter: "C",
+    name: "The Performer",
+    leadsFrom: "Achievement",
+    color: "#d81360",
+    ifsType: "Manager \u2014 Achiever/Striver",
+    pillar: "Recognize Value",
+    tagline: "You lead from Achievement. And you've built something remarkable on a foundation that deserves to be rebuilt.",
+    pattern: "The part of you that drives results, holds the standard, and keeps the engine running is not just a professional skill \u2014 it has become a deeply ingrained identity. You are the one who delivers. That truth has been confirmed so many times that it has become the foundation you stand on. The challenge is that foundations are not meant to be performance contracts.",
+    ifsLens: "In IFS terms, the Performer is a Manager \u2014 an Achiever/Striver \u2014 that developed in environments where belonging felt conditional. It learned that doing well was the path to being valued. That stillness might cost you something you couldn't afford to lose. The drive is not ambition alone. It is anticipatory protection.",
+    protecting: "Beneath the Performer is a belief about conditional belonging \u2014 that love, respect, and inclusion are contingent on what you produce. No arrival ever fully arrives because the Performer's logic is forward-facing: worth is earned through the next thing, not confirmed by the last one.",
+    anchor: "Recognize Value is your anchor. The shift will not come from improving your performance \u2014 it will come from unhooking your identity from it. Your worth was never the output. It was always the source.",
+    rpr: {
+      receive: "Information is assessed through a metric filter: does this move something forward? Is this worth my capacity? What does engaging with this produce? Information that doesn't map to measurable progress gets deprioritised.",
+      perceive: "Forward-looking and comparative: where am I relative to where I should be? The present is perpetually evaluated against a future standard rather than understood on its own terms. This creates quietly costly blind spots.",
+      respond: "Swift, decisive, execution-oriented. The gap appears in responses that require being with something rather than doing something \u2014 holding space, listening through difficulty, meeting a moment without solving it."
+    },
+    selfLed: "Self-led leadership is not about achieving less. It is about achieving from a different address \u2014 from the security of knowing that you already are enough. You pursue excellence without it pursuing you. You celebrate the result without being defined by whether it arrived.",
+    growthEdge: "Achieving from identity, not conditional belonging"
+  },
+  D: {
+    letter: "D",
+    name: "The Sentinel",
+    leadsFrom: "Protection",
+    color: "#df4f0f",
+    ifsType: "Firefighter \u2014 Reactive Protector",
+    pillar: "Embody Grace",
+    tagline: "You lead from Protection. And the intensity that gets things done is also what costs you most.",
+    pattern: "When something is wrong, you feel it first. When a situation is unravelling, you are already moving to contain it. That capacity has served you \u2014 it has made you someone people turn to when things are difficult. But there is a cost that shows up not in the moments of response, but in the aftermath: the residue, the replay, the body that absorbed it all.",
+    ifsLens: "In IFS terms, the Sentinel maps primarily to the Firefighter role \u2014 a reactive protector that activates when threat is perceived. Unlike Managers who plan proactively, Firefighters respond to activation. They developed in environments where being caught unprepared had consequences. The intensity is not aggression. It is the body's learned response to perceived threat.",
+    protecting: "The part the Sentinel guards holds a vulnerability to being caught unprepared \u2014 overwhelmed, unable to handle what arrives. The Sentinel moves fast so that feeling never surfaces. It is always watching. The exile it protects carries the experience of being overwhelmed and helpless.",
+    anchor: "Embody Grace is your anchor. Grace for you is not softness. It is the ability to meet an intense moment from a grounded centre rather than an activated one. That capacity is already inside you \u2014 it needs to be trained, not invented.",
+    rpr: {
+      receive: "At full volume \u2014 intensity registers somatically before it registers cognitively. Your body knows something is happening before your mind has processed what. The nervous system is the first instrument of receiving, with limited modulation range.",
+      perceive: "Through a threat-assessment filter: what is the risk, and what is the fastest path to containing it? This produces rapid, often accurate reads. The cost is systematic narrowing \u2014 nuance and context get lost inside a threat filter.",
+      respond: "Immediate and often effective \u2014 but the gap between Receive and Respond is shorter than it needs to be for the quality of decision you are actually capable of. One breath, one anchor, one practised pause \u2014 that is the work."
+    },
+    selfLed: "Self-led leadership is not about slowing down. It is about building a practice that expands the pause between Receive and Respond \u2014 not to hesitate, but to choose. When the part that moves fast has access to a Self that meets the moment with calm rather than urgency, the intensity becomes precision rather than pressure.",
+    growthEdge: "Responding from groundedness, not from activation"
+  }
+};
+
+// ===== STATE =====
+let currentQuestion = 0;
+let answers = new Array(12).fill(null);
+
+// ===== QUIZ LOGIC =====
+function startQuiz() {
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('quiz').style.display = 'block';
+  document.getElementById('quiz').classList.add('screen-fade');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = questions[currentQuestion];
+  document.getElementById('questionCounter').textContent = `Question ${q.id} of 12`;
+  document.getElementById('questionText').textContent = q.text;
+  document.getElementById('progressBar').style.width = ((currentQuestion / 12) * 100) + '%';
+
+  const list = document.getElementById('optionsList');
+  list.innerHTML = '';
+
+  q.options.forEach(opt => {
+    const li = document.createElement('li');
+    const btn = document.createElement('button');
+    btn.className = 'option-btn' + (answers[currentQuestion] === opt.letter ? ' selected' : '');
+    btn.innerHTML = `<span class="option-letter">${opt.letter}</span><span class="option-text">${opt.text}</span>`;
+    btn.onclick = () => selectOption(opt.letter);
+    li.appendChild(btn);
+    list.appendChild(li);
+  });
+
+  // Nav state
+  document.getElementById('btnBack').disabled = currentQuestion === 0;
+  const btnNext = document.getElementById('btnNext');
+  btnNext.textContent = currentQuestion === 11 ? 'See My Results' : 'Next';
+  if (answers[currentQuestion]) {
+    btnNext.classList.add('active');
+  } else {
+    btnNext.classList.remove('active');
+  }
+}
+
+function selectOption(letter) {
+  answers[currentQuestion] = letter;
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.classList.remove('selected');
+    if (btn.querySelector('.option-letter').textContent === letter) {
+      btn.classList.add('selected');
+    }
+  });
+  document.getElementById('btnNext').classList.add('active');
+}
+
+function nextQuestion() {
+  if (!answers[currentQuestion]) return;
+  if (currentQuestion < 11) {
+    currentQuestion++;
+    renderQuestion();
+    document.getElementById('quiz').classList.remove('screen-fade');
+    void document.getElementById('quiz').offsetWidth;
+    document.getElementById('quiz').classList.add('screen-fade');
+  } else {
+    // Quiz complete — show gate
+    document.getElementById('quiz').style.display = 'none';
+    document.getElementById('gate').style.display = 'block';
+    document.getElementById('gate').classList.add('screen-fade');
+  }
+}
+
+function prevQuestion() {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    renderQuestion();
+  }
+}
+
+// ===== SCORING =====
+function calculateScores() {
+  const scores = { A: 0, B: 0, C: 0, D: 0 };
+  answers.forEach(a => { if (a) scores[a]++; });
+  return scores;
+}
+
+function getDominantProfile(scores) {
+  // Tie-breaking: use Q6, Q9, Q10 (indices 5, 8, 9)
+  const maxScore = Math.max(scores.A, scores.B, scores.C, scores.D);
+  const tied = Object.keys(scores).filter(k => scores[k] === maxScore);
+
+  if (tied.length === 1) return tied[0];
+
+  // Tiebreak with high-signal questions
+  const tiebreakers = [5, 8, 9]; // Q6, Q9, Q10
+  const tbScores = {};
+  tied.forEach(k => tbScores[k] = 0);
+  tiebreakers.forEach(i => {
+    if (answers[i] && tbScores.hasOwnProperty(answers[i])) {
+      tbScores[answers[i]]++;
+    }
+  });
+  const tbMax = Math.max(...Object.values(tbScores));
+  const tbWinners = Object.keys(tbScores).filter(k => tbScores[k] === tbMax);
+
+  if (tbWinners.length === 1) return tbWinners[0];
+
+  // Final fallback: Architect
+  return 'A';
+}
+
+// ===== EMAIL GATE =====
+function submitGate() {
+  const name = document.getElementById('gateName').value.trim();
+  const email = document.getElementById('gateEmail').value.trim();
+
+  if (!email || !email.includes('@')) {
+    document.getElementById('gateEmail').style.borderColor = '#c84200';
+    document.getElementById('gateEmail').focus();
+    return;
+  }
+
+  // Store for potential integration
+  window.__quizLead = { name, email, timestamp: new Date().toISOString() };
+
+  showResult();
+}
+
+// ===== RESULTS =====
+function showResult() {
+  document.getElementById('gate').style.display = 'none';
+
+  const scores = calculateScores();
+  const dominant = getDominantProfile(scores);
+  const profile = profiles[dominant];
+  const total = 12;
+
+  // Store result with lead data
+  if (window.__quizLead) {
+    window.__quizLead.profile = profile.name;
+    window.__quizLead.scores = scores;
+    console.log('Quiz Lead Data:', window.__quizLead);
+  }
+
+  const resultEl = document.getElementById('result');
+  resultEl.style.display = 'block';
+  resultEl.classList.add('screen-fade');
+
+  // Update progress bar color
+  document.getElementById('progressBar').style.width = '100%';
+  document.getElementById('progressBar').style.background = profile.color;
+
+  const scoreBarsHTML = [
+    { key: 'A', name: 'Architect', color: profiles.A.color },
+    { key: 'B', name: 'Carrier', color: profiles.B.color },
+    { key: 'C', name: 'Performer', color: profiles.C.color },
+    { key: 'D', name: 'Sentinel', color: profiles.D.color }
+  ].map(s => `
+    <div class="score-row">
+      <span class="score-label" style="color: ${s.color}">${s.name}</span>
+      <div class="score-track">
+        <div class="score-fill" style="background: ${s.color}; width: ${(scores[s.key] / total) * 100}%"></div>
+      </div>
+      <span class="score-pct">${scores[s.key]}/${total}</span>
+    </div>
+  `).join('');
+
+  resultEl.innerHTML = `
+    <!-- Result Header -->
+    <div class="result-header">
+      <div class="result-profile-letter" style="background: ${profile.color}">${profile.letter}</div>
+      <p class="result-overline" style="color: ${profile.color}">Your Leadership Origin Profile</p>
+      <h1 class="result-title">${profile.name}</h1>
+      <p class="result-leads" style="color: ${profile.color}">Leads from ${profile.leadsFrom}</p>
+      <p style="font-size: 0.75rem; color: var(--muted); margin-top: 4px;">${profile.ifsType} &middot; ${profile.pillar}</p>
+
+      <div class="score-bars">${scoreBarsHTML}</div>
+    </div>
+
+    <hr class="result-divider" style="border-top-color: ${profile.color}">
+
+    <!-- Tagline -->
+    <div class="result-quote" style="border-left-color: ${profile.color}">
+      <p style="color: ${profile.color}">${profile.tagline}</p>
+    </div>
+
+    <!-- The Pattern -->
+    <div class="result-section">
+      <p class="result-section-label" style="color: ${profile.color}">The Pattern</p>
+      <p class="result-body">${profile.pattern}</p>
+    </div>
+
+    <!-- IFS Lens -->
+    <div class="result-section">
+      <p class="result-section-label" style="color: ${profile.color}">The Psychological Lens</p>
+      <p class="result-body">${profile.ifsLens}</p>
+    </div>
+
+    <!-- What This Part Is Protecting -->
+    <div class="result-section">
+      <p class="result-section-label" style="color: ${profile.color}">What This Part Is Protecting</p>
+      <p class="result-body">${profile.protecting}</p>
+    </div>
+
+    <!-- Anchor Pillar -->
+    <div class="result-callout" style="border-left-color: ${profile.color}">
+      <p class="callout-label" style="color: ${profile.color}">Connected Leadership Anchor &middot; ${profile.pillar}</p>
+      <p>${profile.anchor}</p>
+    </div>
+
+    <!-- RPR Breakdown -->
+    <div class="result-section">
+      <p class="result-section-label" style="color: ${profile.color}">Your RPR Pattern &middot; Receive &middot; Perceive &middot; Respond</p>
+      <div style="margin-top: 20px;">
+        <div class="rpr-result-step" style="border-top-color: ${profile.color}">
+          <p class="rpr-result-label" style="color: ${profile.color}">1 &middot; Receive</p>
+          <p class="rpr-result-body">${profile.rpr.receive}</p>
+        </div>
+        <div class="rpr-result-step">
+          <p class="rpr-result-label" style="color: ${profile.color}">2 &middot; Perceive</p>
+          <p class="rpr-result-body">${profile.rpr.perceive}</p>
+        </div>
+        <div class="rpr-result-step">
+          <p class="rpr-result-label" style="color: ${profile.color}">3 &middot; Respond</p>
+          <p class="rpr-result-body">${profile.rpr.respond}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Self-Led Vision -->
+    <div class="result-section">
+      <p class="result-section-label" style="color: ${profile.color}">Self-Led Leadership</p>
+      <div class="result-quote" style="border-left-color: ${profile.color}">
+        <p style="color: ${profile.color}">${profile.selfLed}</p>
+      </div>
+    </div>
+
+    <!-- Growth Edge -->
+    <div class="result-callout" style="border-left-color: ${profile.color}">
+      <p class="callout-label" style="color: ${profile.color}">Your Growth Edge</p>
+      <p><strong>${profile.growthEdge}</strong></p>
+    </div>
+
+    <!-- CTA -->
+    <div class="result-cta" style="border-top-color: ${profile.color}">
+      <p class="cta-overline" style="color: ${profile.color}">Your Next Step</p>
+      <h3>Take This Into Your Next Real Moment</h3>
+      <p class="cta-body">Your profile isn't a label \u2014 it's a map. The Virtual Mind gives you a space to practise the RPR method in real time, with your specific pattern in focus.</p>
+      <a href="#" class="btn-cta" style="background: ${profile.color}">Try Virtual Mind \u2014 Free</a>
+      <br>
+      <a href="#" class="btn-cta-secondary">Learn about GroundID Leader \u2014 live 6-week cohort with Dr. Cara</a>
+    </div>
+
+    <!-- Retake -->
+    <div class="result-retake">
+      <button class="btn-retake" onclick="retakeQuiz()">Retake Assessment</button>
+    </div>
+  `;
+
+  // Animate score bars after render
+  setTimeout(() => {
+    document.querySelectorAll('.score-fill').forEach(el => {
+      el.style.width = el.style.width; // trigger reflow for animation
+    });
+  }, 100);
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function retakeQuiz() {
+  currentQuestion = 0;
+  answers = new Array(12).fill(null);
+  document.getElementById('result').style.display = 'none';
+  document.getElementById('result').innerHTML = '';
+  document.getElementById('intro').style.display = 'block';
+  document.getElementById('intro').classList.add('screen-fade');
+  document.getElementById('progressBar').style.width = '0%';
+  document.getElementById('progressBar').style.background = 'linear-gradient(90deg, var(--orange), var(--orange-bright))';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>

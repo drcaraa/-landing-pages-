@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Carrier | DR CARA Connected Leadership</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --accent: #c89000;
+      --accent-light: #daa520;
+      --accent-pale: #fff9f4;
+      --accent-faded: #fda54f;
+      --gold: #C9A850;
+      --dark: #2A2320;
+      --body-text: #4A3F38;
+      --muted: #A09080;
+      --muted-light: #8A7060;
+      --light-text: #C0B0A0;
+      --cream: #F5F0EB;
+      --white: #FFFFFF;
+      --serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--body-text);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+    .site-header {
+      padding: 28px 48px;
+      border-bottom: 2.5px solid var(--accent);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+    }
+    .tagline {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* PROFILE BADGE */
+    .profile-badge {
+      padding-top: 56px;
+      padding-bottom: 8px;
+    }
+    .badge-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .badge-sub {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      color: var(--muted-light);
+      letter-spacing: 0.08em;
+      margin-top: 6px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 40px 0 48px;
+    }
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      line-height: 1.22;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      color: var(--body-text);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 2.5px solid var(--accent);
+      margin: 0;
+    }
+    .divider--gold {
+      border-top-color: var(--gold);
+    }
+
+    /* CALLOUT BOX */
+    .callout {
+      background: var(--accent-pale);
+      border-left: 5px solid var(--accent);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .callout p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .callout-accent {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--accent);
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    /* SECTION HEADERS */
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding-top: 56px;
+      margin-bottom: 12px;
+    }
+    .section-headline {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.28;
+      margin-bottom: 24px;
+    }
+    .section-headline--lg {
+      font-size: 2.2rem;
+    }
+
+    /* BODY COPY */
+    .body-copy {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* CENTERED DIVIDER TEXT */
+    .divider-text {
+      text-align: center;
+      padding: 48px 0;
+    }
+    .divider-text span {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    /* BLOCKQUOTE */
+    .pull-quote {
+      border-left: 4px solid var(--accent);
+      padding: 8px 0 8px 28px;
+      margin: 40px 0;
+    }
+    .pull-quote p {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--accent);
+      line-height: 1.55;
+    }
+
+    /* ANCHOR BOX */
+    .anchor-box {
+      background: var(--accent-pale);
+      padding: 36px 40px;
+      margin: 48px 0;
+    }
+    .anchor-box .anchor-title {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .anchor-box p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* RPR STEPS */
+    .rpr-step {
+      border-top: 2px solid var(--accent);
+      padding: 28px 0 36px;
+    }
+    .rpr-step-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .rpr-step-num {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--accent-faded);
+    }
+    .rpr-step-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .rpr-step-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .rpr-step p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* DARK PANEL */
+    .dark-panel {
+      background: var(--dark);
+      padding: 48px 44px;
+      margin: 48px 0;
+    }
+    .dark-panel .panel-headline {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+    .dark-panel p {
+      font-size: 0.92rem;
+      color: var(--light-text);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .dark-panel p:last-child { margin-bottom: 0; }
+    .dark-panel .panel-anchor {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-top: 28px;
+    }
+
+    /* TAKE THIS FURTHER */
+    .offer-headline {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.28;
+      margin-bottom: 16px;
+    }
+    .offer-meta {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    /* OUTCOMES */
+    .outcome {
+      margin-bottom: 36px;
+    }
+    .outcome-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .outcome p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* INCLUDES LIST */
+    .includes-box {
+      background: var(--accent-pale);
+      border-left: 5px solid var(--accent);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .includes-box .includes-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+    }
+    .includes-box ul {
+      list-style: none;
+      padding: 0;
+    }
+    .includes-box li {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      padding: 7px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .includes-box li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* GUARANTEE */
+    .guarantee-box {
+      background: var(--accent-pale);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .guarantee-box .guarantee-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .guarantee-box p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      padding: 64px 0 48px;
+    }
+    .cta-headline {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      color: var(--accent);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .cta-sub {
+      font-size: 1.05rem;
+      color: var(--body-text);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 18px 44px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .cta-button:hover {
+      background: var(--accent-light);
+    }
+    .cta-alt {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+    .cta-alt a {
+      color: var(--muted);
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      border-top: 2.5px solid var(--gold);
+      padding: 48px 0 56px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .footer-quote {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .footer-info {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .site-header { padding: 20px 24px; }
+      .container { padding: 0 20px; }
+      .hero-headline { font-size: 2rem; }
+      .section-headline { font-size: 1.6rem; }
+      .section-headline--lg { font-size: 1.8rem; }
+      .offer-headline { font-size: 1.8rem; }
+      .cta-headline { font-size: 1.9rem; }
+      .callout, .anchor-box, .includes-box, .guarantee-box { padding: 24px 24px; }
+      .dark-panel { padding: 36px 28px; }
+      .pull-quote p { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="logo">DR&nbsp;&nbsp;CARA</span>
+      <span class="tagline">Connected Leadership</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- PROFILE BADGE -->
+    <div class="profile-badge">
+      <div class="badge-label">B &nbsp;|&nbsp; The Carrier &nbsp;|&nbsp; Leads from Connection</div>
+      <div class="badge-sub">IFS Type: Manager, Caretaker/People Pleaser &nbsp;&nbsp;|&nbsp;&nbsp; Anchor Pillar: Recognize Value</div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1 class="hero-headline">You've never dropped the ball. But you've been carrying everyone else's.</h1>
+      <p class="hero-sub">The most invisible kind of leadership burden is the one that looks like care. What is possible when the person who holds everything finally gets to be held the same way?</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- INTRO CALLOUT -->
+    <div class="callout">
+      <p>You are the person people trust to hold the room together. The one who reads the temperature before anyone else has registered that something shifted.</p>
+      <p>That capacity is not a soft skill. It is sophisticated, high-effort, and deeply real.</p>
+      <p>What is also real is that the person doing all of that holding has likely never been held in the same way. The standard for everyone around you is clear. The standard for you has never been written down anywhere.</p>
+      <p>I help you understand exactly what it is costing you to lead the way you do, so you can continue leading from connection without making your own needs the last item on a list that never ends.</p>
+    </div>
+
+    <!-- YOUR PATTERN, SEEN CLEARLY -->
+    <div class="section-label">Your Pattern, Seen Clearly</div>
+    <h2 class="section-headline section-headline--lg">You lead from Connection. The weight of it is invisible to everyone but you.</h2>
+
+    <p class="body-copy">You hold the relational temperature of every room you enter. You notice when someone is struggling before they say a word. Your team trusts you genuinely, and the weight of being responsible for that trust, of managing every interaction so it lands well, has become so familiar you have stopped noticing it is there.</p>
+    <p class="body-copy">In Internal Family Systems terms, this is a Manager part, a Caretaker/People Pleaser, that developed in response to environments where connection felt conditional. It learned that maintaining warmth and staying attuned to others was safety. That approval meant you were okay. That disapproval, even mild, was worth very hard work to avoid.</p>
+    <p class="body-copy">The relational intelligence you bring is real, rare, and genuinely valuable. What is also real is where it comes from. And what it costs when it is running full-time without a foundation underneath it.</p>
+
+    <!-- WHAT NO ONE HAS NAMED YET -->
+    <div class="divider-text">
+      <span>-- What no one has named yet --</span>
+    </div>
+
+    <div class="pull-quote">
+      <p>You have been managing the relational fabric of your organization for so long that it no longer feels like effort. It feels like who you are.</p>
+    </div>
+
+    <p class="body-copy">Before information is processed as content, it has already been processed as relationship. What does this mean for us? What do they need from me right now? That relational processing precedes truth processing, consistently. And it means that your most important conversations, the ones where someone needs the honest truth from you rather than the warm version of it, are the ones that cost you the most.</p>
+    <p class="body-copy">Not because you do not have the truth. Because something in you checks how it will land before it checks whether it is true.</p>
+    <p class="body-copy">The part beneath the Carrier holds a fear of disconnection, of leading in a way that creates distance and being left to navigate things alone. It works quietly to ensure that never happens, even when it means absorbing what should be addressed, accommodating what should be challenged, and staying smaller than your leadership actually requires.</p>
+    <p class="body-copy">The person doing all of that holding has likely never been held in the same way. The standard for everyone around you is clear. The standard for you has never been written down anywhere. This work writes it.</p>
+
+    <!-- ANCHOR: RECOGNIZE VALUE -->
+    <div class="divider-text">
+      <span>-- Your Anchor: Recognize Value --</span>
+    </div>
+
+    <div class="anchor-box">
+      <div class="anchor-title">Recognize Value</div>
+      <p>Recognize Value is the practice of grounding your leadership identity in inherent worth rather than conditional approval. It is the antidote to approval dependency and the invisible load that erodes long-term effectiveness. A leader who recognizes her own value does not need the room's approval to lead with authority.</p>
+    </div>
+
+    <!-- RPR METHOD -->
+    <div class="section-label">The RPR Method Applied to Your Pattern</div>
+    <h2 class="section-headline">Receive. Perceive. Respond.</h2>
+    <p class="body-copy">The RPR Method is the operational core of Connected Leadership. Here is exactly how your pattern shapes each step, and where the opening lives.</p>
+
+    <div class="rpr-step">
+      <div class="rpr-step-header">
+        <span class="rpr-step-num">01</span>
+        <span class="rpr-step-label">Receive</span>
+      </div>
+      <div class="rpr-step-title">Relationship before content</div>
+      <p>Before information is processed as content, it has already been processed as relationship. What does this mean for us? What do they need from me right now? Relational processing consistently precedes truth processing. What arrives is filtered through its relational implications before it is filtered through its factual ones.</p>
+    </div>
+
+    <div class="rpr-step">
+      <div class="rpr-step-header">
+        <span class="rpr-step-num">02</span>
+        <span class="rpr-step-label">Perceive</span>
+      </div>
+      <div class="rpr-step-title">Through the approval lens</div>
+      <p>Before something registers as true, it has been checked against how it lands. You are extraordinarily skilled at reading rooms, and you systematically discount information that threatens the room's goodwill. This does not mean you are wrong. It means your perception is approval-calibrated before it is accuracy-calibrated.</p>
+    </div>
+
+    <div class="rpr-step">
+      <div class="rpr-step-header">
+        <span class="rpr-step-num">03</span>
+        <span class="rpr-step-label">Respond</span>
+      </div>
+      <div class="rpr-step-title">Warm, attuned, and often short of the whole truth</div>
+      <p>The response is often exactly what the other person needed to feel heard. The gap is directionality, the willingness to move toward what creates temporary discomfort in service of genuine, honest leadership. The Carrier gives people warmth. Self-led leadership gives them warmth and the truth the relationship actually needs.</p>
+    </div>
+
+    <!-- THE SHIFT -->
+    <div class="section-label">The Shift</div>
+
+    <div class="dark-panel">
+      <div class="panel-headline">The connection stays. What shifts is where it comes from.</div>
+      <p>Self-led leadership is not about caring less. It is about caring from a different address, from the security of knowing who you are, not from fear of disconnection.</p>
+      <p>You hold the relationship and deliver the truth it needs. Not as competing acts. As one.</p>
+      <p>The Carrier who leads from a full place rather than an empty one does not love less. They lead better. The team they steward receives more clarity, more truth, and more of the genuine warmth that has always been there, without the cost the Carrier has been absorbing silently for years.</p>
+      <p>You do not have to stop being who you are. You get to finally do it without making yourself the last thing on the list.</p>
+      <div class="panel-anchor">Anchor Pillar: Recognize Value</div>
+    </div>
+
+    <!-- TAKE THIS FURTHER -->
+    <div class="section-label">Take This Further</div>
+    <h2 class="offer-headline">GroundID Leader: The 12-Week Experience</h2>
+    <div class="offer-meta">$9,000 total &nbsp;&nbsp;|&nbsp;&nbsp; $3,000/month x 3 &nbsp;&nbsp;|&nbsp;&nbsp; 10 leaders maximum &nbsp;&nbsp;|&nbsp;&nbsp; Quarterly cohorts</div>
+
+    <div class="dark-panel">
+      <div class="panel-headline">The pattern you named today doesn't lift on its own.</div>
+      <p>Every year a leader operates from this pattern without understanding it, it deepens. The gap between the leader you are and the leader you are fully capable of being does not close on its own.</p>
+      <div class="panel-headline" style="margin-top: 20px; margin-bottom: 0;">That is the work. And it starts here.</div>
+    </div>
+
+    <!-- WHAT YOU WALK AWAY WITH -->
+    <h3 class="section-headline" style="padding-top: 12px;">What you walk away with</h3>
+
+    <div class="outcome">
+      <div class="outcome-title">A clear understanding of what your own needs actually are</div>
+      <p>Not the needs of the people you lead. Your own. You have been calibrating to everyone else for so long that naming this precisely is itself a significant shift.</p>
+    </div>
+
+    <div class="outcome">
+      <div class="outcome-title">The ability to hold the relationship and deliver the truth it needs</div>
+      <p>Not as competing acts. As one. The relational intelligence you already have, now operating from a different internal address.</p>
+    </div>
+
+    <div class="outcome">
+      <div class="outcome-title">Care that comes from security rather than from fear of disconnection</div>
+      <p>You do not stop caring. You stop hemorrhaging. The people you lead get more of who you actually are, not less.</p>
+    </div>
+
+    <div class="outcome">
+      <div class="outcome-title">A different relationship to your own worth</div>
+      <p>Not contingent on whether the room responded well. Worth as inherent, not earned. That is the foundation underneath every pattern shift that follows.</p>
+    </div>
+
+    <!-- INCLUDES -->
+    <div class="includes-box">
+      <div class="includes-title">What the 12 weeks include</div>
+      <ul>
+        <li>12 live 90-minute sessions with Dr. Cara (20 min psycho-educational teaching, 30 min dialogue, 40 min live RPR coaching)</li>
+        <li>RPR Practice Deck shipped before Week 1, so the framework is in your hands from Day 1</li>
+        <li>30-day Virtual Mind pre-access, available in real time between sessions</li>
+        <li>Peer cohort of maximum 10 leaders, quarterly enrollment</li>
+        <li>90-day post-program community access</li>
+        <li>Leadership Identity Brief, a personalized map of your pattern and your path forward</li>
+      </ul>
+    </div>
+
+    <!-- GUARANTEE -->
+    <div class="guarantee-box">
+      <div class="guarantee-title">The Risk Is Gone</div>
+      <p>Two sessions. Full refund of Month 1. No explanation required. The guarantee is structured specifically for this work: the first two sessions are where the work begins and where you will know whether the container is operating at the level you need. That is more than enough to know.</p>
+    </div>
+
+    <!-- FINAL CTA -->
+    <hr class="divider">
+
+    <section class="cta-section">
+      <h2 class="cta-headline">Lead from worth, not from fear.</h2>
+      <p class="cta-sub">The GroundID Leader 12-Week Experience is a container built for leaders who have been holding everyone else up. For the first time, someone is holding it with you.</p>
+      <a href="#" class="cta-button">Reserve Your Seat in GroundID Leader</a>
+      <p class="cta-alt">Or begin with Virtual Mind, free. <a href="https://delphi.ai/drcara">delphi.ai/drcara</a></p>
+    </section>
+
+    <hr class="divider divider--gold">
+
+    <!-- FOOTER -->
+    <footer class="site-footer" style="border: none; padding-top: 40px;">
+      <div class="footer-quote">"You lead well. Now lead as yourself."</div>
+      <div class="footer-info">Dr. Cara Alexander &nbsp;&nbsp;|&nbsp;&nbsp; Connected Leadership &nbsp;&nbsp;|&nbsp;&nbsp; drcara.net &nbsp;&nbsp;|&nbsp;&nbsp; @drcaraa</div>
+    </footer>
+
+  </main>
+
+</body>
+</html>
