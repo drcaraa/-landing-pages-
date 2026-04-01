@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sentinel | DR CARA Connected Leadership</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --sentinel: #df4f0f;
+      --sentinel-light: #ff6723;
+      --sentinel-pale: #fff9f4;
+      --sentinel-faded: #fda54f;
+      --gold: #C9A850;
+      --dark: #2A2320;
+      --body-text: #4A3F38;
+      --muted: #A09080;
+      --muted-light: #8A7060;
+      --light-text: #C0B0A0;
+      --cream: #F5F0EB;
+      --white: #FFFFFF;
+      --serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--body-text);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      padding: 28px 48px;
+      border-bottom: 2.5px solid var(--sentinel);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+    }
+    .tagline {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── MAIN CONTAINER ── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── PROFILE BADGE ── */
+    .profile-badge {
+      padding-top: 56px;
+      padding-bottom: 8px;
+    }
+    .badge-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--sentinel);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .badge-sub {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      color: var(--muted-light);
+      letter-spacing: 0.08em;
+      margin-top: 6px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 40px 0 48px;
+    }
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      line-height: 1.22;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      color: var(--body-text);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 2.5px solid var(--sentinel);
+      margin: 0;
+    }
+    .divider--gold {
+      border-top-color: var(--gold);
+    }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      background: var(--sentinel-pale);
+      border-left: 5px solid var(--sentinel);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .callout p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .callout-accent {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--sentinel);
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--sentinel);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding-top: 56px;
+      margin-bottom: 12px;
+    }
+    .section-headline {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.28;
+      margin-bottom: 24px;
+    }
+    .section-headline--lg {
+      font-size: 2.2rem;
+    }
+
+    /* ── BODY COPY ── */
+    .body-copy {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* ── CENTERED DIVIDER TEXT ── */
+    .divider-text {
+      text-align: center;
+      padding: 48px 0;
+    }
+    .divider-text span {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--sentinel);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    /* ── BLOCKQUOTE ── */
+    .pull-quote {
+      border-left: 4px solid var(--sentinel);
+      padding: 8px 0 8px 28px;
+      margin: 40px 0;
+    }
+    .pull-quote p {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--sentinel);
+      line-height: 1.55;
+    }
+
+    /* ── ANCHOR BOX ── */
+    .anchor-box {
+      background: var(--sentinel-pale);
+      padding: 36px 40px;
+      margin: 48px 0;
+    }
+    .anchor-box .anchor-title {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--sentinel);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .anchor-box p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* ── RPR STEPS ── */
+    .rpr-step {
+      border-top: 2px solid var(--sentinel);
+      padding: 28px 0 36px;
+    }
+    .rpr-step-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .rpr-step-num {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--sentinel-faded);
+    }
+    .rpr-step-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--sentinel);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .rpr-step-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .rpr-step p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* ── DARK PANEL ── */
+    .dark-panel {
+      background: var(--dark);
+      padding: 48px 44px;
+      margin: 48px 0;
+    }
+    .dark-panel .panel-headline {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+    .dark-panel p {
+      font-size: 0.92rem;
+      color: var(--light-text);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .dark-panel p:last-child { margin-bottom: 0; }
+    .dark-panel .panel-anchor {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-top: 28px;
+    }
+
+    /* ── TAKE THIS FURTHER ── */
+    .offer-headline {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.28;
+      margin-bottom: 16px;
+    }
+    .offer-meta {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--sentinel);
+      margin-bottom: 40px;
+    }
+
+    /* ── OUTCOMES ── */
+    .outcome {
+      margin-bottom: 36px;
+    }
+    .outcome-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--sentinel);
+      margin-bottom: 8px;
+    }
+    .outcome p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* ── INCLUDES LIST ── */
+    .includes-box {
+      background: var(--sentinel-pale);
+      border-left: 5px solid var(--sentinel);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .includes-box .includes-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--sentinel);
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+    }
+    .includes-box ul {
+      list-style: none;
+      padding: 0;
+    }
+    .includes-box li {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      padding: 7px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .includes-box li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      background: var(--sentinel);
+      border-radius: 50%;
+    }
+
+    /* ── GUARANTEE ── */
+    .guarantee-box {
+      background: var(--sentinel-pale);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .guarantee-box .guarantee-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--sentinel);
+      margin-bottom: 10px;
+    }
+    .guarantee-box p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      padding: 64px 0 48px;
+    }
+    .cta-headline {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      color: var(--sentinel);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .cta-sub {
+      font-size: 1.05rem;
+      color: var(--body-text);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: var(--sentinel);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 18px 44px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .cta-button:hover {
+      background: var(--sentinel-light);
+    }
+    .cta-alt {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+    .cta-alt a {
+      color: var(--muted);
+      text-decoration: underline;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 2.5px solid var(--gold);
+      padding: 48px 0 56px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .footer-quote {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .footer-info {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .site-header { padding: 20px 24px; }
+      .container { padding: 0 20px; }
+      .hero-headline { font-size: 2rem; }
+      .section-headline { font-size: 1.6rem; }
+      .section-headline--lg { font-size: 1.8rem; }
+      .offer-headline { font-size: 1.8rem; }
+      .cta-headline { font-size: 1.9rem; }
+      .callout, .anchor-box, .includes-box, .guarantee-box { padding: 24px 24px; }
+      .dark-panel { padding: 36px 28px; }
+      .pull-quote p { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="logo">DR&nbsp;&nbsp;CARA</span>
+      <span class="tagline">Connected Leadership</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- PROFILE BADGE -->
+    <div class="profile-badge">
+      <div class="badge-label">D &nbsp;|&nbsp; The Sentinel &nbsp;|&nbsp; Leads from Protection</div>
+      <div class="badge-sub">IFS Type: Firefighter, Reactive Protector &nbsp;&nbsp;|&nbsp;&nbsp; Anchor Pillar: Embody Grace</div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1 class="hero-headline">You're the person who moves when everything breaks. And no one asks what it costs you.</h1>
+      <p class="hero-sub">That readiness has made you indispensable. The question is whether the body absorbing what the mind moves past has anything left to say.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- INTRO CALLOUT -->
+    <div class="callout">
+      <p>You move fast because you have learned that fast keeps things contained.</p>
+      <p>That capacity has served you. It has made you the person people depend on when the situation is serious.</p>
+      <p>What it also does is run an enormous amount of energy through a nervous system that was built for sprints, not marathon leadership. The cost shows up not in your decisions but in the aftermath. The residue. The replay. The body that absorbed everything and is still holding it.</p>
+      <p>I help you understand exactly what is driving the urgency, so you can meet intensity with the groundedness you already have inside you, and lead from precision rather than pressure.</p>
+      <p class="callout-accent">You keep the edge. You gain the aim.</p>
+    </div>
+
+    <!-- YOUR PATTERN, SEEN CLEARLY -->
+    <div class="section-label">Your Pattern, Seen Clearly</div>
+    <h2 class="section-headline section-headline--lg">You lead from Protection. The intensity that gets things done is also what costs you most.</h2>
+
+    <p class="body-copy">When something is wrong, you feel it first. When a situation is unravelling, you are already moving to contain it. That capacity has served you, and it has made you someone people turn to when things are difficult.</p>
+    <p class="body-copy">In Internal Family Systems terms, the Sentinel maps primarily to the Firefighter role, a reactive protector that activates when threat is perceived. Unlike Managers who plan proactively, Firefighters respond to activation. They developed in environments where being caught unprepared had consequences. The intensity is not aggression. It is the body's learned response to perceived threat.</p>
+    <p class="body-copy">The cost shows up not in the moments of response, but in the aftermath: the residue, the replay, the body that absorbed it all.</p>
+
+    <!-- WHAT NO ONE HAS NAMED YET -->
+    <div class="divider-text">
+      <span>-- What no one has named yet --</span>
+    </div>
+
+    <div class="pull-quote">
+      <p>You have been told you are reactive. You already know that. What you have not had is someone name the specific internal experience of it without making you wrong for it.</p>
+    </div>
+
+    <p class="body-copy">Intensity registers somatically before it registers cognitively. Your body knows something is happening before your mind has processed what. That is not a character flaw. That is a nervous system doing exactly what it learned to do in environments where being caught unprepared had real consequences.</p>
+    <p class="body-copy">The gap between Receive and Respond is shorter than it needs to be for the quality of decision you are actually capable of. One breath, one anchor, one practiced pause. That is the work. Not because you should be slower. Because the pause is the difference between your intensity landing with precision and your intensity being absorbed by the people around you and your own body after the fact.</p>
+    <p class="body-copy">The Sentinel guards against the experience of being caught unprepared, overwhelmed, unable to handle what arrives. So the pattern moves fast, so that feeling never surfaces. It is watching. It is always ready. And it does not come down easily.</p>
+    <p class="body-copy">The residue after a difficult week. The replay. The difficulty returning to baseline after full operational mode. You have understood this as the price of doing serious work at a serious level. It is not the price. It is a pattern that changes when you understand what is driving it.</p>
+    <p class="body-copy">Your decisions are often exactly right. What they cost your body and the people around you does not have to be the price of that accuracy.</p>
+
+    <!-- ANCHOR: EMBODY GRACE -->
+    <div class="divider-text">
+      <span>-- Your Anchor: Embody Grace --</span>
+    </div>
+
+    <div class="anchor-box">
+      <div class="anchor-title">Embody Grace</div>
+      <p>Embody Grace is the capacity to meet intensity with groundedness, to hold difficult conversations, absorb organizational pressure, and navigate conflict without being pulled out of your center. For the Sentinel, grace is not softness. It is the ability to meet an intense moment from a grounded center rather than an activated one. That capacity is already inside you. This work trains it.</p>
+    </div>
+
+    <!-- RPR METHOD -->
+    <div class="section-label">The RPR Method Applied to Your Pattern</div>
+    <h2 class="section-headline">Receive. Perceive. Respond.</h2>
+    <p class="body-copy">The RPR Method is the operational core of Connected Leadership. Here is exactly how your pattern shapes each step, and where the opening lives.</p>
+
+    <div class="rpr-step">
+      <div class="rpr-step-header">
+        <span class="rpr-step-num">01</span>
+        <span class="rpr-step-label">Receive</span>
+      </div>
+      <div class="rpr-step-title">At full volume, in the body first</div>
+      <p>Intensity registers somatically before it registers cognitively. Your body knows something is happening before your mind has processed what. The nervous system is the first instrument of receiving, with limited modulation range. By the time information reaches conscious processing, a response is already forming.</p>
+    </div>
+
+    <div class="rpr-step">
+      <div class="rpr-step-header">
+        <span class="rpr-step-num">02</span>
+        <span class="rpr-step-label">Perceive</span>
+      </div>
+      <div class="rpr-step-title">Through a threat-assessment filter</div>
+      <p>What is the risk, and what is the fastest path to containing it? This produces rapid, often accurate reads. The cost is systematic narrowing: nuance and context get lost inside a threat filter. The part that moves fast to contain the situation is the same part that narrows the aperture before the full picture has arrived.</p>
+    </div>
+
+    <div class="rpr-step">
+      <div class="rpr-step-header">
+        <span class="rpr-step-num">03</span>
+        <span class="rpr-step-label">Respond</span>
+      </div>
+      <div class="rpr-step-title">Immediate, often effective, with a gap between speed and choice</div>
+      <p>Immediate and often exactly right. The gap is that the response comes before the full quality of decision you are capable of has had time to form. One breath, one anchor, one practiced pause expands the range of what is possible without slowing down what is necessary.</p>
+    </div>
+
+    <!-- THE SHIFT -->
+    <div class="section-label">The Shift</div>
+
+    <div class="dark-panel">
+      <div class="panel-headline">When the part that moves fast has access to a Self that meets the moment with calm, the intensity becomes precision rather than pressure.</div>
+      <p>Embody Grace is your anchor. Grace for you is not softness. It is the ability to meet an intense moment from a grounded center rather than an activated one. That capacity is already inside you. This work trains it.</p>
+      <p>The Sentinel who leads from a steady center does not become less formidable. They become more effective, because their intensity is aimed rather than absorbed. Their team moves with them rather than recovering from them. Their decisions land with more authority, not less.</p>
+      <p>That is not a softer version of who you are. That is the fullest version of what you have already built yourself to be.</p>
+      <div class="panel-anchor">Anchor Pillar: Embody Grace</div>
+    </div>
+
+    <!-- TAKE THIS FURTHER -->
+    <div class="section-label">Take This Further</div>
+    <h2 class="offer-headline">GroundID Leader: The 12-Week Experience</h2>
+    <div class="offer-meta">$9,000 total &nbsp;&nbsp;|&nbsp;&nbsp; $3,000/month x 3 &nbsp;&nbsp;|&nbsp;&nbsp; 10 leaders maximum &nbsp;&nbsp;|&nbsp;&nbsp; Quarterly cohorts</div>
+
+    <div class="dark-panel">
+      <div class="panel-headline">The pattern you named today doesn't lift on its own.</div>
+      <p>Every year a leader operates from this pattern without understanding it, it deepens. The gap between the leader you are and the leader you are fully capable of being does not close on its own.</p>
+      <div class="panel-headline" style="margin-top: 20px; margin-bottom: 0;">That is the work. And it starts here.</div>
+    </div>
+
+    <!-- WHAT YOU WALK AWAY WITH -->
+    <h3 class="section-headline" style="padding-top: 12px;">What you walk away with</h3>
+
+    <div class="outcome">
+      <div class="outcome-title">A precise map of what is actually driving the urgency</div>
+      <p>Not a general reactivity profile. An IFS-grounded understanding of the Firefighter/Reactive Protector part, what it is defending against, what activates it, and what changes when you can meet intensity from a steadier internal place.</p>
+    </div>
+
+    <div class="outcome">
+      <div class="outcome-title">Specific, practiced tools for high-stakes moments</div>
+      <p>One breath. One anchor. One practiced pause. Not abstract regulation strategies. Physical, repeatable practices designed for the environments you actually operate in.</p>
+    </div>
+
+    <div class="outcome">
+      <div class="outcome-title">The capacity to lead from precision rather than pressure</div>
+      <p>You do not need to be less intense. You need your intensity to have somewhere to land other than the people around you and your own nervous system.</p>
+    </div>
+
+    <div class="outcome">
+      <div class="outcome-title">A body that does not carry the aftermath of every hard week</div>
+      <p>The residue, the replay, the difficulty coming down from full operational mode. This is not the price of doing serious work. It is a pattern that changes when you understand the driver underneath it.</p>
+    </div>
+
+    <!-- INCLUDES -->
+    <div class="includes-box">
+      <div class="includes-title">What the 12 weeks include</div>
+      <ul>
+        <li>12 live 90-minute sessions with Dr. Cara (20 min psycho-educational teaching, 30 min dialogue, 40 min live RPR coaching)</li>
+        <li>RPR Practice Deck shipped before Week 1, so the framework is in your hands from Day 1</li>
+        <li>30-day Virtual Mind pre-access, available in real time between sessions</li>
+        <li>Peer cohort of maximum 10 leaders, quarterly enrollment</li>
+        <li>90-day post-program community access</li>
+        <li>Leadership Identity Brief, a personalized map of your pattern and your path forward</li>
+      </ul>
+    </div>
+
+    <!-- GUARANTEE -->
+    <div class="guarantee-box">
+      <div class="guarantee-title">The Risk Is Gone</div>
+      <p>Two sessions. Full refund of Month 1. No explanation required. The guarantee is structured specifically for this work: the first two sessions are where the work begins and where you will know whether the container is operating at the level you need. That is more than enough to know.</p>
+    </div>
+
+    <!-- FINAL CTA -->
+    <hr class="divider">
+
+    <section class="cta-section">
+      <h2 class="cta-headline">Meet intensity with precision.</h2>
+      <p class="cta-sub">The GroundID Leader 12-Week Experience is where the Sentinel learns to bring the full force of what they carry, aimed. The edge stays. The aim gets built.</p>
+      <a href="#" class="cta-button">Reserve Your Seat in GroundID Leader</a>
+      <p class="cta-alt">Or begin with Virtual Mind, free. <a href="https://delphi.ai/drcara">delphi.ai/drcara</a></p>
+    </section>
+
+    <hr class="divider divider--gold">
+
+    <!-- FOOTER -->
+    <footer class="site-footer" style="border: none; padding-top: 40px;">
+      <div class="footer-quote">"You lead well. Now lead as yourself."</div>
+      <div class="footer-info">Dr. Cara Alexander &nbsp;&nbsp;|&nbsp;&nbsp; Connected Leadership &nbsp;&nbsp;|&nbsp;&nbsp; drcara.net &nbsp;&nbsp;|&nbsp;&nbsp; @drcaraa</div>
+    </footer>
+
+  </main>
+
+</body>
+</html>
