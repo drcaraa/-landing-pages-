@@ -1294,16 +1294,21 @@ function retakeQuiz() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ===== WEBHOOK INTEGRATION =====
+// ===== DELPHI INTEGRATION =====
+// Sends quiz completion to /api/quiz-webhook → Delphi Custom API Action
+// Delphi upserts Contact (email key), tags: quiz_taken, outcome_{profile}, source:lp-assessment-1
 async function sendQuizWebhook() {
   const lead = window.__quizLead;
   if (!lead || !lead.email) return;
 
+  // Strip "The " prefix for clean Delphi tags → outcome_Architect (not outcome_The Architect)
+  const outcome = (lead.profile || '').replace(/^The\s+/, '');
+
   const payload = {
     email:        lead.email,
     first_name:   lead.name || '',
-    quiz_outcome: lead.profile || '',
-    source:       'leadership-origin-quiz',
+    quiz_outcome: outcome,
+    source:       'lp-assessment-1',
     timestamp:    lead.timestamp
   };
 
@@ -1315,13 +1320,13 @@ async function sendQuizWebhook() {
     });
 
     if (res.ok) {
-      console.log('[Quiz] Webhook sent successfully');
+      console.log('[Quiz] ✓ Sent to Delphi:', outcome);
     } else {
       const data = await res.json().catch(() => ({}));
-      console.warn('[Quiz] Webhook response:', res.status, data);
+      console.warn('[Quiz] Delphi response:', res.status, data);
     }
   } catch (err) {
-    console.warn('[Quiz] Webhook network error:', err.message);
+    console.warn('[Quiz] Delphi network error:', err.message);
   }
 }
 </script>
