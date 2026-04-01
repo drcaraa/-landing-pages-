@@ -147,6 +147,12 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Validate payload first (useful errors even before Delphi is configured)
+  const errors = validate(req.body || {});
+  if (errors.length) {
+    return res.status(422).json({ errors });
+  }
+
   const actionUrl = process.env.DELPHI_ACTION_URL;
   if (!actionUrl) {
     console.error('[quiz-webhook] DELPHI_ACTION_URL is not configured');
