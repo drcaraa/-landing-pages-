@@ -2,13 +2,14 @@
  * Vercel Serverless Function — POST /api/quiz-webhook
  *
  * Receives quiz completion data from the front-end,
- * validates & normalizes the payload, then forwards it
- * to a Google Apps Script Web App that logs leads into
- * a Google Sheet.
+ * validates, normalizes, and stores it in Vercel Blob storage.
+ * No external services required — everything stays in Vercel.
  *
- * Environment variable required in Vercel → Settings → Environment Variables:
- *   GOOGLE_SHEET_WEBHOOK_URL  — the deployed Google Apps Script web app URL
+ * Requires: Vercel Blob store connected to this project
+ * (creates BLOB_READ_WRITE_TOKEN automatically)
  */
+
+import { put, list } from '@vercel/blob';
 
 // ── Valid quiz outcomes (whitelist) ──────────────────────
 
@@ -54,71 +55,6 @@ function normalize(raw) {
   };
 }
 
-// ── Retry-capable POST (300ms × 3 backoff: 300 → 900 → 2700) ─
-
-async function postWithRetry(url, body, max = 3) {
-  let attempt = 0;
-  let wait = 300;
-
-  while (true) {
-    try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 10000);
-
-      const res = await fetch(url, {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(body),
-        signal:  controller.signal,
-        redirect: 'follow',   // Google Apps Script redirects on deploy
-      });
-
-      clearTimeout(timeout);
-
-      if (res.ok) {
-        console.log(`[quiz-webhook] ✓ Logged to Google Sheet (${res.status}) on attempt ${attempt + 1}`);
-        return { ok: true, status: res.status };
-      }
-
-      if (res.status === 429 || (res.status >= 500 && res.status <= 599)) {
-        const errText = await res.text();
-        console.warn(`[quiz-webhook] ✗ Attempt ${attempt + 1}/${max} — ${res.status}: ${errText}`);
-        if (++attempt >= max) throw new Error(`Google Sheet webhook returned ${res.status} after ${max} attempts`);
-        await new Promise(r => setTimeout(r, wait));
-        wait *= 3;
-        continue;
-      }
-
-      const text = await res.text();
-      throw new Error(`Google Sheet webhook returned ${res.status}: ${text}`);
-
-    } catch (err) {
-      if (err.name === 'AbortError') {
-        console.warn(`[quiz-webhook] ✗ Attempt ${attempt + 1}/${max} — request timed out`);
-      } else if (!err.message.startsWith('Google Sheet webhook returned')) {
-        console.warn(`[quiz-webhook] ✗ Attempt ${attempt + 1}/${max} — ${err.message}`);
-      } else {
-        throw err;
-      }
-
-      if (++attempt >= max) throw new Error(`Failed after ${max} attempts: ${err.message}`);
-      await new Promise(r => setTimeout(r, wait));
-      wait *= 3;
-    }
-  }
-}
-
-// ── Core logic ───────────────────────────────────────────
-
-async function sendQuizCompletion(payload, webhookUrl) {
-  const errors = validate(payload);
-  if (errors.length) return { ok: false, status: 422, errors };
-
-  const body = normalize(payload);
-  const result = await postWithRetry(webhookUrl, body);
-  return result;
-}
-
 // ── Vercel handler ───────────────────────────────────────
 
 export default async function handler(req, res) {
@@ -135,28 +71,38 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Validate first
+  // Validate
   const errors = validate(req.body || {});
   if (errors.length) {
     return res.status(422).json({ errors });
   }
 
-  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
-  if (!webhookUrl) {
-    console.error('[quiz-webhook] GOOGLE_SHEET_WEBHOOK_URL is not configured');
-    return res.status(500).json({ error: 'Google Sheet webhook not configured' });
-  }
-
   try {
-    const result = await sendQuizCompletion(req.body, webhookUrl);
+    // Normalize the payload
+    const lead = normalize(req.body);
 
-    if (!result.ok) {
-      return res.status(result.status).json({ errors: result.errors });
-    }
+    // Store each lead as its own blob file (keyed by timestamp + email hash)
+    // This avoids race conditions from concurrent writes to a single file
+    const key = `leads/${Date.now()}-${lead.email.replace(/[^a-z0-9]/g, '_')}.json`;
 
-    return res.status(200).json({ message: 'Quiz lead logged to Google Sheet', status: result.status });
+    await put(key, JSON.stringify(lead), {
+      contentType: 'application/json',
+      access: 'public',
+    });
+
+    console.log(`[quiz-webhook] ✓ Lead stored: ${lead.email} → ${lead.quiz_outcome}`);
+
+    return res.status(200).json({
+      message: 'Lead captured successfully',
+      lead: {
+        email: lead.email,
+        first_name: lead.first_name,
+        quiz_outcome: lead.quiz_outcome,
+      }
+    });
+
   } catch (err) {
-    console.error('[quiz-webhook] Delivery failed:', err.message);
-    return res.status(502).json({ error: 'Google Sheet logging failed', detail: err.message });
+    console.error('[quiz-webhook] Storage failed:', err.message);
+    return res.status(500).json({ error: 'Lead storage failed', detail: err.message });
   }
 }
