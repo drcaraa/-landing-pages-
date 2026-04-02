@@ -4,10 +4,5 @@
       "source": "/",
       "destination": "/leadership-origin-quiz.html"
     }
-  ],
-  "functions": {
-    "api/quiz-webhook.js": {
-      "maxDuration": 30
-    }
-  }
+  ]
 }
