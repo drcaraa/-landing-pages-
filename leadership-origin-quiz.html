@@ -1294,39 +1294,34 @@ function retakeQuiz() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ===== DELPHI INTEGRATION =====
-// Sends quiz completion to /api/quiz-webhook → Delphi Custom API Action
-// Delphi upserts Contact (email key), tags: quiz_taken, outcome_{profile}, source:lp-assessment-1
+// ===== GOOGLE FORM LEAD CAPTURE =====
+// Submits quiz leads directly to Google Forms → auto-populates Google Sheet
+// No serverless function or external API needed
 async function sendQuizWebhook() {
   const lead = window.__quizLead;
   if (!lead || !lead.email) return;
 
-  // Strip "The " prefix for clean Delphi tags → outcome_Architect (not outcome_The Architect)
-  const outcome = (lead.profile || '').replace(/^The\s+/, '');
+  const profile = (lead.profile || '').replace(/^The\s+/, '');
 
-  const payload = {
-    email:        lead.email,
-    first_name:   lead.name || '',
-    quiz_outcome: outcome,
-    source:       'lp-assessment-1',
-    timestamp:    lead.timestamp
-  };
+  // Google Form entry IDs (from Quiz Leads form)
+  const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdqddm0G2X-EO_yvDSYEDCViwl7P7LVt8sWly5iEVJ1A_C6BQ/formResponse';
+  const params = new URLSearchParams({
+    'entry.406837909':  lead.email,
+    'entry.91122644':   lead.name || '',
+    'entry.1615509001': profile,
+    'entry.1458319137': 'lp-assessment-1'
+  });
 
   try {
-    const res = await fetch('/api/quiz-webhook', {
+    // Use no-cors mode — Google Forms doesn't return CORS headers,
+    // but the submission still goes through successfully
+    await fetch(FORM_URL + '?' + params.toString(), {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      mode: 'no-cors'
     });
-
-    if (res.ok) {
-      console.log('[Quiz] ✓ Sent to Delphi:', outcome);
-    } else {
-      const data = await res.json().catch(() => ({}));
-      console.warn('[Quiz] Delphi response:', res.status, data);
-    }
+    console.log('[Quiz] ✓ Lead sent to Google Sheet:', lead.email, profile);
   } catch (err) {
-    console.warn('[Quiz] Delphi network error:', err.message);
+    console.warn('[Quiz] Google Form submission error:', err.message);
   }
 }
 </script>
