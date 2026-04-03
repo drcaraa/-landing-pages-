@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Virtual Mind | DR. CARA Connected Leadership</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #E8600A;
+      --orange-bright: #FF7A1A;
+      --orange-dark: #C44D00;
+      --orange-light: #FFF0E5;
+      --orange-glow: #FFE8D4;
+      --gold: #C9A850;
+      --dark: #2A2320;
+      --body-text: #4A3F38;
+      --muted: #A09080;
+      --muted-light: #8A7060;
+      --cream: #FFFAF5;
+      --white: #FFFFFF;
+      --green: #2E7D4F;
+      --green-light: #E8F5EC;
+      --serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--body-text);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      padding: 28px 48px;
+      border-bottom: 2.5px solid var(--orange);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+    }
+    .tagline {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── MAIN CONTAINER ── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── CONFIRMATION BADGE ── */
+    .confirm-badge {
+      padding-top: 56px;
+      padding-bottom: 8px;
+      text-align: center;
+    }
+    .confirm-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--green-light);
+      margin-bottom: 20px;
+    }
+    .confirm-check svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--green);
+      stroke-width: 3;
+      fill: none;
+    }
+    .badge-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 32px 0 48px;
+      text-align: center;
+    }
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      line-height: 1.22;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      color: var(--body-text);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 2.5px solid var(--orange);
+      margin: 0;
+    }
+    .divider--gold {
+      border-top-color: var(--gold);
+    }
+    .divider--subtle {
+      border-top: 1px solid #E8E0D8;
+      margin: 40px 0;
+    }
+
+    /* ── ORDER SUMMARY ── */
+    .order-summary {
+      background: var(--cream);
+      border: 1px solid #E8E0D8;
+      border-radius: 8px;
+      padding: 36px 40px;
+      margin: 48px 0;
+    }
+    .order-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+    .order-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid #E8E0D8;
+      font-size: 0.92rem;
+    }
+    .order-row:last-child {
+      border-bottom: none;
+      padding-top: 16px;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .order-label {
+      color: var(--muted-light);
+    }
+    .order-value {
+      color: var(--dark);
+      font-weight: 600;
+    }
+    .order-value--highlight {
+      color: var(--orange);
+    }
+
+    /* ── WHAT HAPPENS NEXT ── */
+    .next-steps {
+      padding: 48px 0;
+    }
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-headline {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.28;
+      margin-bottom: 32px;
+    }
+
+    .step {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .step-number {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .step-content h4 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--dark);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .step-content p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--body-text);
+    }
+    .step-content a {
+      color: var(--orange);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      background: var(--orange-light);
+      border-left: 5px solid var(--orange);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .callout p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .callout-accent {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--orange);
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    /* ── INCLUDES BOX ── */
+    .includes-box {
+      background: var(--cream);
+      border: 1px solid #E8E0D8;
+      border-radius: 8px;
+      padding: 36px 40px;
+      margin: 40px 0;
+    }
+    .includes-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    .includes-box ul {
+      list-style: none;
+      padding: 0;
+    }
+    .includes-box li {
+      padding: 12px 0;
+      padding-left: 28px;
+      position: relative;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      border-bottom: 1px solid #E8E0D8;
+    }
+    .includes-box li:last-child { border-bottom: none; }
+    .includes-box li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* ── CTA BUTTON ── */
+    .cta-section {
+      text-align: center;
+      padding: 56px 0 48px;
+    }
+    .cta-headline {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .cta-sub {
+      font-size: 0.95rem;
+      color: var(--body-text);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .cta-button {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 48px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .cta-button:hover {
+      background: var(--orange-dark);
+    }
+    .cta-secondary {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.88rem;
+      color: var(--orange);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    /* ── BODY COPY ── */
+    .body-copy {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* ── SIGNATURE ── */
+    .signature {
+      padding: 40px 0;
+      border-top: 1px solid #E8E0D8;
+      margin-top: 20px;
+    }
+    .sig-name {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--dark);
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+    .sig-title {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      padding: 32px 48px;
+      border-top: 2.5px solid var(--gold);
+      text-align: center;
+    }
+    .footer-text {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .footer-text a {
+      color: var(--muted-light);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .site-header { padding: 20px 20px; }
+      .container { padding: 0 20px; }
+      .hero-headline { font-size: 2rem; }
+      .section-headline { font-size: 1.6rem; }
+      .cta-headline { font-size: 1.6rem; }
+      .order-summary { padding: 28px 24px; }
+      .includes-box { padding: 28px 24px; }
+      .callout { padding: 24px 28px; }
+      .step { gap: 16px; }
+      .confirm-check { width: 60px; height: 60px; }
+      .confirm-check svg { width: 28px; height: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">DR. CARA</div>
+      <div class="tagline">Connected Leadership</div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- CONFIRMATION BADGE -->
+    <div class="confirm-badge">
+      <div class="confirm-check">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <div class="badge-label">Payment Confirmed</div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <h1 class="hero-headline">Welcome to Virtual Mind.</h1>
+      <p class="hero-sub">You just gave yourself something most leaders never do: a space to think clearly, without an audience, without a clock, and without having to hold everything alone.</p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ORDER SUMMARY -->
+    <div class="order-summary">
+      <div class="order-title">Your Subscription</div>
+      <div class="order-row">
+        <span class="order-label">Plan</span>
+        <span class="order-value">Virtual Mind &middot; Unlimited</span>
+      </div>
+      <div class="order-row">
+        <span class="order-label">Access</span>
+        <span class="order-value">24 hours a day &middot; Unlimited conversations</span>
+      </div>
+      <div class="order-row">
+        <span class="order-label">Includes</span>
+        <span class="order-value">Weekly GroundID Live &middot; Premium Prompt Guide &middot; Full Replay Vault</span>
+      </div>
+      <div class="order-row">
+        <span class="order-label">Billing</span>
+        <span class="order-value order-value--highlight">$49/month &middot; Cancel anytime</span>
+      </div>
+    </div>
+
+    <!-- WHAT HAPPENS NEXT -->
+    <div class="next-steps">
+      <div class="section-label">What Happens Next</div>
+      <h2 class="section-headline">Three things, and then you begin.</h2>
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h4>Check your inbox</h4>
+          <p>A welcome email is on its way with your access link, your Premium Prompt Guide, and everything you need to begin your first conversation with Virtual Mind. If it does not arrive within 15 minutes, check your spam folder.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h4>Start your first conversation</h4>
+          <p>Open Virtual Mind and bring something real. A decision you are sitting on. A pattern that keeps showing up. A conversation that did not go the way you expected. The framework meets you where you are. <a href="https://delphi.ai/drcara">Open Virtual Mind now</a></p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h4>Join this week's GroundID Live</h4>
+          <p>Your subscription includes weekly live sessions with Dr. Cara. Calendar details are in your welcome email. Bring questions, bring situations, bring the thing you have been carrying. These sessions are small and they are direct.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider--subtle">
+
+    <!-- WHAT YOU NOW HAVE ACCESS TO -->
+    <div class="includes-box">
+      <div class="includes-title">What your subscription includes</div>
+      <ul>
+        <li>Unlimited conversations with Virtual Mind, 24 hours a day, guided by the RPR framework and Dr. Cara's clinical approach to leadership</li>
+        <li>Weekly GroundID Live sessions with Dr. Cara, where the framework is applied to real situations in real time</li>
+        <li>Premium Prompt Guide with specific prompts designed for each Leadership Origin Profile, so the work is tailored to your pattern</li>
+        <li>Full Replay Vault of every GroundID Live session, so you can revisit the work whenever you need it</li>
+        <li>Cancel anytime, no contracts, no commitments beyond this month</li>
+      </ul>
+    </div>
+
+    <!-- CALLOUT -->
+    <div class="callout">
+      <p>Most leaders process their hardest moments alone. In the car after a difficult meeting. At midnight when the day finally stops. In the space between knowing something needs to change and having anywhere to take that knowing.</p>
+      <p>That space now has a framework, a practice, and a guide.</p>
+      <p class="callout-accent">You do not have to carry it alone anymore. You just have to bring it.</p>
+    </div>
+
+    <!-- A NOTE ABOUT HOW TO USE IT -->
+    <div class="section-label">How to Get the Most From This</div>
+    <h2 class="section-headline">Bring the real thing.</h2>
+
+    <p class="body-copy">Virtual Mind is not a chatbot. It is a framework applied to your actual leadership. The more specific you are, the more precise the work becomes.</p>
+
+    <p class="body-copy">Bring the conversation you are replaying. The decision that does not have a clean answer. The pattern you noticed this week that you could not quite name. The moment where you handled it well on the outside and are still carrying it on the inside.</p>
+
+    <p class="body-copy">The RPR framework, Receive, Perceive, Respond, will meet whatever you bring. You do not need to know the right question. You just need to start with what is actually happening.</p>
+
+    <p class="body-copy">And when something surfaces that needs more than a conversation, that is what the weekly GroundID Live sessions are for. The subscription is the container. You decide what goes in it.</p>
+
+    <!-- SIGNATURE -->
+    <div class="signature">
+      <p class="sig-name">With you in this,</p>
+      <p class="sig-name" style="margin-top: 4px;">Dr. Cara Alexander</p>
+      <p class="sig-title">PhD, International Psychology &middot; Licensed Clinical Social Worker &middot; Georgetown Executive Coaching</p>
+      <p class="sig-title">Connected Leadership &middot; drcara.net</p>
+    </div>
+
+    <!-- CTA SECTION -->
+    <hr class="divider">
+
+    <section class="cta-section">
+      <h2 class="cta-headline">Your first conversation is waiting.</h2>
+      <p class="cta-sub">Every challenge. Any moment. The framework is ready when you are.</p>
+      <a href="https://delphi.ai/drcara" class="cta-button">Open Virtual Mind</a>
+      <br>
+      <a href="https://www.drcara.net" class="cta-secondary">Visit drcara.net</a>
+    </section>
+
+    <hr class="divider divider--gold">
+
+    <!-- FOOTER -->
+    <footer class="site-footer" style="border: none; padding-top: 40px;">
+      <p class="footer-text">DR. CARA &middot; Connected Leadership &middot; <a href="https://www.drcara.net">drcara.net</a></p>
+      <p class="footer-text" style="margin-top: 8px;">If you have questions about your subscription, reply to your welcome email. I read every response personally.</p>
+      <p class="footer-text" style="margin-top: 16px; font-size: 0.65rem;">You are receiving this because you subscribed to Virtual Mind. <br>Manage your subscription at any time through your account settings.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
