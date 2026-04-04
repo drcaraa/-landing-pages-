@@ -399,19 +399,56 @@
       margin-top: 16px;
       line-height: 1.5;
     }
-    .gate-skip {
-      display: inline-block;
-      margin-top: 24px;
-      font-size: 0.72rem;
-      color: var(--muted);
-      cursor: pointer;
-      border: none;
-      background: none;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      transition: color 0.2s;
+    /* ===== TEASER SCREEN ===== */
+    .teaser-screen { display: none; padding: 80px 0; text-align: center; }
+    .teaser-screen .teaser-hook {
+      font-size: 0.95rem;
+      color: var(--body-text);
+      line-height: 1.75;
+      max-width: 520px;
+      margin: 0 auto 40px;
     }
-    .gate-skip:hover { color: var(--body-text); }
+    .teaser-screen .teaser-profiles {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 32px auto 40px;
+      max-width: 480px;
+    }
+    .teaser-screen .teaser-profile-tag {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 2px;
+      border: 1.5px solid;
+      background: transparent;
+    }
+    .teaser-screen .teaser-profile-tag.is-you {
+      color: var(--white);
+      border-color: transparent;
+    }
+    .btn-unlock {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--orange);
+      border: none;
+      padding: 18px 56px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 3px;
+    }
+    .btn-unlock:hover {
+      background: var(--orange-bright);
+    }
 
     /* ===== RESULT SCREEN ===== */
     .result-screen { display: none; padding: 60px 0 80px; }
@@ -456,48 +493,7 @@
       margin-bottom: 8px;
     }
 
-    /* Score bars */
-    .score-bars {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 480px;
-      margin: 40px auto 0;
-    }
-    .score-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .score-label {
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      width: 90px;
-      text-align: right;
-      flex-shrink: 0;
-    }
-    .score-track {
-      flex: 1;
-      height: 8px;
-      background: rgba(160,144,128,0.12);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .score-fill {
-      height: 100%;
-      border-radius: 4px;
-      transition: width 1s ease;
-    }
-    .score-pct {
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--muted);
-      width: 36px;
-      flex-shrink: 0;
-    }
+    /* Score bars removed — only show dominant profile */
 
     /* Result body */
     .result-divider {
@@ -710,7 +706,7 @@
       .option-btn { padding: 16px 18px; font-size: 0.88rem; }
       .gate-screen h2 { font-size: 1.7rem; }
       .result-title { font-size: 2rem; }
-      .score-label { width: 72px; font-size: 0.65rem; }
+
       .result-section-title { font-size: 1.5rem; }
       .result-cta h3 { font-size: 1.5rem; }
     }
@@ -777,18 +773,21 @@
   </div>
 
   <!-- ===== EMAIL GATE SCREEN ===== -->
+  <!-- ===== TEASER SCREEN ===== -->
+  <div id="teaser" class="teaser-screen container"></div>
+
+  <!-- ===== EMAIL GATE SCREEN ===== -->
   <div id="gate" class="gate-screen container">
-    <p class="overline">Your Profile Is Ready</p>
-    <h2>Where should we send<br>your full results?</h2>
-    <p class="gate-sub">Enter your details below to unlock your Leadership Origin Profile with personalized insights, your RPR pattern, and your Connected Leadership growth path.</p>
+    <p class="overline" id="gateOverline">One Step Away</p>
+    <h2 id="gateHeading">Your full profile is ready.</h2>
+    <p class="gate-sub" id="gateSub">Enter your details below to unlock your complete profile, including your RPR pattern, what this part is protecting, and your personalized path to Self-led leadership.</p>
 
     <div class="gate-form">
       <input type="text" id="gateName" class="gate-input" placeholder="First name">
       <input type="email" id="gateEmail" class="gate-input" placeholder="Email address">
-      <button class="btn-reveal" onclick="submitGate()">Reveal My Profile</button>
+      <button class="btn-reveal" onclick="submitGate()">Unlock My Full Profile</button>
       <p class="gate-privacy">We respect your inbox. No spam, ever. Unsubscribe any time.</p>
     </div>
-    <button class="gate-skip" onclick="showResult()">Skip &mdash; show my results now</button>
   </div>
 
   <!-- ===== RESULT SCREEN ===== -->
@@ -1075,10 +1074,9 @@ function nextQuestion() {
     void document.getElementById('quiz').offsetWidth;
     document.getElementById('quiz').classList.add('screen-fade');
   } else {
-    // Quiz complete — show gate
+    // Quiz complete — show teaser
     document.getElementById('quiz').style.display = 'none';
-    document.getElementById('gate').style.display = 'block';
-    document.getElementById('gate').classList.add('screen-fade');
+    showTeaser();
   }
 }
 
@@ -1119,6 +1117,61 @@ function getDominantProfile(scores) {
 
   // Final fallback: Architect
   return 'A';
+}
+
+// ===== TEASER =====
+function showTeaser() {
+  const scores = calculateScores();
+  const dominant = getDominantProfile(scores);
+  const profile = profiles[dominant];
+
+  // Store for later use
+  window.__quizResult = { scores, dominant };
+
+  const teaserEl = document.getElementById('teaser');
+  teaserEl.style.display = 'block';
+  teaserEl.classList.add('screen-fade');
+
+  const profileTags = ['A','B','C','D'].map(key => {
+    const p = profiles[key];
+    const isYou = key === dominant;
+    if (isYou) {
+      return `<span class="teaser-profile-tag is-you" style="background: ${p.color}; border-color: ${p.color}">${p.name}</span>`;
+    }
+    return `<span class="teaser-profile-tag" style="color: ${p.color}; border-color: ${p.color}">${p.name}</span>`;
+  }).join('');
+
+  teaserEl.innerHTML = `
+    <div class="result-profile-letter" style="background: ${profile.color}">${profile.letter}</div>
+    <p class="result-overline" style="color: ${profile.color}">Your Leadership Origin Profile</p>
+    <h1 class="result-title">${profile.name}</h1>
+    <p class="result-leads" style="color: ${profile.color}">Leads from ${profile.leadsFrom}</p>
+
+    <div class="teaser-profiles">${profileTags}</div>
+
+    <p class="teaser-hook">Every leader carries all four origin profiles. The Architect, the Carrier, the Performer, and the Sentinel are all present in your leadership. But one of them is running the show, shaping how you receive information, perceive situations, and respond under pressure. Understanding which one leads your decisions, and what it is protecting, is the first step toward Self-led leadership.</p>
+
+    <p class="teaser-hook" style="margin-bottom: 48px;"><strong>Your full ${profile.name} profile reveals the pattern, the psychological driver underneath it, and the specific growth path designed for your leadership origin.</strong></p>
+
+    <button class="btn-unlock" style="background: ${profile.color}" onclick="showGate()">Unlock My Full Profile</button>
+  `;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showGate() {
+  const result = window.__quizResult;
+  const profile = profiles[result.dominant];
+
+  document.getElementById('teaser').style.display = 'none';
+  document.getElementById('gate').style.display = 'block';
+  document.getElementById('gate').classList.add('screen-fade');
+
+  // Personalize the gate copy
+  document.getElementById('gateHeading').innerHTML = `Your full ${profile.name} profile is ready.`;
+  document.getElementById('gateSub').textContent = `Enter your details below to unlock your complete ${profile.name} profile \u2014 including your RPR pattern, what this part is protecting, and your personalized path to Self-led leadership.`;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ===== EMAIL GATE =====
@@ -1165,21 +1218,6 @@ function showResult() {
   document.getElementById('progressBar').style.width = '100%';
   document.getElementById('progressBar').style.background = profile.color;
 
-  const scoreBarsHTML = [
-    { key: 'A', name: 'Architect', color: profiles.A.color },
-    { key: 'B', name: 'Carrier', color: profiles.B.color },
-    { key: 'C', name: 'Performer', color: profiles.C.color },
-    { key: 'D', name: 'Sentinel', color: profiles.D.color }
-  ].map(s => `
-    <div class="score-row">
-      <span class="score-label" style="color: ${s.color}">${s.name}</span>
-      <div class="score-track">
-        <div class="score-fill" style="background: ${s.color}; width: ${(scores[s.key] / total) * 100}%"></div>
-      </div>
-      <span class="score-pct">${scores[s.key]}/${total}</span>
-    </div>
-  `).join('');
-
   resultEl.innerHTML = `
     <!-- Result Header -->
     <div class="result-header">
@@ -1188,8 +1226,6 @@ function showResult() {
       <h1 class="result-title">${profile.name}</h1>
       <p class="result-leads" style="color: ${profile.color}">Leads from ${profile.leadsFrom}</p>
       <p style="font-size: 0.75rem; color: var(--muted); margin-top: 4px;">${profile.ifsType} &middot; ${profile.pillar}</p>
-
-      <div class="score-bars">${scoreBarsHTML}</div>
     </div>
 
     <hr class="result-divider" style="border-top-color: ${profile.color}">
@@ -1272,21 +1308,18 @@ function showResult() {
     </div>
   `;
 
-  // Animate score bars after render
-  setTimeout(() => {
-    document.querySelectorAll('.score-fill').forEach(el => {
-      el.style.width = el.style.width; // trigger reflow for animation
-    });
-  }, 100);
-
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function retakeQuiz() {
   currentQuestion = 0;
   answers = new Array(12).fill(null);
+  window.__quizResult = null;
   document.getElementById('result').style.display = 'none';
   document.getElementById('result').innerHTML = '';
+  document.getElementById('teaser').style.display = 'none';
+  document.getElementById('teaser').innerHTML = '';
+  document.getElementById('gate').style.display = 'none';
   document.getElementById('intro').style.display = 'block';
   document.getElementById('intro').classList.add('screen-fade');
   document.getElementById('progressBar').style.width = '0%';
