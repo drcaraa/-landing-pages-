@@ -1386,27 +1386,28 @@ function showResult() {
     <div class="result-cta" style="border-top-color: ${profile.color}">
       <p class="cta-overline" style="color: ${profile.color}">Your Next Step</p>
       <h3>Go Deeper Into Your Profile</h3>
-      <p class="cta-body">You've named the pattern. Now understand what it's protecting, how it shapes every decision you make, and the specific path to Self-led leadership built for your profile.</p>
+      <p class="cta-body">You've named the pattern. Now understand what it's protecting, how it shapes every decision you make, and the specific path to leadership built for your profile.</p>
       <a href="${profile.landingPage}" class="btn-cta" style="background: ${profile.color}">Explore Your Full ${profile.name} Profile</a>
-    </div>
-
-    <!-- Virtual Mind -->
-    <div class="vm-section">
-      <span class="vm-badge" style="background: ${profile.color}15; color: ${profile.color}">Go Deeper</span>
-      <h3>Ask DR. CARA's Virtual Mind About Your Profile</h3>
-      <p class="vm-body">Want to explore what being ${profile.name} means in real situations — conflict, team dynamics, decision-making? Ask the Virtual Mind. It knows all four profiles and can coach you in real time.</p>
-      <p style="font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; margin-bottom: 12px;">Try this starter question:</p>
-      <div class="vm-starter">
-        <p id="vmStarter">"I'm ${profile.name}. How does this show up when I'm leading through conflict?"</p>
-        <button class="btn-copy" onclick="copyStarter()">Copy</button>
-      </div>
-      <a href="https://www.delphi.ai/drcara" target="_blank" class="btn-vm" style="background: ${profile.color}">Talk to the Virtual Mind</a>
-      <p class="vm-free">Free — no account required</p>
+      <p style="font-size: 0.75rem; color: var(--muted); margin-top: 16px; line-height: 1.6;">On the next page: what this pattern is protecting, the 12-week experience built for your profile, and how to begin.</p>
     </div>
 
     <!-- Retake -->
     <div class="result-retake">
       <button class="btn-retake" onclick="retakeQuiz()">Retake Assessment</button>
+    </div>
+
+    <!-- Virtual Mind — secondary, after retake -->
+    <div class="vm-section" style="margin-top: 16px; border-color: #E8E0D8;">
+      <p style="font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; margin-bottom: 12px;">After you explore your profile</p>
+      <h3>Ask DR. CARA's Virtual Mind About Your Results</h3>
+      <p class="vm-body">Want to explore what being ${profile.name} means in real situations — conflict, team dynamics, decision-making? The Virtual Mind knows all four profiles and can coach you in real time.</p>
+      <p style="font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; margin-bottom: 12px;">Try this starter question:</p>
+      <div class="vm-starter">
+        <p id="vmStarter">"I'm ${profile.name}. How does this show up when I'm leading through conflict?"</p>
+        <button class="btn-copy" onclick="copyStarter()">Copy</button>
+      </div>
+      <a href="https://www.delphi.ai/drcara" target="_blank" class="btn-vm" style="background: var(--dark)">Talk to the Virtual Mind</a>
+      <p class="vm-free">Free — no account required</p>
     </div>
   `;
 
