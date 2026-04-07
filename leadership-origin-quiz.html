@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leadership Origin Profile | DR. CARA Connected Leadership</title>
+  <meta name="description" content="Discover your Leadership Origin Profile — a free 3-minute assessment that reveals the protective pattern driving your leadership decisions. Four profiles. One path forward.">
+  <meta property="og:title" content="Leadership Origin Profile | DR. CARA">
+  <meta property="og:description" content="A free 3-minute assessment that reveals the protective pattern driving your leadership decisions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.grounid.com">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -803,7 +808,7 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="/"><img src="DrCara_Logo_LeadershipTag_Gold.png" alt="DR. CARA — Connected Leadership" class="logo-img"></a>
+      <img src="DrCara_Logo_LeadershipTag_Gold.png" alt="DR. CARA — Connected Leadership" class="logo-img">
     </div>
   </header>
 
@@ -1264,7 +1269,7 @@ function submitGate() {
   const name = document.getElementById('gateName').value.trim();
   const email = document.getElementById('gateEmail').value.trim();
 
-  if (!email || !email.includes('@')) {
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     document.getElementById('gateEmail').style.borderColor = '#c84200';
     document.getElementById('gateEmail').focus();
     return;
