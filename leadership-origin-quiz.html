@@ -1239,7 +1239,9 @@ function showTeaser() {
 
     <div class="teaser-profiles">${profileTags}</div>
 
-    <p class="teaser-hook">Every leader carries all four origin profiles. The Architect, the Carrier, the Performer, and the Sentinel are all present in your leadership. But one of them is running the show, shaping how you receive information, perceive situations, and respond under pressure. Understanding which one leads your decisions, and what it is protecting, is the first step toward Self-led leadership.</p>
+    <p class="teaser-hook">DR. CARA does not operate in absolutes, and neither does your leadership. Every leader carries all four origin profiles — the Architect, the Carrier, the Performer, and the Sentinel are all present in you. But one of them is running the show, shaping how you receive information, perceive situations, and respond under pressure. Understanding which one leads your decisions, and what it is protecting, is the first step toward Self-led leadership.</p>
+
+    <p class="teaser-hook">The GroundID Leadership Program is the entry to exploring this work — the work that transforms the lives of leaders and those they serve.</p>
 
     <p class="teaser-hook" style="margin-bottom: 48px;"><strong>Your full ${profile.name} profile reveals the pattern, the psychological driver underneath it, and the specific growth path designed for your leadership origin.</strong></p>
 
@@ -1319,6 +1321,12 @@ function showResult() {
     </div>
 
     <hr class="result-divider" style="border-top-color: ${profile.color}">
+
+    <!-- No Absolutes Framing -->
+    <div class="result-callout" style="border-left-color: ${profile.color}">
+      <p class="callout-label" style="color: ${profile.color}">A Note From DR. CARA</p>
+      <p>This is not a box. Every leader carries characteristics from all four profiles — the Architect, the Carrier, the Performer, and the Sentinel live in you. Your dominant profile reveals which part is leading your decisions right now, not who you are forever. The <strong>GroundID Leadership Program</strong> is the entry to exploring this work — the work that transforms the lives of leaders and those they serve.</p>
+    </div>
 
     <!-- Tagline -->
     <div class="result-quote" style="border-left-color: ${profile.color}">
@@ -1439,34 +1447,33 @@ function retakeQuiz() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ===== GOOGLE FORM LEAD CAPTURE =====
-// Submits quiz leads directly to Google Forms → auto-populates Google Sheet
-// No serverless function or external API needed
+// ===== QUIZ LEAD WEBHOOK =====
+// Posts quiz leads directly to Google Apps Script → writes to Sheet + starts email drip
 async function sendQuizWebhook() {
   const lead = window.__quizLead;
   if (!lead || !lead.email) return;
 
   const profile = (lead.profile || '').replace(/^The\s+/, '');
 
-  // Google Form entry IDs (from Quiz Leads form)
-  const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdqddm0G2X-EO_yvDSYEDCViwl7P7LVt8sWly5iEVJ1A_C6BQ/formResponse';
-  const params = new URLSearchParams({
-    'entry.406837909':  lead.email,
-    'entry.91122644':   lead.name || '',
-    'entry.1615509001': profile,
-    'entry.1458319137': 'lp-assessment-1'
-  });
+  // Apps Script Web App URL — deployed from quiz-drip.gs
+  // IMPORTANT: Replace this URL after deploying the Apps Script as a Web App
+  const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxbvdUnxuk0W7yRW_5WKkc-evVdzajG0GKw5qpXsVmqz3uGTu2w_vOt0JRaA7lf807z/exec';
 
   try {
-    // Use no-cors mode — Google Forms doesn't return CORS headers,
-    // but the submission still goes through successfully
-    await fetch(FORM_URL + '?' + params.toString(), {
+    const response = await fetch(WEBHOOK_URL, {
       method: 'POST',
-      mode: 'no-cors'
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: lead.email,
+        name: lead.name || '',
+        profile: profile,
+        source: 'lp-assessment-1'
+      }),
+      mode: 'no-cors'  // Apps Script doesn't send CORS headers, but POST still goes through
     });
-    console.log('[Quiz] ✓ Lead sent to Google Sheet:', lead.email, profile);
+    console.log('[Quiz] ✓ Lead sent to webhook:', lead.email, profile);
   } catch (err) {
-    console.warn('[Quiz] Google Form submission error:', err.message);
+    console.warn('[Quiz] Webhook submission error:', err.message);
   }
 }
 </script>
