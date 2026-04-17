@@ -1,0 +1,222 @@
+<!--
+  GroundID Coffee — Embeddable Section for drcara.net/drcarahome-1
+  ================================================================
+  Paste this entire block into a Squarespace Code Block.
+  Styles are scoped with .gid-coffee-section to avoid clashing
+  with the Squarespace theme. Fonts match the funnel (EB Garamond serif
+  + system sans). CTA is a mailto link to drcara@drcaraa.com with a
+  pre-filled waitlist subject + body.
+-->
+
+<div class="gid-coffee-section">
+  <style>
+    .gid-coffee-section {
+      --gid-accent: #c84200;
+      --gid-accent-light: #e05a1a;
+      --gid-accent-pale: #fff9f4;
+      --gid-gold: #C9A850;
+      --gid-pink: #E8B4B8;
+      --gid-pink-pale: #FBF1F1;
+      --gid-dark: #2A2320;
+      --gid-body: #4A3F38;
+      --gid-muted: #A09080;
+      --gid-muted-light: #8A7060;
+      --gid-cream: #F5F0EB;
+      --gid-white: #FFFFFF;
+      --gid-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --gid-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
+
+      font-family: var(--gid-sans);
+      color: var(--gid-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      max-width: 780px;
+      margin: 56px auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+    .gid-coffee-section *, .gid-coffee-section *::before, .gid-coffee-section *::after {
+      box-sizing: border-box;
+    }
+    .gid-coffee-section .gid-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gid-accent);
+      background: var(--gid-accent-pale);
+      padding: 6px 14px;
+      margin-bottom: 18px;
+    }
+    .gid-coffee-section .gid-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gid-muted-light);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .gid-coffee-section .gid-headline {
+      font-family: var(--gid-serif);
+      font-size: 2.4rem;
+      font-weight: 400;
+      line-height: 1.22;
+      color: var(--gid-dark);
+      margin: 0 0 20px;
+    }
+    .gid-coffee-section .gid-sub {
+      font-size: 1.02rem;
+      color: var(--gid-body);
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 0 32px;
+    }
+    .gid-coffee-section .gid-divider {
+      border: 0;
+      border-top: 2.5px solid var(--gid-accent);
+      margin: 0 0 40px;
+    }
+    .gid-coffee-section .gid-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 0 0 40px;
+    }
+    .gid-coffee-section .gid-pillar {
+      padding: 22px 22px;
+      background: var(--gid-accent-pale);
+      border-top: 3px solid var(--gid-accent);
+    }
+    .gid-coffee-section .gid-pillar:nth-child(2) {
+      background: #FDF9EF;
+      border-top-color: var(--gid-gold);
+    }
+    .gid-coffee-section .gid-pillar:nth-child(3) {
+      background: var(--gid-pink-pale);
+      border-top-color: var(--gid-pink);
+    }
+    .gid-coffee-section .gid-pillar-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--gid-muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .gid-coffee-section .gid-pillar-quote {
+      font-family: var(--gid-serif);
+      font-size: 1.02rem;
+      color: var(--gid-dark);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .gid-coffee-section .gid-includes {
+      background: var(--gid-accent-pale);
+      border-left: 5px solid var(--gid-accent);
+      padding: 28px 32px;
+      margin: 0 0 40px;
+    }
+    .gid-coffee-section .gid-includes-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gid-accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin: 0 0 16px;
+    }
+    .gid-coffee-section .gid-includes ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .gid-coffee-section .gid-includes li {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      padding: 6px 0 6px 22px;
+      position: relative;
+    }
+    .gid-coffee-section .gid-includes li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      background: var(--gid-accent);
+      border-radius: 50%;
+    }
+    .gid-coffee-section .gid-cta-wrap {
+      text-align: center;
+      padding: 24px 0 8px;
+    }
+    .gid-coffee-section .gid-cta {
+      display: inline-block;
+      background: var(--gid-accent);
+      color: var(--gid-white) !important;
+      font-family: var(--gid-sans);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 18px 44px;
+      text-decoration: none !important;
+      transition: background 0.2s ease;
+      border-radius: 0;
+    }
+    .gid-coffee-section .gid-cta:hover {
+      background: var(--gid-accent-light);
+    }
+    .gid-coffee-section .gid-fine {
+      font-size: 0.78rem;
+      color: var(--gid-muted);
+      margin-top: 16px;
+      text-align: center;
+    }
+    @media (max-width: 640px) {
+      .gid-coffee-section { margin: 40px auto; padding: 0 20px; }
+      .gid-coffee-section .gid-headline { font-size: 1.85rem; }
+      .gid-coffee-section .gid-pillars { grid-template-columns: 1fr; }
+      .gid-coffee-section .gid-includes { padding: 22px 22px; }
+    }
+  </style>
+
+  <span class="gid-tag">New &middot; Launching Mid-June 2026</span>
+
+  <p class="gid-eyebrow">GroundID Coffee</p>
+  <h2 class="gid-headline">Coffee is not the ritual. Returning to yourself is.</h2>
+  <p class="gid-sub">GroundID Coffee is the first cue in a daily practice of grounded leadership. Connect to yourself, so you can connect to everyone else. Subscriptions include a weekly live GroundID community session to set intentions and get grounded for the week.</p>
+
+  <hr class="gid-divider">
+
+  <div class="gid-pillars">
+    <div class="gid-pillar">
+      <div class="gid-pillar-label">The Principle</div>
+      <p class="gid-pillar-quote">Connect to yourself so you can connect to others.</p>
+    </div>
+    <div class="gid-pillar">
+      <div class="gid-pillar-label">The Practice</div>
+      <p class="gid-pillar-quote">Choose intentionality with each cup of GroundID.</p>
+    </div>
+    <div class="gid-pillar">
+      <div class="gid-pillar-label">The Framework</div>
+      <p class="gid-pillar-quote">You can only control how you Receive, Perceive, and Respond.</p>
+    </div>
+  </div>
+
+  <div class="gid-includes">
+    <div class="gid-includes-title">What the subscription includes</div>
+    <ul>
+      <li>Freshly roasted GroundID Coffee delivered monthly</li>
+      <li>Live 30-minute GroundID community session every week &mdash; grounding practice, one framing question, quiet accountability</li>
+      <li>A weekly Receive &middot; Perceive &middot; Respond prompt for the week ahead</li>
+      <li>Member community access for subscribers</li>
+      <li>Pause or cancel any time, no explanation required</li>
+    </ul>
+  </div>
+
+  <div class="gid-cta-wrap">
+    <a class="gid-cta" href="mailto:drcara@drcaraa.com?subject=GroundID%20Coffee%20Waitlist&amp;body=Please%20add%20me%20to%20the%20GroundID%20Coffee%20waitlist.%0A%0AName%3A%20%0ACity%20%2F%20Shipping%20country%3A%20%0A%0AI%27d%20like%20to%20be%20notified%20when%20subscriptions%20open%20in%20mid-June%202026.">Join the GroundID Coffee Waitlist</a>
+    <p class="gid-fine">Waitlist members receive launch pricing, priority onboarding to the live sessions, and the first roast shipped the week of launch.</p>
+  </div>
+
+</div>
