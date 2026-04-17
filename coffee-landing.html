@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GroundID Coffee | DR. CARA Connected Leadership</title>
+  <meta name="description" content="Coffee built for leaders who start from within. A daily ritual of grounding in identity — with weekly live GroundID community sessions for subscribers. Launching mid-June 2026.">
+  <meta property="og:title" content="GroundID Coffee | DR. CARA Connected Leadership">
+  <meta property="og:description" content="Connect to yourself so you can connect to others. A daily ritual of intentional leadership — and a weekly live community session to set the tone for the week.">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --accent: #c84200;
+      --accent-light: #e05a1a;
+      --accent-pale: #fff9f4;
+      --accent-faded: #fda54f;
+      --gold: #C9A850;
+      --pink: #E8B4B8;
+      --pink-pale: #FBF1F1;
+      --dark: #2A2320;
+      --body-text: #4A3F38;
+      --muted: #A09080;
+      --muted-light: #8A7060;
+      --light-text: #C0B0A0;
+      --cream: #F5F0EB;
+      --white: #FFFFFF;
+      --serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--body-text);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+    .site-header {
+      padding: 28px 48px;
+      border-bottom: 2.5px solid var(--accent);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* PRODUCT BADGE */
+    .product-badge {
+      padding-top: 56px;
+      padding-bottom: 8px;
+    }
+    .badge-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .badge-sub {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      color: var(--muted-light);
+      letter-spacing: 0.08em;
+      margin-top: 6px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 40px 0 48px;
+    }
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      line-height: 1.22;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      color: var(--body-text);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 2.5px solid var(--accent);
+      margin: 0;
+    }
+    .divider--gold {
+      border-top-color: var(--gold);
+    }
+    .divider--pink {
+      border-top-color: var(--pink);
+    }
+
+    /* CALLOUT BOX */
+    .callout {
+      background: var(--accent-pale);
+      border-left: 5px solid var(--accent);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .callout p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .callout-accent {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--accent);
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    /* SECTION HEADERS */
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding-top: 56px;
+      margin-bottom: 12px;
+    }
+    .section-headline {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.28;
+      margin-bottom: 24px;
+    }
+    .section-headline--lg {
+      font-size: 2.2rem;
+    }
+
+    /* BODY COPY */
+    .body-copy {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* CENTERED DIVIDER TEXT */
+    .divider-text {
+      text-align: center;
+      padding: 48px 0;
+    }
+    .divider-text span {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    /* BLOCKQUOTE */
+    .pull-quote {
+      border-left: 4px solid var(--accent);
+      padding: 8px 0 8px 28px;
+      margin: 40px 0;
+    }
+    .pull-quote p {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--accent);
+      line-height: 1.55;
+    }
+
+    /* ETHOS / PACKAGING QUOTES */
+    .ethos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin: 40px 0 24px;
+    }
+    .ethos-card {
+      background: var(--accent-pale);
+      border-top: 3px solid var(--accent);
+      padding: 28px 32px;
+    }
+    .ethos-card:nth-child(2) {
+      border-top-color: var(--gold);
+      background: #FDF9EF;
+    }
+    .ethos-card:nth-child(3) {
+      border-top-color: var(--pink);
+      background: var(--pink-pale);
+    }
+    .ethos-card p {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--dark);
+      line-height: 1.5;
+    }
+    .ethos-card .ethos-attribution {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-top: 14px;
+    }
+
+    /* RITUAL STEPS */
+    .ritual-step {
+      border-top: 2px solid var(--accent);
+      padding: 28px 0 36px;
+    }
+    .ritual-step-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .ritual-step-num {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--accent-faded);
+    }
+    .ritual-step-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .ritual-step-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .ritual-step p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* DARK PANEL */
+    .dark-panel {
+      background: var(--dark);
+      padding: 48px 44px;
+      margin: 48px 0;
+    }
+    .dark-panel .panel-headline {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+    .dark-panel p {
+      font-size: 0.92rem;
+      color: var(--light-text);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .dark-panel p:last-child { margin-bottom: 0; }
+    .dark-panel .panel-anchor {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-top: 28px;
+    }
+
+    /* OFFER HEADLINE */
+    .offer-headline {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.28;
+      margin-bottom: 16px;
+    }
+    .offer-meta {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    /* INCLUDES LIST */
+    .includes-box {
+      background: var(--accent-pale);
+      border-left: 5px solid var(--accent);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .includes-box .includes-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+    }
+    .includes-box ul {
+      list-style: none;
+      padding: 0;
+    }
+    .includes-box li {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      padding: 7px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .includes-box li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* COMMUNITY BOX */
+    .community-box {
+      background: var(--pink-pale);
+      border-left: 5px solid var(--pink);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .community-box .community-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .community-box p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .community-box p:last-child { margin-bottom: 0; }
+
+    /* DESIGN NOTE BOX */
+    .design-note {
+      background: #FDF9EF;
+      padding: 32px 36px;
+      margin: 48px 0;
+      border-left: 5px solid var(--gold);
+    }
+    .design-note .design-title {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .design-note p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      padding: 64px 0 48px;
+    }
+    .cta-headline {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      color: var(--accent);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .cta-sub {
+      font-size: 1.05rem;
+      color: var(--body-text);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 18px 44px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .cta-button:hover {
+      background: var(--accent-light);
+    }
+    .cta-alt {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+    .cta-alt a {
+      color: var(--muted);
+      text-decoration: underline;
+    }
+    .launch-tag {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-pale);
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      border-top: 2.5px solid var(--gold);
+      padding: 48px 0 56px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .footer-quote {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .footer-info {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .site-header { padding: 20px 24px; }
+      .container { padding: 0 20px; }
+      .hero-headline { font-size: 2rem; }
+      .section-headline { font-size: 1.6rem; }
+      .section-headline--lg { font-size: 1.8rem; }
+      .offer-headline { font-size: 1.8rem; }
+      .cta-headline { font-size: 1.9rem; }
+      .callout, .includes-box, .community-box, .design-note { padding: 24px 24px; }
+      .ethos-card { padding: 24px 24px; }
+      .dark-panel { padding: 36px 28px; }
+      .pull-quote p { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <img src="DrCara_Logo_LeadershipTag_Gold.png" alt="DR. CARA — Connected Leadership" class="logo-img">
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- PRODUCT BADGE -->
+    <div class="product-badge">
+      <div class="badge-label">GroundID Coffee &nbsp;|&nbsp; A Daily Ritual &nbsp;|&nbsp; Launching Mid-June 2026</div>
+      <div class="badge-sub">Grounded Identity &middot; Intentional Leadership &middot; Weekly Live Community Sessions</div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1 class="hero-headline">Coffee is not the ritual. Returning to yourself is.</h1>
+      <p class="hero-sub">GroundID Coffee is the first cue in a daily practice of grounded leadership. Before the calls. Before the decisions. Before the demands of the day. A moment to connect to yourself, so you can connect to everyone else.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- INTRO CALLOUT -->
+    <div class="callout">
+      <p>At the heart of my work is a conviction: the most effective leaders are the ones who are deeply connected to themselves first. That internal grounding is what shapes how you show up, how you decide, and how you lead others.</p>
+      <p>GroundID is that philosophy, poured into something you already reach for every morning.</p>
+      <p><strong>Ground</strong> — presence, steadiness, being anchored rather than reactive. <strong>ID</strong> — identity, self-awareness, knowing who you are and what you stand for.</p>
+      <p>Together, GroundID is a daily return to self before engaging the day. This is not coffee for stimulation or speed. It is coffee for intentionality, clarity, and grounded leadership.</p>
+      <p class="callout-accent">Connect to yourself so you can connect to others.</p>
+    </div>
+
+    <!-- THE RITUAL -->
+    <div class="section-label">The Ritual</div>
+    <h2 class="section-headline section-headline--lg">The first cup of the day is a decision about the day itself.</h2>
+
+    <p class="body-copy">Most leaders begin the day on someone else's terms. Notifications. Calendars. The queue of everything already waiting. The nervous system is running before the mind even arrives.</p>
+    <p class="body-copy">GroundID is a deliberate interruption of that pattern. A small, repeatable moment of presence that places you, not the day, at the beginning of the day. Over time, that moment reshapes how you lead.</p>
+
+    <div class="divider-text">
+      <span>-- Three lines on every bag --</span>
+    </div>
+
+    <!-- ETHOS GRID -->
+    <div class="ethos-grid">
+      <div class="ethos-card">
+        <p>"Connect to yourself so you can connect to others."</p>
+        <div class="ethos-attribution">The Principle</div>
+      </div>
+      <div class="ethos-card">
+        <p>"Choose intentionality with each cup of GroundID."</p>
+        <div class="ethos-attribution">The Practice</div>
+      </div>
+      <div class="ethos-card">
+        <p>"One can truly only control how they Receive, Perceive, and Respond."</p>
+        <div class="ethos-attribution">The Framework</div>
+      </div>
+    </div>
+
+    <p class="body-copy">These are not marketing lines. They are cues for a mindset. The packaging speaks the same language the work does, because the ritual is the same work, just smaller, earlier, and every day.</p>
+
+    <!-- RPR APPLIED -->
+    <div class="section-label">The RPR Method, Before Breakfast</div>
+    <h2 class="section-headline">Receive. Perceive. Respond.</h2>
+    <p class="body-copy">The RPR Method is the operational core of Connected Leadership. GroundID Coffee is designed to be the first deliberate run of it, every morning, before the day has a chance to run you.</p>
+
+    <div class="ritual-step">
+      <div class="ritual-step-header">
+        <span class="ritual-step-num">01</span>
+        <span class="ritual-step-label">Receive</span>
+      </div>
+      <div class="ritual-step-title">The cup in your hand is the signal to slow receive.</div>
+      <p>Not the next email. Not the group chat. Something warm, earned, and quiet. Your nervous system registers it. That registration is the opening. From here, you can receive what the day is actually offering rather than what you are bracing for.</p>
+    </div>
+
+    <div class="ritual-step">
+      <div class="ritual-step-header">
+        <span class="ritual-step-num">02</span>
+        <span class="ritual-step-label">Perceive</span>
+      </div>
+      <div class="ritual-step-title">One honest question before you start.</div>
+      <p>What part of me is leading right now? The Architect trying to control? The Carrier absorbing? The Performer producing? The Sentinel on alert? Perception begins the moment you can name what is running the show. GroundID creates the 60-second window where that naming is possible.</p>
+    </div>
+
+    <div class="ritual-step">
+      <div class="ritual-step-header">
+        <span class="ritual-step-num">03</span>
+        <span class="ritual-step-label">Respond</span>
+      </div>
+      <div class="ritual-step-title">Enter the day on purpose, not on autopilot.</div>
+      <p>Response is not reaction. It is the choice that follows naming. One intention. One boundary. One posture for the day. Grounded leaders do not lead harder. They lead from a place that was set earlier, on purpose, with something as small as a cup of coffee.</p>
+    </div>
+
+    <!-- WHY THIS COFFEE -->
+    <div class="section-label">Why This Coffee</div>
+
+    <div class="dark-panel">
+      <div class="panel-headline">GroundID is coffee for leaders who value clarity, restraint, and intention.</div>
+      <p>The roast is chosen for the same reason everything in this work is chosen: it does not shout. It holds. It gives you a steady, confident foundation rather than a burst of urgency you will have to manage later.</p>
+      <p>The design on the bag is crafted, not templated — grounded authority, clear hierarchy, warm orange as the primary voice, with pink and gold as quiet accents. Calm, confident, purposeful. The same qualities this coffee is meant to support in you.</p>
+      <p>It looks like something you would proudly place on your desk, because it is built for the people who would.</p>
+      <div class="panel-anchor">Anchor Pillar: Intentional Living</div>
+    </div>
+
+    <!-- SUBSCRIPTION -->
+    <div class="section-label">The Subscription</div>
+    <h2 class="offer-headline">GroundID Coffee + Live Weekly Grounding Sessions</h2>
+    <div class="offer-meta">Monthly subscription &nbsp;&nbsp;|&nbsp;&nbsp; Coffee shipped to your door &nbsp;&nbsp;|&nbsp;&nbsp; Weekly live 30-minute community session &nbsp;&nbsp;|&nbsp;&nbsp; Launching mid-June 2026</div>
+
+    <div class="dark-panel">
+      <div class="panel-headline">Coffee is the cue. Community is what makes the ritual stick.</div>
+      <p>Every Monday morning, subscribers gather for a live, 30-minute GroundID community session. No decks. No agenda theater. A short grounding practice, one framing question for the week, and the quiet accountability of starting the week alongside other leaders who are choosing the same thing you are.</p>
+      <p>You set an intention. You name what is running the show. You step into the week grounded, not reactive.</p>
+      <div class="panel-headline" style="margin-top: 20px; margin-bottom: 0;">The cup is private. The practice is shared. The results compound.</div>
+    </div>
+
+    <!-- INCLUDES -->
+    <div class="includes-box">
+      <div class="includes-title">What the subscription includes</div>
+      <ul>
+        <li>Freshly roasted GroundID Coffee delivered on a monthly cadence</li>
+        <li>One live 30-minute GroundID community session each week, hosted by Dr. Cara or a trained GroundID facilitator</li>
+        <li>A weekly grounding prompt that pairs with the live session — receive, perceive, respond, applied to the week ahead</li>
+        <li>Access to the member community for subscribers, for accountability between sessions</li>
+        <li>The packaging and the practice, aligned — the cues on the bag show up again in the session, and again in the prompt</li>
+        <li>Pause or cancel any time, no explanation required</li>
+      </ul>
+    </div>
+
+    <!-- COMMUNITY BOX -->
+    <div class="community-box">
+      <div class="community-title">Who the Live Sessions Are For</div>
+      <p>Leaders, founders, operators, and anyone who has tried to set intentions alone and watched them dissolve by Wednesday. The live session is the ritual that makes grounded leadership survive contact with a real week.</p>
+      <p>You do not have to be enrolled in GroundID Leader to subscribe. The coffee and the live session are the on-ramp into the same body of work, at the smallest possible commitment — a cup of coffee and 30 minutes a week.</p>
+    </div>
+
+    <!-- DESIGN NOTE -->
+    <div class="design-note">
+      <div class="design-title">A note on the design</div>
+      <p>The packaging was built the same way the coffee was: considered, crafted, and deliberate. Orange as primary, because it signals warmth, confidence, and energy without aggression. Pink and gold as light accents, supporting but never overpowering. Clear hierarchy, so the eye lands on GroundID first, then the message. Nothing on the bag could have been produced in a Canva template or generated in an afternoon, and that is the point. Care is the brand. Care is the coffee. Care is the leadership.</p>
+    </div>
+
+    <!-- LAUNCH CTA -->
+    <hr class="divider">
+
+    <section class="cta-section">
+      <span class="launch-tag">Launching Mid-June 2026</span>
+      <h2 class="cta-headline">Start the day grounded. Lead the day from there.</h2>
+      <p class="cta-sub">Join the GroundID Coffee waitlist to be first in line when subscriptions open in mid-June. Waitlist members receive launch pricing, priority onboarding to the live sessions, and the first roast shipped the week of launch.</p>
+      <a href="https://www.drcara.net/groundid-coffee" class="cta-button">Join the GroundID Coffee Waitlist</a>
+      <p class="cta-alt" style="margin-top: 16px;">Already following the work? <a href="https://www.drcara.net/drcarahome-1" style="color: inherit; text-decoration: underline;">Learn more about Dr. Cara's work</a></p>
+      <p class="cta-alt" style="margin-top: 24px; font-size: 0.68rem; color: #A09080;">A daily ritual built on 25 years of clinical expertise with leaders across 4 continents.</p>
+    </section>
+
+    <hr class="divider divider--gold">
+
+    <!-- FOOTER -->
+    <footer class="site-footer" style="border: none; padding-top: 40px;">
+      <div class="footer-quote">"Choose intentionality with each cup of GroundID."</div>
+      <div class="footer-info" style="margin-top: 12px;">
+        Dr. Cara Alexander &nbsp;&nbsp;|&nbsp;&nbsp; Connected Leadership &nbsp;&nbsp;|&nbsp;&nbsp; <a href="https://www.drcara.net" style="color: inherit;">drcara.net</a> &nbsp;&nbsp;|&nbsp;&nbsp; @drcaraa
+      </div>
+      <div style="margin-top: 16px; font-size: 0.68rem; color: #A09080;">
+        <a href="https://delphi.ai/drcara" style="color: #8A7060;">Talk to the Virtual Mind (free)</a>
+        &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+        <a href="https://www.grounid.com" style="color: #8A7060;">Take the Leadership Origin Profile</a>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>

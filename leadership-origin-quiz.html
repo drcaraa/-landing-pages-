@@ -1209,7 +1209,9 @@ function getDominantProfile(scores) {
   return 'A';
 }
 
-// ===== TEASER =====
+// ===== TEASER (BRIEF OVERVIEW) =====
+// Reveals the dominant profile name + tagline + a short pattern hook.
+// The deep content (RPR, what it's protecting, anchor, growth edge, CTA) stays gated until email submission.
 function showTeaser() {
   const scores = calculateScores();
   const dominant = getDominantProfile(scores);
@@ -1222,6 +1224,7 @@ function showTeaser() {
   teaserEl.style.display = 'block';
   teaserEl.classList.add('screen-fade');
 
+  // Highlight the dominant profile among the four tags
   const profileTags = ['A','B','C','D'].map(key => {
     const p = profiles[key];
     const isYou = key === dominant;
@@ -1231,6 +1234,9 @@ function showTeaser() {
     return `<span class="teaser-profile-tag" style="color: ${p.color}; border-color: ${p.color}">${p.name}</span>`;
   }).join('');
 
+  // Brief teaser of the pattern — first sentence only, to create curiosity for the gated reveal
+  const patternTeaser = (profile.pattern || '').split(/(?<=[.!?])\s+/)[0] || '';
+
   teaserEl.innerHTML = `
     <div class="result-profile-letter" style="background: ${profile.color}">${profile.letter}</div>
     <p class="result-overline" style="color: ${profile.color}">Your Leadership Origin Profile</p>
@@ -1239,11 +1245,15 @@ function showTeaser() {
 
     <div class="teaser-profiles">${profileTags}</div>
 
-    <p class="teaser-hook">DR. CARA does not operate in absolutes, and neither does your leadership. Every leader carries all four origin profiles — the Architect, the Carrier, the Performer, and the Sentinel are all present in you. But one of them is running the show, shaping how you receive information, perceive situations, and respond under pressure. Understanding which one leads your decisions, and what it is protecting, is the first step toward Self-led leadership.</p>
+    <div class="result-quote" style="border-left-color: ${profile.color}; max-width: 560px; margin: 0 auto 32px;">
+      <p style="color: ${profile.color}">${profile.tagline}</p>
+    </div>
 
-    <p class="teaser-hook">The GroundID Leadership Program is the entry to exploring this work — the work that transforms the lives of leaders and those they serve.</p>
+    <p class="teaser-hook"><strong>Here is the start of what your assessment surfaced:</strong> ${patternTeaser}</p>
 
-    <p class="teaser-hook" style="margin-bottom: 48px;"><strong>Your full ${profile.name} profile reveals the pattern, the psychological driver underneath it, and the specific growth path designed for your leadership origin.</strong></p>
+    <p class="teaser-hook">That is one sentence of the pattern. The full reveal goes deeper — the psychological driver underneath it, what this part of you is protecting, your RPR pattern (Receive · Perceive · Respond), the Connected Leadership anchor your profile is built around, and the specific growth edge that moves you from protective leadership to Self-led leadership.</p>
+
+    <p class="teaser-hook" style="margin-bottom: 48px;"><strong>Enter your name and email on the next step to unlock your full ${profile.name} profile and your personalized next step.</strong></p>
 
     <button class="btn-unlock" style="background: ${profile.color}" onclick="showGate()">Unlock My Full Profile</button>
   `;
@@ -1259,9 +1269,9 @@ function showGate() {
   document.getElementById('gate').style.display = 'block';
   document.getElementById('gate').classList.add('screen-fade');
 
-  // Personalize the gate copy
-  document.getElementById('gateHeading').innerHTML = `Your full ${profile.name} profile is ready.`;
-  document.getElementById('gateSub').textContent = `Enter your details below to unlock your complete ${profile.name} profile \u2014 including your RPR pattern, what this part is protecting, and your personalized path to Self-led leadership.`;
+  // Gate copy — references the named profile from the brief overview
+  document.getElementById('gateHeading').innerHTML = `Unlock your full ${profile.name} profile.`;
+  document.getElementById('gateSub').textContent = `Enter your name and email to reveal your RPR pattern, what this part of you is protecting, your Connected Leadership anchor, your growth edge, and the path to Self-led leadership built for the ${profile.name}.`;
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
