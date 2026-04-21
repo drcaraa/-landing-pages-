@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GroundID Leader · Referral Card · Square</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #E8600A;
+    --orange-dark: #C44D00;
+    --orange-light: #FFF0E5;
+    --cream: #FBF4EA;
+    --gold: #C9A850;
+    --dark: #2A2320;
+    --body: #4A3F38;
+    --muted: #8A7060;
+    --architect: #C84200;
+    --carrier: #C89000;
+    --performer: #D81360;
+    --sentinel: #DF4F0F;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+
+  html, body { margin: 0; padding: 0; background: #E8DFD1; }
+
+  .poster {
+    width: 1080px;
+    height: 1080px;
+    background: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    font-family: var(--sans);
+    color: var(--body);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top-bar { height: 10px; background: var(--orange); flex-shrink: 0; }
+  .bottom-bar { height: 8px; background: var(--gold); flex-shrink: 0; }
+
+  .header {
+    padding: 28px 56px 22px;
+    border-bottom: 1px solid #EFE6DA;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-shrink: 0;
+  }
+  .header-brand {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--dark);
+    text-transform: uppercase;
+  }
+  .header-tag {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 70px 14px;
+    text-align: center;
+  }
+
+  .kicker {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.34em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: 62px;
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--dark);
+    letter-spacing: -0.015em;
+    margin-bottom: 14px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--orange-dark);
+  }
+  .hero-sub {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--body);
+    max-width: 700px;
+    margin: 0 auto 16px;
+  }
+
+  .quote {
+    border-left: 4px solid var(--gold);
+    padding: 4px 0 4px 20px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.38;
+    color: var(--orange-dark);
+    font-weight: 500;
+    text-align: left;
+    max-width: 820px;
+    margin: 0 auto 20px;
+  }
+
+  .profiles-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .profiles-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .profile-chip {
+    background: #FFFAF5;
+    border: 1px solid #EFE0CC;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 0;
+  }
+  .profile-stripe { height: 5px; }
+  .profile-chip-body { padding: 8px 8px 10px; text-align: center; }
+  .profile-name {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.05;
+  }
+  .profile-role {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+  .p-architect .profile-stripe { background: var(--architect); }
+  .p-architect .profile-name { color: var(--architect); }
+  .p-carrier .profile-stripe { background: var(--carrier); }
+  .p-carrier .profile-name { color: var(--carrier); }
+  .p-performer .profile-stripe { background: var(--performer); }
+  .p-performer .profile-name { color: var(--performer); }
+  .p-sentinel .profile-stripe { background: var(--sentinel); }
+  .p-sentinel .profile-name { color: var(--sentinel); }
+
+  .schedule-strip {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--body);
+    margin-bottom: 18px;
+  }
+  .schedule-strip strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--dark);
+    margin-top: 2px;
+  }
+  .schedule-strip .sched-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--orange-dark);
+    text-transform: uppercase;
+  }
+
+  .cta-wrap { text-align: center; }
+  .cta-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.38;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+  .cta-text strong {
+    color: var(--orange-dark);
+    font-weight: 600;
+    font-style: normal;
+  }
+  .cta-url-card {
+    display: inline-block;
+    background: var(--orange);
+    color: #FFFFFF;
+    padding: 14px 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 22px rgba(232, 96, 10, 0.28);
+  }
+  .cta-url-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 3px;
+  }
+  .cta-url {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .cta-url-sub {
+    margin-top: 10px;
+    font-family: var(--serif);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  .footer {
+    text-align: center;
+    padding: 10px 56px 14px;
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+    flex-shrink: 0;
+    border-top: 1px solid #EFE6DA;
+  }
+  .footer strong {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--dark);
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    display: block;
+    margin-bottom: 2px;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <div class="top-bar"></div>
+
+  <div class="header">
+    <div class="header-brand">Dr. Cara Alexander</div>
+    <div class="header-tag">Connected Leadership</div>
+  </div>
+
+  <div class="main">
+
+    <div class="kicker">Beta Cohort · By Referral Only</div>
+    <h1 class="hero-title">Know a leader who&nbsp;belongs in&nbsp;<em>this room?</em></h1>
+    <p class="hero-sub">A 12-week beta cohort for experienced leaders, built on 25 years of clinical and executive practice. No charge. Small by design. Filling by trust.</p>
+
+    <div class="quote">"High-performing leaders do not struggle with the work. They struggle with the weight they have absorbed that was never theirs to begin with."</div>
+
+    <div class="profiles-label">Four Origin Points · One Room</div>
+    <div class="profiles-strip">
+      <div class="profile-chip p-architect">
+        <div class="profile-stripe"></div>
+        <div class="profile-chip-body">
+          <div class="profile-name">Architect</div>
+          <div class="profile-role">Mastery</div>
+        </div>
+      </div>
+      <div class="profile-chip p-carrier">
+        <div class="profile-stripe"></div>
+        <div class="profile-chip-body">
+          <div class="profile-name">Carrier</div>
+          <div class="profile-role">Connection</div>
+        </div>
+      </div>
+      <div class="profile-chip p-performer">
+        <div class="profile-stripe"></div>
+        <div class="profile-chip-body">
+          <div class="profile-name">Performer</div>
+          <div class="profile-role">Achievement</div>
+        </div>
+      </div>
+      <div class="profile-chip p-sentinel">
+        <div class="profile-stripe"></div>
+        <div class="profile-chip-body">
+          <div class="profile-name">Sentinel</div>
+          <div class="profile-role">Protection</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="schedule-strip">
+      <div>
+        <div class="sched-label">Begins</div>
+        <strong>Wed, May 13</strong>
+      </div>
+      <div>
+        <div class="sched-label">Format</div>
+        <strong>12 × 90-min Zoom</strong>
+      </div>
+      <div>
+        <div class="sched-label">Cost</div>
+        <strong>Free · Beta</strong>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
+      <div class="cta-text">If a name comes to mind, <strong>send them here.</strong></div>
+      <div class="cta-url-card">
+        <div class="cta-url-label">Tell Dr. Cara</div>
+        <div class="cta-url">groundid.net/beta</div>
+      </div>
+      <div class="cta-url-sub">A brief form. Dr. Cara reads every one personally.</div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <strong>— Dr. Cara</strong>
+    drcara.net  ·  @drcaraa
+  </div>
+
+  <div class="bottom-bar"></div>
+
+</div>
+
+</body>
+</html>
