@@ -3,6 +3,14 @@
     {
       "source": "/",
       "destination": "/leadership-origin-quiz.html"
+    },
+    {
+      "source": "/interest",
+      "destination": "/groundid-interest.html"
+    },
+    {
+      "source": "/beta",
+      "destination": "/groundid-interest.html"
     }
   ]
 }

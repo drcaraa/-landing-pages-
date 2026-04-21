@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GroundID Leader · Referral Card</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #E8600A;
+    --orange-dark: #C44D00;
+    --orange-light: #FFF0E5;
+    --cream: #FBF4EA;
+    --cream-deep: #F2E6D3;
+    --gold: #C9A850;
+    --dark: #2A2320;
+    --body: #4A3F38;
+    --muted: #8A7060;
+    --architect: #C84200;
+    --carrier: #C89000;
+    --performer: #D81360;
+    --sentinel: #DF4F0F;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+
+  html, body { margin: 0; padding: 0; background: #E8DFD1; }
+
+  .poster {
+    width: 1080px;
+    height: 1920px;
+    background: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    font-family: var(--sans);
+    color: var(--body);
+    margin: 0 auto;
+  }
+
+  /* Top orange accent bar */
+  .top-bar {
+    height: 14px;
+    background: var(--orange);
+  }
+
+  /* Gold accent bar bottom */
+  .bottom-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 10px;
+    background: var(--gold);
+  }
+
+  /* Header */
+  .header {
+    padding: 52px 80px 40px;
+    border-bottom: 1px solid #EFE6DA;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .header-brand {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--dark);
+    text-transform: uppercase;
+  }
+  .header-tag {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 72px 80px 40px;
+    text-align: center;
+  }
+  .kicker {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 26px;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: 108px;
+    font-weight: 400;
+    line-height: 1.02;
+    color: var(--dark);
+    letter-spacing: -0.015em;
+    margin-bottom: 28px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--orange-dark);
+  }
+  .hero-sub {
+    font-family: var(--sans);
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--body);
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* Pull quote */
+  .quote-wrap {
+    padding: 20px 80px 30px;
+  }
+  .quote {
+    border-left: 5px solid var(--gold);
+    padding: 18px 0 18px 36px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 30px;
+    line-height: 1.38;
+    color: var(--orange-dark);
+    font-weight: 500;
+  }
+
+  /* Profiles grid */
+  .profiles {
+    padding: 20px 80px 20px;
+  }
+  .profiles-label {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--orange);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .profiles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .profile-card {
+    background: #FFFAF5;
+    border: 1px solid #EFE0CC;
+    border-radius: 10px;
+    padding: 0;
+    overflow: hidden;
+  }
+  .profile-stripe {
+    height: 8px;
+  }
+  .profile-body {
+    padding: 22px 26px 24px;
+  }
+  .profile-name {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .profile-role {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .profile-desc {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.45;
+    color: var(--body);
+  }
+  .p-architect .profile-stripe { background: var(--architect); }
+  .p-architect .profile-name { color: var(--architect); }
+  .p-carrier .profile-stripe { background: var(--carrier); }
+  .p-carrier .profile-name { color: var(--carrier); }
+  .p-performer .profile-stripe { background: var(--performer); }
+  .p-performer .profile-name { color: var(--performer); }
+  .p-sentinel .profile-stripe { background: var(--sentinel); }
+  .p-sentinel .profile-name { color: var(--sentinel); }
+
+  /* Schedule card */
+  .schedule-wrap {
+    padding: 36px 80px 24px;
+  }
+  .schedule {
+    background: var(--orange-light);
+    border-left: 6px solid var(--orange);
+    border-radius: 6px;
+    padding: 30px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px;
+  }
+  .sched-item-label {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--orange-dark);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .sched-item-value {
+    font-family: var(--serif);
+    font-size: 23px;
+    font-weight: 500;
+    color: var(--dark);
+    line-height: 1.22;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 40px 80px 48px;
+    text-align: center;
+  }
+  .cta-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 32px;
+    line-height: 1.38;
+    color: var(--dark);
+    margin-bottom: 26px;
+  }
+  .cta-text strong {
+    color: var(--orange-dark);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* Signature */
+  .signature {
+    padding: 0 80px 48px;
+    text-align: center;
+  }
+  .sig-flourish {
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 18px;
+  }
+  .sig-name {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+  .sig-url {
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <div class="top-bar"></div>
+
+  <div class="header">
+    <div class="header-brand">Dr. Cara Alexander</div>
+    <div class="header-tag">Connected Leadership</div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Beta Cohort · By Referral Only</div>
+    <h1 class="hero-title">Know a leader who&nbsp;belongs<br>in&nbsp;<em>this room?</em></h1>
+    <p class="hero-sub">A 12-week beta cohort for experienced leaders, built on 25 years of clinical and executive practice. No charge. Small by design. Filling by trust.</p>
+  </div>
+
+  <div class="quote-wrap">
+    <div class="quote">"High-performing leaders do not struggle with the work. They struggle with the weight they have absorbed that was never theirs to begin with."</div>
+  </div>
+
+  <div class="profiles">
+    <div class="profiles-label">Four Origin Points · One Room</div>
+    <div class="profiles-grid">
+      <div class="profile-card p-architect">
+        <div class="profile-stripe"></div>
+        <div class="profile-body">
+          <div class="profile-name">The Architect</div>
+          <div class="profile-role">Leads from Mastery</div>
+          <div class="profile-desc">Precision and standards. You build systems that hold.</div>
+        </div>
+      </div>
+      <div class="profile-card p-carrier">
+        <div class="profile-stripe"></div>
+        <div class="profile-body">
+          <div class="profile-name">The Carrier</div>
+          <div class="profile-role">Leads from Connection</div>
+          <div class="profile-desc">Read the room, hold the team. You build trust that lasts.</div>
+        </div>
+      </div>
+      <div class="profile-card p-performer">
+        <div class="profile-stripe"></div>
+        <div class="profile-body">
+          <div class="profile-name">The Performer</div>
+          <div class="profile-role">Leads from Achievement</div>
+          <div class="profile-desc">Drive and execution. You raise the standard around you.</div>
+        </div>
+      </div>
+      <div class="profile-card p-sentinel">
+        <div class="profile-stripe"></div>
+        <div class="profile-body">
+          <div class="profile-name">The Sentinel</div>
+          <div class="profile-role">Leads from Protection</div>
+          <div class="profile-desc">Read risk early. You see what others walk past.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="schedule-wrap">
+    <div class="schedule">
+      <div>
+        <div class="sched-item-label">Begins</div>
+        <div class="sched-item-value">Wed, May 13</div>
+      </div>
+      <div>
+        <div class="sched-item-label">Format</div>
+        <div class="sched-item-value">12 weekly 90-min Zooms</div>
+      </div>
+      <div>
+        <div class="sched-item-label">Cost</div>
+        <div class="sched-item-value">Free · Beta</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="cta-text">If a name comes to mind as you read this,<br><strong>text it back to me.</strong> That is the whole ask.</div>
+  </div>
+
+  <div class="signature">
+    <div class="sig-flourish"></div>
+    <div class="sig-name">— Dr. Cara</div>
+    <div class="sig-url">drcara.net  ·  @drcaraa</div>
+  </div>
+
+  <div class="bottom-bar"></div>
+
+</div>
+
+</body>
+</html>

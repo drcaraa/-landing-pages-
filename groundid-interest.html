@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GroundID Leader · Beta Interest Form | DR. CARA Connected Leadership</title>
+<meta name="description" content="A brief interest form for the GroundID Leader 12-week beta cohort. Referral-based. Small by design.">
+<meta property="og:title" content="GroundID Leader · Beta Interest Form">
+<meta property="og:description" content="If someone you trust forwarded this, tell Dr. Cara a little about who you lead and what you are carrying.">
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --orange: #E8600A;
+    --orange-dark: #C44D00;
+    --orange-light: #FFF0E5;
+    --cream: #FFFAF5;
+    --gold: #C9A850;
+    --dark: #2A2320;
+    --body: #4A3F38;
+    --muted: #8A7060;
+    --line: #EFE6DA;
+    --bg: #F7F2EC;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--body);
+    background: var(--bg);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    padding: 0;
+  }
+
+  /* Header */
+  .site-header {
+    padding: 24px 48px;
+    border-bottom: 2.5px solid var(--orange);
+    background: #FFFFFF;
+  }
+  .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--dark);
+    text-transform: uppercase;
+  }
+  .brand-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* Main container */
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .card {
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(74,63,56,0.08);
+    overflow: hidden;
+  }
+  .card-top-bar {
+    height: 6px;
+    background: var(--orange);
+  }
+  .card-body {
+    padding: 48px 56px;
+  }
+
+  /* Hero */
+  .kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--dark);
+    letter-spacing: -0.005em;
+    margin-bottom: 18px;
+  }
+  .hero-sub {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--body);
+    margin-bottom: 8px;
+  }
+  .hero-sub strong {
+    color: var(--dark);
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 36px 0;
+  }
+
+  /* Form */
+  .field {
+    margin-bottom: 22px;
+  }
+  .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .label .req {
+    color: var(--orange);
+    margin-left: 2px;
+  }
+  .help {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-style: italic;
+  }
+  .input,
+  .textarea,
+  .select {
+    width: 100%;
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--dark);
+    background: #FFFFFF;
+    border: 1.5px solid #DDD1BF;
+    border-radius: 6px;
+    padding: 12px 14px;
+    line-height: 1.5;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .textarea {
+    min-height: 120px;
+    resize: vertical;
+    font-family: Georgia, serif;
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+  .input:focus,
+  .textarea:focus,
+  .select:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(232,96,10,0.12);
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  /* Radio group for schedule */
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .radio-opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1.5px solid #DDD1BF;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .radio-opt:hover {
+    border-color: var(--orange);
+    background: var(--cream);
+  }
+  .radio-opt input[type="radio"] {
+    margin-top: 3px;
+    accent-color: var(--orange);
+  }
+  .radio-opt-text {
+    font-size: 14.5px;
+    color: var(--body);
+    line-height: 1.5;
+  }
+  .radio-opt input[type="radio"]:checked + .radio-opt-text {
+    color: var(--dark);
+    font-weight: 600;
+  }
+  .radio-opt:has(input[type="radio"]:checked) {
+    border-color: var(--orange);
+    background: var(--orange-light);
+  }
+
+  .consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 8px;
+    padding: 14px 16px;
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+  }
+  .consent input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--orange);
+  }
+  .consent-text {
+    font-size: 13px;
+    color: var(--body);
+    line-height: 1.6;
+  }
+
+  /* Submit */
+  .submit-wrap {
+    margin-top: 32px;
+    text-align: center;
+  }
+  .submit {
+    background: var(--orange);
+    color: #FFFFFF;
+    border: none;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .submit:hover {
+    background: var(--orange-dark);
+  }
+  .submit:disabled {
+    background: #D4B9A0;
+    cursor: not-allowed;
+  }
+  .submit-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 14px;
+    line-height: 1.6;
+  }
+
+  /* Error / success */
+  .form-error {
+    display: none;
+    background: #FFF0E5;
+    border-left: 4px solid var(--orange);
+    color: var(--orange-dark);
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+  .form-error.show { display: block; }
+
+  .success-card {
+    display: none;
+    text-align: center;
+    padding: 16px 0 8px;
+  }
+  .success-card.show { display: block; }
+  .success-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #E8F5EC;
+    margin-bottom: 22px;
+  }
+  .success-check svg {
+    width: 36px;
+    height: 36px;
+    stroke: #2E7D4F;
+    stroke-width: 3;
+    fill: none;
+  }
+  .success-title {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--dark);
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+  .success-body {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--body);
+    max-width: 520px;
+    margin: 0 auto 12px;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 24px 48px;
+    border-top: 2.5px solid var(--gold);
+    text-align: center;
+    background: #FFFFFF;
+  }
+  .footer-text {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  .footer-text a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  @media (max-width: 640px) {
+    .card-body { padding: 32px 24px; }
+    .hero-title { font-size: 28px; }
+    .row { grid-template-columns: 1fr; gap: 0; }
+    .site-header, .site-footer { padding: 20px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">Dr. Cara Alexander</div>
+    <div class="brand-tag">Connected Leadership</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="card">
+    <div class="card-top-bar"></div>
+    <div class="card-body">
+
+      <!-- HERO -->
+      <div id="hero-block">
+        <div class="kicker">GroundID Leader · Beta Cohort</div>
+        <h1 class="hero-title">Tell me a little about you.</h1>
+        <p class="hero-sub">If someone in my circle forwarded you this, it is because they believe you belong in this room. A few lines is plenty. I read every one.</p>
+        <p class="hero-sub" style="font-size:14px;color:var(--muted);margin-top:10px;">The cohort begins Wednesday, May 13 · meets Wednesdays 3:30 PM Eastern · 12 weekly 90-minute Zoom sessions · no charge in exchange for feedback and a testimonial.</p>
+      </div>
+
+      <hr class="divider">
+
+      <!-- ERROR -->
+      <div class="form-error" id="formError"></div>
+
+      <!-- FORM -->
+      <form id="interestForm" novalidate>
+
+        <!-- Name -->
+        <div class="row">
+          <div class="field">
+            <label class="label" for="firstName">First Name <span class="req">*</span></label>
+            <input type="text" class="input" id="firstName" name="firstName" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label class="label" for="lastName">Last Name <span class="req">*</span></label>
+            <input type="text" class="input" id="lastName" name="lastName" autocomplete="family-name" required>
+          </div>
+        </div>
+
+        <!-- Email & Phone -->
+        <div class="row">
+          <div class="field">
+            <label class="label" for="email">Email <span class="req">*</span></label>
+            <input type="email" class="input" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label class="label" for="phone">Mobile (optional)</label>
+            <input type="tel" class="input" id="phone" name="phone" autocomplete="tel">
+          </div>
+        </div>
+
+        <!-- Role / Org -->
+        <div class="row">
+          <div class="field">
+            <label class="label" for="role">Role / Title <span class="req">*</span></label>
+            <input type="text" class="input" id="role" name="role" required placeholder="e.g. Head of Operations">
+          </div>
+          <div class="field">
+            <label class="label" for="organization">Company / Organization</label>
+            <input type="text" class="input" id="organization" name="organization" placeholder="Optional">
+          </div>
+        </div>
+
+        <!-- Referred by -->
+        <div class="field">
+          <label class="label" for="referredBy">Who forwarded this to you?</label>
+          <input type="text" class="input" id="referredBy" name="referredBy" placeholder="Their name — it helps me connect the threads">
+          <div class="help">Optional, but appreciated.</div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="field">
+          <label class="label" for="reflection">A short reflection <span class="req">*</span></label>
+          <textarea class="textarea" id="reflection" name="reflection" required placeholder="Who do you lead? What are you carrying right now? What would you want to walk away with?"></textarea>
+          <div class="help">A few lines is enough.</div>
+        </div>
+
+        <!-- Schedule confirm -->
+        <div class="field">
+          <label class="label">Can you commit to the schedule? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-opt">
+              <input type="radio" name="scheduleFit" value="Yes — Wednesdays 3:30 PM ET works for all 12 weeks" required>
+              <span class="radio-opt-text">Yes — Wednesdays 3:30 PM Eastern works for me across the full 12 weeks.</span>
+            </label>
+            <label class="radio-opt">
+              <input type="radio" name="scheduleFit" value="Mostly — a session or two may be conflicts">
+              <span class="radio-opt-text">Mostly — I may have one or two conflicts; I can let you know which.</span>
+            </label>
+            <label class="radio-opt">
+              <input type="radio" name="scheduleFit" value="Need to discuss — timing is a concern">
+              <span class="radio-opt-text">I'd like to talk — timing is a real concern but I'm interested.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Consent -->
+        <label class="consent">
+          <input type="checkbox" id="consent" name="consent" required>
+          <span class="consent-text">
+            I understand this is a beta cohort. If selected, I commit to honest feedback throughout and a written testimonial at completion. Dr. Cara may follow up with me by email or phone.
+          </span>
+        </label>
+
+        <div class="submit-wrap">
+          <button type="submit" class="submit" id="submitBtn">Send to Dr. Cara</button>
+          <p class="submit-note">Dr. Cara replies personally — usually within 48 hours.</p>
+        </div>
+
+      </form>
+
+      <!-- SUCCESS STATE -->
+      <div class="success-card" id="successCard">
+        <div class="success-check">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="5 12 10 17 19 7"></polyline>
+          </svg>
+        </div>
+        <h2 class="success-title">Thank you. It is with me now.</h2>
+        <p class="success-body">I read every one of these myself. If there is a fit, you will hear from me within 48 hours to book a short conversation. If the timing or shape is not right, I will tell you that honestly too.</p>
+        <p class="success-body" style="font-style:italic;color:var(--orange-dark);margin-top:20px;">— Dr. Cara</p>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p class="footer-text">
+    © 2026 Dr. Cara Alexander &nbsp;·&nbsp;
+    <a href="http://drcara.net">drcara.net</a> &nbsp;·&nbsp;
+    @drcaraa &nbsp;·&nbsp;
+    delphi.ai/drcara
+  </p>
+</footer>
+
+<script>
+  // ============================================================
+  // Replace this with your Apps Script Web App URL after deploy:
+  // See: google-apps-script/groundid-interest.gs
+  // ============================================================
+  var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwyF-RLIqjU2MLHe0Ayn_t5t8DJS44aBXz443bu1yuipSXkXalCG3lbD8PdVJD-g-t9iw/exec';
+
+  var form = document.getElementById('interestForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var errorBox = document.getElementById('formError');
+  var heroBlock = document.getElementById('hero-block');
+  var successCard = document.getElementById('successCard');
+
+  function showError(msg) {
+    errorBox.textContent = msg;
+    errorBox.classList.add('show');
+    errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  function clearError() {
+    errorBox.classList.remove('show');
+    errorBox.textContent = '';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearError();
+
+    var data = {
+      firstName: form.firstName.value.trim(),
+      lastName: form.lastName.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      role: form.role.value.trim(),
+      organization: form.organization.value.trim(),
+      referredBy: form.referredBy.value.trim(),
+      reflection: form.reflection.value.trim(),
+      scheduleFit: (form.scheduleFit.value || ''),
+      consent: form.consent.checked ? 'Yes' : 'No',
+      source: 'groundid-interest',
+      submittedAt: new Date().toISOString(),
+      userAgent: navigator.userAgent
+    };
+
+    // Simple validation
+    if (!data.firstName || !data.lastName) { showError('Please share your first and last name.'); return; }
+    if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) { showError('Please enter a valid email address.'); return; }
+    if (!data.role) { showError('Please share your role or title.'); return; }
+    if (!data.reflection || data.reflection.length < 10) { showError('Please share a few lines in the reflection.'); return; }
+    if (!data.scheduleFit) { showError('Please indicate if the schedule works.'); return; }
+    if (data.consent !== 'Yes') { showError('Please confirm the beta cohort agreement.'); return; }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    // URL-encoded form body survives Apps Script's 302 redirect (unlike JSON in text/plain).
+    // Apps Script reads these as e.parameter.<field>.
+    var params = new URLSearchParams();
+    Object.keys(data).forEach(function (k) { params.append(k, data[k]); });
+
+    fetch(WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: params
+    })
+      .then(function () {
+        heroBlock.style.display = 'none';
+        form.style.display = 'none';
+        successCard.classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(function (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send to Dr. Cara';
+        showError('Something went wrong sending your note. Please try again, or email drcara@drcaraa.com directly.');
+      });
+  });
+</script>
+
+</body>
+</html>

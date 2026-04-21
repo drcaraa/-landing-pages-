@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DR. CARA | Post-Purchase Experience — Designer Handoff</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 24px; color: #333; line-height: 1.6; }
+  h1 { font-size: 28px; color: #2A2320; border-bottom: 3px solid #E8600A; padding-bottom: 12px; margin-top: 48px; }
+  h2 { font-size: 22px; color: #2A2320; border-bottom: 2px solid #C9A850; padding-bottom: 8px; margin-top: 40px; }
+  h3 { font-size: 18px; color: #E8600A; margin-top: 28px; }
+  h4 { font-size: 15px; color: #4A3F38; margin-top: 20px; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
+  th { background: #2A2320; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+  td { padding: 8px 12px; border-bottom: 1px solid #E8E0D8; }
+  tr:nth-child(even) { background: #FFFAF5; }
+  code { background: #FFF0E5; padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 13px; color: #C44D00; }
+  pre { background: #2A2320; color: #FFE8D4; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.5; white-space: pre; }
+  .title-block { text-align: center; padding: 40px 0 20px; border-bottom: 3px solid #E8600A; margin-bottom: 40px; }
+  .title-block h1 { border: none; font-size: 32px; margin: 0 0 8px 0; padding: 0; }
+  .title-block .subtitle { font-size: 18px; color: #A09080; margin-bottom: 20px; }
+  .title-block .meta { font-size: 13px; color: #A09080; }
+  .callout { background: #FFF0E5; border-left: 5px solid #E8600A; padding: 16px 20px; margin: 20px 0; font-size: 14px; }
+  .callout strong { color: #2A2320; }
+  .green-box { background: #E8F5EC; border-left: 5px solid #2E7D4F; padding: 16px 20px; margin: 20px 0; }
+  .green-box strong { color: #2E7D4F; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; border-bottom: 1px solid #E8E0D8; font-size: 14px; }
+  .checklist li::before { content: "\2610"; position: absolute; left: 0; font-size: 18px; color: #E8600A; }
+  .swatch { display: inline-block; width: 20px; height: 20px; border-radius: 3px; vertical-align: middle; margin-right: 8px; border: 1px solid #E8E0D8; }
+  .divider { border: none; border-top: 2px solid #C9A850; margin: 48px 0; }
+  .page-break { page-break-before: always; }
+  @media print {
+    body { max-width: 100%; margin: 0; padding: 20px; }
+    pre { white-space: pre-wrap; }
+    .page-break { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TITLE BLOCK -->
+<div class="title-block">
+  <h1>DR. CARA | Post-Purchase Experience</h1>
+  <div class="subtitle">Website Designer Handoff Document</div>
+  <div class="meta">
+    Prepared for: Website Designer<br>
+    Prepared by: Dr. Cara Alexander<br>
+    Date: April 2026<br>
+    Project: Post-Purchase Client Experience — Squarespace Build
+  </div>
+</div>
+
+<!-- ===================== PART 1 ===================== -->
+
+<h1>PART 1: HIGH-LEVEL OVERVIEW</h1>
+
+<!-- SECTION 1 -->
+<h2>1. Project Summary</h2>
+<p>We need to build the post-purchase client experience on our existing Squarespace Business site (<strong>drcara.net</strong>). When a client purchases one of our two products, they are redirected to a confirmation page (hosted on Vercel) and receive an automated email sequence (handled by Google Apps Script). Their ongoing content access — session recordings, course materials, and premium resources — lives on Squarespace.</p>
+
+<div class="callout">
+  <strong>Your job is to build the Squarespace pages. Everything else is already built or automated.</strong>
+</div>
+
+<!-- SECTION 2 -->
+<h2>2. Scope of Work</h2>
+
+<h3>YOU ARE BUILDING (Squarespace):</h3>
+<ul>
+  <li>Replay Vault course page (session recordings)</li>
+  <li>GroundID Leader course page (12-week cohort content)</li>
+  <li>Member Area (premium gated content)</li>
+  <li>Prompt Guide page (downloadable PDFs)</li>
+</ul>
+
+<h3>ALREADY BUILT (Do NOT touch):</h3>
+<ul>
+  <li>Landing pages and quiz (Vercel — separate hosting)</li>
+  <li>Confirmation pages after purchase (Vercel)</li>
+  <li>Payment processing (Stripe)</li>
+  <li>Automated email sequences (Google Apps Script)</li>
+  <li>Virtual Mind AI platform (Delphi.ai — external tool)</li>
+</ul>
+
+<!-- SECTION 3 -->
+<h2>3. System Architecture</h2>
+
+<pre>
+CLIENT JOURNEY:
+
+  Quiz (Vercel)
+    |
+    v
+  Results + Landing Page (Vercel)
+    |
+    v
+  Payment (Stripe via drcara.net)
+    |
+    +---&gt; Confirmation Page (Vercel)
+    |
+    +---&gt; Google Sheet CRM (automatic)
+    |
+    +---&gt; Welcome Email (Gmail — automatic)
+    |
+    +---&gt; Squarespace Access  &lt;-- WHAT YOU ARE BUILDING
+            |
+            +---&gt; /replay-vault        [Squarespace Course]
+            +---&gt; /groundid-leader     [Squarespace Course]
+            +---&gt; /member-area         [Squarespace Member Site]
+            +---&gt; /prompt-guide        [Squarespace Page]
+</pre>
+
+<!-- SECTION 4 -->
+<h2>4. What to Build — Summary</h2>
+
+<table>
+  <tr><th>#</th><th>Page</th><th>URL Slug</th><th>Squarespace Type</th><th>Access Level</th></tr>
+  <tr><td>1</td><td><strong>Replay Vault</strong></td><td><code>/replay-vault</code></td><td>Course</td><td>All paying members</td></tr>
+  <tr><td>2</td><td><strong>GroundID Leader</strong></td><td><code>/groundid-leader</code></td><td>Course</td><td>GroundID enrollees only</td></tr>
+  <tr><td>3</td><td><strong>Member Area</strong></td><td><code>/member-area</code></td><td>Member Site</td><td>All paying members</td></tr>
+  <tr><td>4</td><td><strong>Prompt Guide</strong></td><td><code>/prompt-guide</code></td><td>Member Page</td><td>All paying members</td></tr>
+</table>
+
+<!-- SECTION 5 -->
+<h2>5. Brand Reference</h2>
+
+<h3>Primary Brand Colors</h3>
+<table>
+  <tr><th>Color</th><th>Hex</th><th>Usage</th></tr>
+  <tr><td><span class="swatch" style="background:#E8600A"></span>Primary Orange</td><td><code>#E8600A</code></td><td>CTAs, buttons, highlights, accent borders</td></tr>
+  <tr><td><span class="swatch" style="background:#C44D00"></span>Orange Dark</td><td><code>#C44D00</code></td><td>Button hover states</td></tr>
+  <tr><td><span class="swatch" style="background:#FFF0E5"></span>Orange Light</td><td><code>#FFF0E5</code></td><td>Callout backgrounds</td></tr>
+  <tr><td><span class="swatch" style="background:#C9A850"></span>Gold</td><td><code>#C9A850</code></td><td>Footer borders, premium accent</td></tr>
+</table>
+
+<h3>Profile-Specific Accent Colors</h3>
+<table>
+  <tr><th>Profile</th><th>Hex</th><th>Character</th></tr>
+  <tr><td><span class="swatch" style="background:#c84200"></span>The Architect</td><td><code>#c84200</code></td><td>Deep burnt orange</td></tr>
+  <tr><td><span class="swatch" style="background:#c89000"></span>The Carrier</td><td><code>#c89000</code></td><td>Golden amber</td></tr>
+  <tr><td><span class="swatch" style="background:#d81360"></span>The Performer</td><td><code>#d81360</code></td><td>Deep magenta</td></tr>
+  <tr><td><span class="swatch" style="background:#df4f0f"></span>The Sentinel</td><td><code>#df4f0f</code></td><td>Orange-red</td></tr>
+</table>
+
+<h3>Text &amp; Background Colors</h3>
+<table>
+  <tr><th>Color</th><th>Hex</th><th>Usage</th></tr>
+  <tr><td><span class="swatch" style="background:#2A2320"></span>Dark</td><td><code>#2A2320</code></td><td>Primary headings</td></tr>
+  <tr><td><span class="swatch" style="background:#4A3F38"></span>Body Text</td><td><code>#4A3F38</code></td><td>Paragraph text</td></tr>
+  <tr><td><span class="swatch" style="background:#A09080"></span>Muted</td><td><code>#A09080</code></td><td>Captions, footer text</td></tr>
+  <tr><td><span class="swatch" style="background:#FFFAF5"></span>Cream</td><td><code>#FFFAF5</code></td><td>Content boxes, summaries</td></tr>
+  <tr><td><span class="swatch" style="background:#E8E0D8"></span>Border</td><td><code>#E8E0D8</code></td><td>Dividers, box borders</td></tr>
+  <tr><td><span class="swatch" style="background:#2E7D4F"></span>Green</td><td><code>#2E7D4F</code></td><td>Confirmation states, guarantees</td></tr>
+</table>
+
+<h3>Fonts</h3>
+<table>
+  <tr><th>Type</th><th>Font</th><th>Fallback</th></tr>
+  <tr><td>Headlines</td><td>EB Garamond (400, 500, 600, 700)</td><td>Georgia, Times New Roman</td></tr>
+  <tr><td>Body</td><td>System stack</td><td>-apple-system, Segoe UI, Arial</td></tr>
+</table>
+
+<h3>Tone &amp; Voice</h3>
+<ul>
+  <li>Clinical but warm. Direct but not cold.</li>
+  <li>Speaks to leaders as equals, not students.</li>
+  <li>Uses "you" and "the work" frequently.</li>
+  <li>Avoids hype, urgency, or exclamation points.</li>
+  <li>Framework language: RPR (Receive-Perceive-Respond), Leadership Origin Profile, GroundID, Virtual Mind.</li>
+</ul>
+
+<!-- SECTION 6 -->
+<h2>6. Two Products — What Each Client Gets</h2>
+
+<h3>Product 1: Virtual Mind ($49/month)</h3>
+<table>
+  <tr><th>Detail</th><th>Value</th></tr>
+  <tr><td>Price</td><td>$49/month, cancel anytime</td></tr>
+  <tr><td>Access</td><td>24/7 unlimited AI coaching conversations</td></tr>
+  <tr><td>Platform</td><td>Delphi.ai (external — not on Squarespace)</td></tr>
+  <tr><td>Squarespace access</td><td>Replay Vault + Member Area + Prompt Guide</td></tr>
+  <tr><td>Live component</td><td>Weekly GroundID Live sessions (Zoom)</td></tr>
+</table>
+
+<h3>Product 2: GroundID Leader ($9,000)</h3>
+<table>
+  <tr><th>Detail</th><th>Value</th></tr>
+  <tr><td>Price</td><td>$9,000 total ($3,000/month x 3)</td></tr>
+  <tr><td>Format</td><td>12 live 90-minute sessions with Dr. Cara</td></tr>
+  <tr><td>Session structure</td><td>20 min teaching + 30 min dialogue + 40 min RPR coaching</td></tr>
+  <tr><td>Cohort size</td><td>Maximum 10 leaders, quarterly enrollment</td></tr>
+  <tr><td>Squarespace access</td><td>GroundID Leader course + Replay Vault + Member Area + Prompt Guide</td></tr>
+  <tr><td>Physical product</td><td>RPR Practice Deck shipped before Week 1</td></tr>
+  <tr><td>Bonus</td><td>30-day Virtual Mind pre-access</td></tr>
+  <tr><td>Post-program</td><td>90-day community access</td></tr>
+  <tr><td>Guarantee</td><td>2 sessions, full Month 1 refund</td></tr>
+</table>
+
+<hr class="divider">
+
+<!-- ===================== PART 2 ===================== -->
+
+<h1 class="page-break">PART 2: DETAILED BUILD SPECS</h1>
+
+<!-- APPENDIX A -->
+<h2>Appendix A: Replay Vault — Squarespace Course</h2>
+
+<table>
+  <tr><td><strong>URL</strong></td><td><code>drcara.net/replay-vault</code></td></tr>
+  <tr><td><strong>Type</strong></td><td>Squarespace Course</td></tr>
+  <tr><td><strong>Access</strong></td><td>Members only (all paying members)</td></tr>
+  <tr><td><strong>Purpose</strong></td><td>Houses recorded GroundID Live sessions for on-demand viewing</td></tr>
+</table>
+
+<h3>Course Structure</h3>
+<pre>
+REPLAY VAULT
+  |
+  +-- Section: [Month Year] (e.g., "April 2026")
+  |     +-- Lesson: "GroundID Live — [Date] — [Topic]"
+  |     +-- Lesson: "GroundID Live — [Date] — [Topic]"
+  |
+  +-- Section: [Month Year] (e.g., "March 2026")
+  |     +-- Lesson: "GroundID Live — [Date] — [Topic]"
+  |     +-- ...
+</pre>
+
+<h3>Content Per Lesson</h3>
+<ul>
+  <li><strong>Video:</strong> Zoom recording (uploaded weekly after each session)</li>
+  <li><strong>Description:</strong> 2-3 sentences about what was covered</li>
+  <li>No quizzes, no completion tracking needed</li>
+</ul>
+
+<h3>Weekly Upload Workflow</h3>
+<ol>
+  <li>Dr. Cara records GroundID Live on Zoom (weekly)</li>
+  <li>Downloads recording from Zoom</li>
+  <li>Uploads to Squarespace as a new lesson under the current month</li>
+  <li>Members see it immediately</li>
+</ol>
+
+<div class="callout">
+  <strong>Design note:</strong> Clean, minimal layout. Organized reverse-chronologically (newest first). Each section = one month. This is a library, not a course to complete — no progress tracking needed.
+</div>
+
+<!-- APPENDIX B -->
+<h2>Appendix B: GroundID Leader — Squarespace Course</h2>
+
+<table>
+  <tr><td><strong>URL</strong></td><td><code>drcara.net/groundid-leader</code></td></tr>
+  <tr><td><strong>Type</strong></td><td>Squarespace Course</td></tr>
+  <tr><td><strong>Access</strong></td><td>GroundID Leader enrollees only</td></tr>
+  <tr><td><strong>Purpose</strong></td><td>Central hub for the 12-week cohort experience</td></tr>
+</table>
+
+<h3>Course Structure</h3>
+<pre>
+GROUNDID LEADER
+  |
+  +-- Module 1: PRE-WORK (Available immediately after enrollment)
+  |     +-- Lesson: "Welcome to GroundID Leader" (text + video)
+  |     +-- Lesson: "Leadership Identity Brief" (link to intake form)
+  |     +-- Lesson: "Shipping Address" (form for RPR Practice Deck)
+  |     +-- Lesson: "Your Virtual Mind Pre-Access" (link to delphi.ai/drcara)
+  |     +-- Lesson: "Session Schedule &amp; Zoom Links" (dates + calendar links)
+  |
+  +-- Module 2: SESSIONS (Added weekly as sessions occur)
+  |     +-- Lesson: "Session 1 — [Topic]" (recording + notes)
+  |     +-- Lesson: "Session 2 — [Topic]"
+  |     +-- ... through Session 12
+  |
+  +-- Module 3: RESOURCES
+        +-- Lesson: "RPR Practice Deck — Digital Companion" (PDF)
+        +-- Lesson: "Your Leadership Origin Profile" (link to grounid.com)
+        +-- Lesson: "Premium Prompt Guide" (PDF, profile-specific)
+        +-- Lesson: "Post-Program Community" (90-day access info)
+</pre>
+
+<div class="callout">
+  <strong>Design notes:</strong>
+  <ul>
+    <li>Module 1 (Pre-Work) should feel urgent/action-oriented — these are tasks to complete before the program</li>
+    <li>Module 2 (Sessions) starts empty and fills over 12 weeks</li>
+    <li>Module 3 (Resources) is the evergreen reference library</li>
+    <li>Overall feel: premium, cohort-specific, exclusive</li>
+  </ul>
+</div>
+
+<!-- APPENDIX C -->
+<h2>Appendix C: Member Area — Squarespace Member Site</h2>
+
+<table>
+  <tr><td><strong>URL</strong></td><td><code>drcara.net/member-area</code></td></tr>
+  <tr><td><strong>Type</strong></td><td>Squarespace Member Site</td></tr>
+  <tr><td><strong>Access</strong></td><td>All paying members</td></tr>
+  <tr><td><strong>Purpose</strong></td><td>Premium content hub with downloadable resources</td></tr>
+</table>
+
+<h3>Pages to Create</h3>
+<pre>
+MEMBER AREA
+  |
+  +-- Page: "Premium Prompt Guides"
+  |     +-- The Architect Prompt Guide (PDF download)
+  |     +-- The Carrier Prompt Guide (PDF download)
+  |     +-- The Performer Prompt Guide (PDF download)
+  |     +-- The Sentinel Prompt Guide (PDF download)
+  |
+  +-- Page: "Resources"
+  |     +-- RPR Framework Overview (PDF)
+  |     +-- Leadership Origin Profile Guide (link to grounid.com)
+  |     +-- Virtual Mind Quick Start (text + link to delphi.ai/drcara)
+  |
+  +-- Page: "Member Insights" (Optional — for future content)
+        +-- Member-only blog posts or articles from Dr. Cara
+</pre>
+
+<div class="callout">
+  <strong>Design notes:</strong> Clean, library-style layout. PDFs should be easy to find and download. Each Prompt Guide should be visually distinguished using the profile accent colors. Feels exclusive but not complicated.
+</div>
+
+<!-- APPENDIX D -->
+<h2>Appendix D: Post-Purchase Email Flow (Context Only)</h2>
+
+<div class="green-box">
+  <strong>The designer does NOT build this.</strong> It is automated via Google Apps Script + Gmail. But you need to understand what clients receive so the Squarespace experience is consistent with the emails.
+</div>
+
+<h3>Virtual Mind Email Sequence</h3>
+<table>
+  <tr><th>Day</th><th>Subject</th><th>Links to Squarespace</th></tr>
+  <tr><td>0</td><td>"Welcome to Virtual Mind — Your access is live"</td><td>drcara.net/replay-vault, drcara.net/prompt-guide</td></tr>
+  <tr><td>3</td><td>"Three prompts for The [Profile]"</td><td>—</td></tr>
+  <tr><td>7</td><td>"This week's GroundID Live is yours"</td><td>drcara.net/replay-vault</td></tr>
+</table>
+
+<h3>GroundID Leader Email Sequence</h3>
+<table>
+  <tr><th>Day</th><th>Subject</th><th>Links to Squarespace</th></tr>
+  <tr><td>0</td><td>"Welcome to GroundID Leader — You are in"</td><td>drcara.net/groundid-leader</td></tr>
+  <tr><td>2</td><td>"Your Leadership Identity Brief — complete before we begin"</td><td>drcara.net/groundid-leader</td></tr>
+  <tr><td>5</td><td>"Your Virtual Mind pre-access — use it before Session 1"</td><td>—</td></tr>
+</table>
+
+<div class="callout">
+  <strong>Why this matters:</strong> Clients arrive at your Squarespace pages via links in these emails within their first week. The landing experience must match the tone and visual quality of the emails. First impressions matter.
+</div>
+
+<!-- APPENDIX E -->
+<h2>Appendix E: Client Journey Maps</h2>
+
+<h3>Journey 1: Virtual Mind Subscriber</h3>
+<pre>
+DAY 0: Purchase ($49/month)
+  +---&gt; Sees confirmation page (Vercel)
+  +---&gt; Receives welcome email with access links
+  +---&gt; Opens Virtual Mind (delphi.ai/drcara)
+  +---&gt; Visits Member Area for Prompt Guide (drcara.net/member-area)
+
+DAY 3: Follow-up email with profile-specific prompts
+  +---&gt; Returns to Virtual Mind
+
+DAY 7: GroundID Live reminder
+  +---&gt; Attends GroundID Live (Zoom)
+  +---&gt; OR visits Replay Vault (drcara.net/replay-vault)
+
+ONGOING (Weekly):
+  +---&gt; GroundID Live (Zoom)
+  +---&gt; Virtual Mind (delphi.ai/drcara)
+  +---&gt; Replay Vault (drcara.net/replay-vault)
+</pre>
+
+<h3>Journey 2: GroundID Leader Enrollee</h3>
+<pre>
+DAY 0: Enrollment ($9,000)
+  +---&gt; Sees confirmation page (Vercel)
+  +---&gt; Receives welcome email with 5 action items
+  +---&gt; Logs into course portal (drcara.net/groundid-leader)
+
+DAYS 1-2: Onboarding
+  +---&gt; Completes Leadership Identity Brief (via course portal)
+  +---&gt; Submits shipping address for RPR Practice Deck
+  +---&gt; Opens Virtual Mind pre-access (delphi.ai/drcara)
+
+DAY 5: Virtual Mind reminder email
+
+PRE-WEEK 1:
+  +---&gt; RPR Practice Deck arrives (shipped)
+  +---&gt; All 12 sessions added to calendar
+
+WEEKS 1-12: Active Program
+  +---&gt; Weekly 90-minute sessions (Zoom)
+  +---&gt; Session recordings posted to course portal
+  +---&gt; Virtual Mind available between sessions
+
+POST-PROGRAM (90 days):
+  +---&gt; Community access continues
+  +---&gt; Replay Vault access continues
+</pre>
+
+<!-- APPENDIX F -->
+<h2>Appendix F: URL Structure &amp; Navigation</h2>
+
+<h3>Complete URL Map</h3>
+<table>
+  <tr><th>URL</th><th>Type</th><th>Purpose</th><th>Who Sees It</th></tr>
+  <tr><td><code>drcara.net</code></td><td>Main site</td><td>Homepage, about, services</td><td>Everyone</td></tr>
+  <tr><td><code>drcara.net/replay-vault</code></td><td>Squarespace Course</td><td>GroundID Live recordings</td><td>All paying members</td></tr>
+  <tr><td><code>drcara.net/groundid-leader</code></td><td>Squarespace Course</td><td>12-week cohort content</td><td>GroundID enrollees only</td></tr>
+  <tr><td><code>drcara.net/member-area</code></td><td>Member Site</td><td>Premium resources hub</td><td>All paying members</td></tr>
+  <tr><td><code>drcara.net/prompt-guide</code></td><td>Member Page</td><td>Profile-specific PDF guides</td><td>All paying members</td></tr>
+</table>
+
+<h3>External URLs (Not on Squarespace)</h3>
+<table>
+  <tr><th>URL</th><th>Platform</th><th>Purpose</th></tr>
+  <tr><td><code>delphi.ai/drcara</code></td><td>Delphi.ai</td><td>Virtual Mind AI coaching</td></tr>
+  <tr><td><code>grounid.com</code></td><td>GrounID</td><td>Leadership Origin Profile sharing</td></tr>
+  <tr><td>Landing pages + quiz</td><td>Vercel</td><td>Lead generation (separate hosting)</td></tr>
+</table>
+
+<h3>Navigation Recommendation</h3>
+<p>Add to Squarespace main navigation <strong>(logged-in members only)</strong>:</p>
+<ul>
+  <li>"Member Area" &rarr; <code>/member-area</code></li>
+  <li>"Replay Vault" &rarr; <code>/replay-vault</code></li>
+  <li>"Virtual Mind" &rarr; <code>delphi.ai/drcara</code> (external link)</li>
+</ul>
+<p>GroundID Leader enrollees also see:</p>
+<ul>
+  <li>"My Program" &rarr; <code>/groundid-leader</code></li>
+</ul>
+
+<hr class="divider">
+
+<!-- CHECKLIST -->
+<h1 class="page-break">Designer Checklist</h1>
+
+<p>Use this to track progress. Check off each item as completed:</p>
+
+<h3>Replay Vault</h3>
+<ul class="checklist">
+  <li>Set up Squarespace Course at <code>/replay-vault</code></li>
+  <li>Configure member-only access</li>
+  <li>Create first month section with placeholder lessons</li>
+  <li>Test video upload workflow</li>
+</ul>
+
+<h3>GroundID Leader</h3>
+<ul class="checklist">
+  <li>Set up Squarespace Course at <code>/groundid-leader</code></li>
+  <li>Create Module 1: Pre-Work (5 lessons)</li>
+  <li>Create Module 2: Sessions (empty, to be filled weekly)</li>
+  <li>Create Module 3: Resources (4 lessons)</li>
+  <li>Configure enrollee-only access</li>
+</ul>
+
+<h3>Member Area</h3>
+<ul class="checklist">
+  <li>Set up Squarespace Member Site at <code>/member-area</code></li>
+  <li>Create Prompt Guides page with 4 PDF downloads</li>
+  <li>Create Resources page</li>
+  <li>Configure member-only access</li>
+</ul>
+
+<h3>Integration &amp; Testing</h3>
+<ul class="checklist">
+  <li>Connect Stripe to Squarespace (Commerce &rarr; Payments)</li>
+  <li>Test member login flow</li>
+  <li>Test course access for both member tiers</li>
+  <li>Add member navigation links (logged-in users only)</li>
+  <li>Review mobile responsiveness for all new pages</li>
+  <li>Brand check: colors, fonts, and tone match existing site</li>
+</ul>
+
+<hr class="divider">
+
+<p style="text-align: center; color: #A09080; font-size: 13px; margin-top: 40px;">
+  <strong>DR. CARA</strong> &middot; Connected Leadership &middot; drcara.net<br>
+  Questions? Reply directly in this document or email Dr. Cara.
+</p>
+
+</body>
+</html>

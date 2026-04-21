@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Cara · Connected Leadership — Revised Homepage Mockup</title>
+  <meta name="description" content="There's a reason the leaders everyone relies on burn out first — and it isn't workload. Find out which of 4 protective patterns is running yours.">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --architect: #c84200;
+      --carrier: #c89000;
+      --performer: #d81360;
+      --sentinel: #df4f0f;
+      --accent: #c84200;
+      --accent-light: #e05a1a;
+      --accent-pale: #fff9f4;
+      --gold: #C9A850;
+      --dark: #2A2320;
+      --body-text: #4A3F38;
+      --muted: #A09080;
+      --muted-light: #8A7060;
+      --cream: #F5F0EB;
+      --white: #FFFFFF;
+      --serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--body-text);
+      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+    .container--narrow { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+
+    /* MOCKUP NOTICE */
+    .mockup-bar {
+      background: var(--dark);
+      color: #f5f0eb;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 10px 16px;
+    }
+    .mockup-bar strong { color: #fda54f; }
+
+    /* HEADER */
+    .site-header {
+      padding: 22px 32px;
+      border-bottom: 1px solid #efe9e2;
+    }
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      color: var(--dark);
+      letter-spacing: 0.02em;
+    }
+    .logo span { color: var(--accent); }
+    .nav { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+    .nav a {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--body-text);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .nav a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 10px 18px;
+      border-radius: 4px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .nav-cta:hover { background: var(--accent-light); color: #fff !important; }
+
+    /* HERO */
+    .hero { padding: 72px 0 64px; background: #fbf7f2; overflow: hidden; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-portrait {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      min-height: 520px;
+    }
+    .hero-portrait-bg {
+      position: absolute;
+      inset: 40px 20px 0 20px;
+      background: radial-gradient(circle at 50% 40%, #fda54f 0%, #f5e0d0 55%, #fbf7f2 100%);
+      border-radius: 50% 50% 8px 8px / 48% 48% 8px 8px;
+      z-index: 0;
+    }
+    .hero-portrait img {
+      position: relative;
+      z-index: 1;
+      max-width: 100%;
+      max-height: 560px;
+      width: auto;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 12px 24px rgba(42, 35, 32, 0.18));
+    }
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: 3.4rem;
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--dark);
+      max-width: 880px;
+      margin-bottom: 22px;
+      letter-spacing: -0.01em;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: 1.18rem;
+      color: var(--body-text);
+      max-width: 640px;
+      margin-bottom: 36px;
+      line-height: 1.55;
+    }
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 16px 28px;
+      border: none;
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-block;
+      transition: background 0.15s ease;
+    }
+    .btn-primary:hover { background: var(--accent-light); }
+    .btn-secondary-link {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      color: var(--body-text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--muted);
+      padding-bottom: 2px;
+    }
+    .btn-secondary-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* TRUST STRIP */
+    .trust-strip {
+      border-top: 1px solid #efe9e2;
+      border-bottom: 1px solid #efe9e2;
+      padding: 22px 0;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      color: var(--muted-light);
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+    .trust-strip span { margin: 0 14px; }
+
+    /* SECTION GENERIC */
+    section { padding: 96px 0; }
+    .section-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-headline {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      line-height: 1.18;
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      font-family: var(--sans);
+      font-size: 1.1rem;
+      color: var(--muted-light);
+      margin-bottom: 48px;
+      max-width: 640px;
+    }
+
+    /* TENSIONS GRID */
+    .tensions { background: #fbf7f2; }
+    .tensions-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+    .tension-card {
+      background: #fff;
+      border-top: 3px solid var(--accent);
+      padding: 22px 18px 24px;
+      border-radius: 2px;
+    }
+    .tension-card h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--dark);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .tension-card p {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--body-text);
+      line-height: 1.55;
+    }
+    .tension-card .stat {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* PROFILES SECTION */
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 36px 0 40px;
+    }
+    .profile-card {
+      padding: 26px 22px;
+      border-radius: 3px;
+      color: #fff;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .profile-card .name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      margin-bottom: 12px;
+    }
+    .profile-card .desc {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      opacity: 0.95;
+    }
+    .profile-card.architect { background: var(--architect); }
+    .profile-card.carrier   { background: var(--carrier); }
+    .profile-card.performer { background: var(--performer); }
+    .profile-card.sentinel  { background: var(--sentinel); }
+
+    .assessment-cta {
+      text-align: center;
+      padding: 14px 0 0;
+    }
+    .assessment-cta .micro {
+      display: block;
+      margin-top: 14px;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--muted-light);
+      font-style: italic;
+    }
+
+    /* PROOF */
+    .proof { background: var(--cream); }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+    .stat-block {
+      text-align: center;
+      padding: 12px;
+    }
+    .stat-block .num {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      color: var(--accent);
+      font-weight: 500;
+      display: block;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .stat-block .label {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      color: var(--body-text);
+      line-height: 1.45;
+    }
+    .testimonial {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonial blockquote {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.4;
+      margin-bottom: 22px;
+    }
+    .testimonial cite {
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 0.92rem;
+      color: var(--muted-light);
+      letter-spacing: 0.04em;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .about-photo {
+      background: linear-gradient(135deg, #fbf7f2 0%, #f5e0d0 70%, #fda54f 100%);
+      aspect-ratio: 4/5;
+      border-radius: 3px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-photo img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 8px 18px rgba(42,35,32,0.18));
+    }
+    .about-text p {
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      color: var(--body-text);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .about-text a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+      font-weight: 500;
+    }
+
+    /* VIRTUAL MIND */
+    .vm { background: var(--dark); color: #f5f0eb; }
+    .vm .section-eyebrow { color: #fda54f; }
+    .vm .section-headline { color: #fff; }
+    .vm .section-sub { color: #c0b0a0; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 30px;
+    }
+    .price-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 32px 28px;
+      border-radius: 3px;
+    }
+    .price-card.featured {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .price-card h3 {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      color: #fff;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .price-card .price {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: #fda54f;
+      letter-spacing: 0.06em;
+      margin-bottom: 22px;
+    }
+    .price-card.featured .price { color: #ffe0c8; }
+    .price-card ul {
+      list-style: none;
+      margin-bottom: 26px;
+    }
+    .price-card li {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      color: #e6dcd0;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .price-card.featured li { color: #fff5ec; border-color: rgba(255,255,255,0.18); }
+    .price-card .btn-primary { background: #fff; color: var(--accent); width: 100%; text-align: center; }
+    .price-card .btn-primary:hover { background: #ffe0c8; }
+    .price-card.featured .btn-primary { background: #fff; color: var(--accent); }
+
+    /* FINAL CTA */
+    .final { text-align: center; padding: 110px 0 120px; }
+    .final .section-headline { margin-bottom: 18px; }
+    .final .section-sub { margin: 0 auto 36px; }
+
+    /* FOOTER */
+    footer {
+      background: var(--cream);
+      padding: 40px 32px;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--muted-light);
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-contact a { color: var(--body-text); text-decoration: none; }
+    .footer-social a { color: var(--body-text); text-decoration: none; margin-left: 18px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { padding: 56px 0 48px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+      .hero-portrait { min-height: 420px; order: -1; }
+      .hero-portrait img { max-height: 420px; }
+      .hero-headline { font-size: 2.2rem; }
+      .section-headline { font-size: 1.9rem; }
+      .tensions-grid { grid-template-columns: 1fr 1fr; }
+      .profiles-grid { grid-template-columns: 1fr 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      section { padding: 64px 0; }
+      .nav { display: none; }
+    }
+    @media (max-width: 540px) {
+      .tensions-grid { grid-template-columns: 1fr; }
+      .profiles-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr; }
+      .hero-headline { font-size: 1.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mockup-bar"><strong>Mockup</strong> · drcara.net homepage — revised structure preview</div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">Dr. Cara <span>·</span> Connected Leadership</div>
+      <nav class="nav">
+        <a href="#tensions">Framework</a>
+        <a href="#vm">Work Together</a>
+        <a href="#about">About</a>
+        <a href="#assessment" class="nav-cta">See Your Pattern</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Connected Leadership · Dr. Cara Alexander</div>
+          <h1 class="hero-headline">
+            The leaders everyone relies on burn out first.<br>
+            There’s a reason — and it <em>isn’t workload</em>.
+          </h1>
+          <p class="hero-sub">
+            Find out which of 4 protective patterns is running your leadership right now.
+          </p>
+          <div class="cta-row">
+            <a href="#assessment" class="btn-primary">See Your Pattern — 3 Min →</a>
+            <a href="#vm" class="btn-secondary-link">or try the Virtual Mind free, no email →</a>
+          </div>
+        </div>
+        <div class="hero-portrait">
+          <div class="hero-portrait-bg"></div>
+          <img src="../assets/dr-cara-portrait-orange.png" alt="Dr. Cara Alexander" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-strip">
+    <span>25+ years clinical &amp; executive</span>·<span>Tested across 4 continents</span>·<span>7× average coaching ROI</span>
+  </div>
+
+  <!-- ============ FIVE TENSIONS ============ -->
+  <section class="tensions" id="tensions">
+    <div class="container">
+      <div class="section-eyebrow">The Framework</div>
+      <h2 class="section-headline">Five tensions every high-performing leader knows.</h2>
+      <p class="section-sub">And rarely names out loud.</p>
+
+      <div class="tensions-grid">
+        <div class="tension-card">
+          <h3>The Broken Rung</h3>
+          <p>High visibility, uncontrollable outcomes, narrowing pipeline.</p>
+          <span class="stat">Pipeline narrows by step</span>
+        </div>
+        <div class="tension-card">
+          <h3>The Personality Tax</h3>
+          <p>You’re evaluated on tone and energy, not results. The feedback is always vague.</p>
+          <span class="stat">“Executive presence” ≠ outcomes</span>
+        </div>
+        <div class="tension-card">
+          <h3>The Double Bind</h3>
+          <p>Constant calibration between competing leadership attributes — warm but firm, decisive but inclusive.</p>
+          <span class="stat">No correct setting</span>
+        </div>
+        <div class="tension-card">
+          <h3>The Invisible Load</h3>
+          <p>You absorb culture work and emotional labor that never shows up in your review.</p>
+          <span class="stat">+44% non-promotable work</span>
+        </div>
+        <div class="tension-card">
+          <h3>The Ambition Tension</h3>
+          <p>Fully ambitious — and quietly calculating whether this is sustainable at scale.</p>
+          <span class="stat">Drives quiet exits</span>
+        </div>
+      </div>
+
+      <div class="cta-row" style="justify-content: center;">
+        <a href="#assessment" class="btn-primary">Which one is running yours? →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ASSESSMENT ============ -->
+  <section id="assessment">
+    <div class="container">
+      <div class="section-eyebrow">Leadership Origin Profile</div>
+      <h2 class="section-headline">Four leaders. Four origins. One is running yours.</h2>
+      <p class="section-sub">
+        A free 3-minute diagnostic that names the protective pattern shaping your daily decisions —
+        and gives you the first move to lead without it.
+      </p>
+
+      <div class="profiles-grid">
+        <div class="profile-card architect">
+          <div class="name">The Architect</div>
+          <div class="desc">Builds the system everyone else depends on — and can’t stop revising it.</div>
+        </div>
+        <div class="profile-card carrier">
+          <div class="name">The Carrier</div>
+          <div class="desc">Holds what no one else will touch. Pays for it in private.</div>
+        </div>
+        <div class="profile-card performer">
+          <div class="name">The Performer</div>
+          <div class="desc">Reads every room before they enter it. Never stops calibrating.</div>
+        </div>
+        <div class="profile-card sentinel">
+          <div class="name">The Sentinel</div>
+          <div class="desc">Sees the risk first. Carries the weight of preventing it.</div>
+        </div>
+      </div>
+
+      <div class="assessment-cta">
+        <a href="#" class="btn-primary">Take the Free Assessment →</a>
+        <span class="micro">12 questions · 3 minutes · No account · You’ll get your profile + a 3-page playbook instantly</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROOF ============ -->
+  <section class="proof">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-block">
+          <span class="num">25+</span>
+          <span class="label">Years clinical psychology + executive coaching</span>
+        </div>
+        <div class="stat-block">
+          <span class="num">4</span>
+          <span class="label">Continents the GroundID framework has been tested in cohorts</span>
+        </div>
+        <div class="stat-block">
+          <span class="num">85%</span>
+          <span class="label">Cohort completion vs. 5% industry average for self-paced</span>
+        </div>
+        <div class="stat-block">
+          <span class="num">7×</span>
+          <span class="label">Average ROI reported by Fortune-level clients (2024)</span>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <blockquote>“I stopped overthinking decisions inside two weeks. The framework gave me a place to set things down.”</blockquote>
+        <cite>— [Name], [Title], [Company]</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo">
+          <img src="../assets/dr-cara-portrait-orange.png" alt="Dr. Cara Alexander" />
+        </div>
+        <div class="about-text">
+          <div class="section-eyebrow">Why this works</div>
+          <h2 class="section-headline" style="margin-bottom: 24px;">She doesn’t coach behavior. She names the pattern underneath it.</h2>
+          <p>
+            Dr. Cara Alexander spent 25 years as a clinical psychologist before building
+            GroundID — the framework she now teaches to executives across 4 continents.
+          </p>
+          <p>
+            She doesn’t coach behavior. She helps you understand the protective pattern
+            underneath it, so the change actually holds.
+          </p>
+          <p style="margin-top: 18px;"><a href="#">Read the full story →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIRTUAL MIND ============ -->
+  <section class="vm" id="vm">
+    <div class="container">
+      <div class="section-eyebrow">Always Available</div>
+      <h2 class="section-headline">Your 24/7 thinking partner.</h2>
+      <p class="section-sub">
+        Trained on 25 years of Dr. Cara’s clinical and executive expertise. The Virtual
+        Mind walks you through Receive → Perceive → Respond in real time, the moment
+        you need it.
+      </p>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Try It Free</h3>
+          <div class="price">5 MIN · EMAIL REQUIRED</div>
+          <ul>
+            <li>Full RPR walkthrough</li>
+            <li>Sample prompt library</li>
+            <li>No credit card</li>
+          </ul>
+          <a href="#" class="btn-primary">Try the Virtual Mind →</a>
+        </div>
+        <div class="price-card featured">
+          <h3>Premium</h3>
+          <div class="price">$49 / MONTH</div>
+          <ul>
+            <li>Unlimited 24/7 access</li>
+            <li>Weekly GroundID Live sessions</li>
+            <li>Premium Prompt Guide</li>
+          </ul>
+          <a href="#" class="btn-primary">Start Premium →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final">
+    <div class="container--narrow">
+      <h2 class="section-headline">You lead well. Now lead free.</h2>
+      <p class="section-sub" style="margin-bottom: 36px;">
+        Start with the 3-minute assessment. You’ll know your pattern by the time your coffee’s cold.
+      </p>
+      <div class="cta-row" style="justify-content: center;">
+        <a href="#assessment" class="btn-primary">See Your Pattern →</a>
+        <a href="#" class="btn-secondary-link">or talk to Dr. Cara about coaching →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-contact">
+        <div><a href="mailto:cara@drcaraa.com">cara@drcaraa.com</a> · 301-852-9424</div>
+        <div style="margin-top: 4px;">Embrace Life, LLC · Maryland, US</div>
+      </div>
+      <div class="footer-social">
+        <a href="#">LinkedIn</a>
+        <a href="#">YouTube</a>
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
