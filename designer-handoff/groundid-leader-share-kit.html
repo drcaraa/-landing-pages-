@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GroundID Leader · Share Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --orange: #E8600A;
+    --orange-dark: #C44D00;
+    --orange-light: #FFF0E5;
+    --cream: #FBF4EA;
+    --gold: #C9A850;
+    --dark: #2A2320;
+    --body: #4A3F38;
+    --muted: #8A7060;
+    --line: #EFE6DA;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+  body {
+    font-family: var(--sans);
+    color: var(--body);
+    background: #F7F2EC;
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(74,63,56,0.08);
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .card-top { height: 6px; background: var(--orange); }
+  .card-header {
+    padding: 28px 36px 18px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--dark);
+    text-transform: uppercase;
+  }
+  .brand-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .card-body { padding: 36px; }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+  .intro {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    color: var(--body);
+    margin-bottom: 8px;
+  }
+
+  .live-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--orange);
+    color: #FFFFFF;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 26px;
+    border-radius: 6px;
+    margin-top: 18px;
+    transition: background 0.2s;
+  }
+  .live-link:hover { background: var(--orange-dark); }
+  .live-link .url {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  .message {
+    background: var(--cream);
+    border-left: 4px solid var(--orange);
+    border-radius: 6px;
+    padding: 22px 26px;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--body);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .message p { margin-bottom: 10px; }
+  .message p:last-child { margin-bottom: 0; }
+  .message a {
+    color: var(--orange-dark);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+  .message a:hover { color: var(--orange); }
+
+  .copy-hint {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 6px;
+  }
+
+  .copy-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    color: var(--orange-dark);
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .copy-btn:hover {
+    background: var(--orange);
+    color: #FFFFFF;
+    border-color: var(--orange);
+  }
+  .copy-btn.copied {
+    background: #2E7D4F;
+    color: #FFFFFF;
+    border-color: #2E7D4F;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 32px 0 28px;
+  }
+
+  .asset-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .asset-row:last-child { border-bottom: none; }
+  .asset-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    background: var(--cream);
+    color: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .asset-name {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 2px;
+  }
+  .asset-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px 0 10px;
+    border-top: 2px solid var(--gold);
+    margin-top: 20px;
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  .footer a { color: var(--muted); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .card-body { padding: 28px 22px; }
+    h1 { font-size: 28px; }
+    .section-title { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- TOP INTRO CARD -->
+  <div class="card">
+    <div class="card-top"></div>
+    <div class="card-header">
+      <div class="brand">Dr. Cara Alexander</div>
+      <div class="brand-tag">Connected Leadership</div>
+    </div>
+    <div class="card-body">
+      <div class="section-label">GroundID Leader · Beta Share Kit</div>
+      <h1>Messages to share with your network.</h1>
+      <p class="intro">Click <strong>Copy</strong> on any message below and paste it into a text, email, LinkedIn post, or Instagram caption. The link <a href="https://groundid.net/beta" target="_blank" rel="noopener">groundid.net/beta</a> is already live and will forward to the interest form.</p>
+      <a href="https://groundid.net/beta" target="_blank" rel="noopener" class="live-link">
+        Test the form &nbsp;→&nbsp; <span class="url">groundid.net/beta</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- TEXT / iMESSAGE -->
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">For Texting · iMessage · SMS</div>
+      <h2 class="section-title">Pair with the vertical card image (1080 × 1920).</h2>
+
+      <div class="message" data-copy="Opening a small beta cohort of the leadership program I've been building. Wednesdays starting May 13, free in exchange for feedback. Filling by trust, not ads. If a name comes to mind when you look at this, send them to groundid.net/beta — I read every one personally. — C">
+        <button class="copy-btn">Copy</button>
+        <p>Opening a small beta cohort of the leadership program I've been building. Wednesdays starting May 13, free in exchange for feedback. Filling by trust, not ads.</p>
+        <p>If a name comes to mind when you look at this, send them to <a href="https://groundid.net/beta" target="_blank" rel="noopener">groundid.net/beta</a> — I read every one personally.</p>
+        <p>— C</p>
+      </div>
+      <p class="copy-hint">Short version for a quick text, no image needed:</p>
+
+      <div class="message" data-copy="Quick ask — I'm filling a small beta cohort of my new leadership program. If a name comes to mind who belongs in the room, send them to groundid.net/beta. Thanks for thinking with me. — Cara">
+        <button class="copy-btn">Copy</button>
+        <p>Quick ask — I'm filling a small beta cohort of my new leadership program. If a name comes to mind who belongs in the room, send them to <a href="https://groundid.net/beta" target="_blank" rel="noopener">groundid.net/beta</a>.</p>
+        <p>Thanks for thinking with me. — Cara</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL / FORWARD -->
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">For Email to Your Network</div>
+      <h2 class="section-title">A quiet ask, one-to-one.</h2>
+
+      <div class="message" data-copy="Subject: A quiet ask — do you know a leader who belongs in this room?
+
+Hi [name],
+
+I'm opening a small beta cohort of a new leadership program I've been building for 25 years of clinical and executive practice. A few seats remain. I'm not advertising it — I'm filling it by trust.
+
+It's a 12-week Connected Leadership cohort that works below behavior, at the driver level of how someone is actually wired to lead. Wednesdays at 3:30 PM Eastern, beginning May 13. No charge, in exchange for honest feedback and a testimonial.
+
+If one or two names come to mind, please forward this note to them, or send me their name and I'll reach out. That is the entire ask.
+
+If they're interested, they can reply to me directly at drcara@drcaraa.com or fill out a brief form at groundid.net/beta — I read every one personally.
+
+Thank you for thinking with me.
+
+— Cara">
+        <button class="copy-btn">Copy</button>
+        <p><strong>Subject:</strong> A quiet ask — do you know a leader who belongs in this room?</p>
+        <p>Hi [name],</p>
+        <p>I'm opening a small beta cohort of a new leadership program I've been building for 25 years of clinical and executive practice. A few seats remain. I'm not advertising it — I'm filling it by trust.</p>
+        <p>It's a 12-week Connected Leadership cohort that works below behavior, at the driver level of how someone is actually wired to lead. Wednesdays at 3:30 PM Eastern, beginning May 13. No charge, in exchange for honest feedback and a testimonial.</p>
+        <p>If one or two names come to mind, please forward this note to them, or send me their name and I'll reach out. That is the entire ask.</p>
+        <p>If they're interested, they can reply to me directly at <a href="mailto:drcara@drcaraa.com">drcara@drcaraa.com</a> or fill out a brief form at <a href="https://groundid.net/beta" target="_blank" rel="noopener">groundid.net/beta</a> — I read every one personally.</p>
+        <p>Thank you for thinking with me.</p>
+        <p>— Cara</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINKEDIN -->
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">For LinkedIn</div>
+      <h2 class="section-title">Pair with the square card image (1080 × 1080).</h2>
+
+      <div class="message" data-copy="Most leadership development starts with behavior — what to say, how to delegate, how to give feedback. That work is not wrong. It's incomplete. It addresses the surface while the driver underneath stays untouched.
+
+After 25 years of clinical and executive practice, I'm opening a small beta cohort of Connected Leadership — a 12-week program that works at the driver level. The origin point that formed long before the title, the team, or the role.
+
+Four profiles shape how leaders hold the room: the Architect, the Carrier, the Performer, and the Sentinel. Every one is a genuine capability. And every one, under sustained demand, carries weight.
+
+The cohort begins Wednesday, May 13. 12 weekly 90-minute sessions. Free, in exchange for honest feedback and a testimonial at completion.
+
+I'm filling it by trust, not ads. If someone you know belongs in this room — or if you do — send them here: groundid.net/beta
+
+I read every one personally.">
+        <button class="copy-btn">Copy</button>
+        <p>Most leadership development starts with behavior — what to say, how to delegate, how to give feedback. That work is not wrong. It's incomplete. It addresses the surface while the driver underneath stays untouched.</p>
+        <p>After 25 years of clinical and executive practice, I'm opening a small beta cohort of Connected Leadership — a 12-week program that works at the driver level. The origin point that formed long before the title, the team, or the role.</p>
+        <p>Four profiles shape how leaders hold the room: the Architect, the Carrier, the Performer, and the Sentinel. Every one is a genuine capability. And every one, under sustained demand, carries weight.</p>
+        <p>The cohort begins Wednesday, May 13. 12 weekly 90-minute sessions. Free, in exchange for honest feedback and a testimonial at completion.</p>
+        <p>I'm filling it by trust, not ads. If someone you know belongs in this room — or if you do — send them here: <a href="https://groundid.net/beta" target="_blank" rel="noopener">groundid.net/beta</a></p>
+        <p>I read every one personally.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSTAGRAM -->
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">For Instagram</div>
+      <h2 class="section-title">Caption (put the link in your bio).</h2>
+
+      <div class="message" data-copy="Opening a small beta cohort of the leadership program I've been building for 25 years of clinical and executive practice.
+
+12 weeks. Wednesdays. Small by design. Free, in exchange for feedback.
+
+Filling by trust, not ads. If a name comes to mind when you look at this — or it's yours — the link is in my bio.
+
+I read every one personally.
+
+#ConnectedLeadership #LeadershipDevelopment #GroundIDLeader">
+        <button class="copy-btn">Copy</button>
+        <p>Opening a small beta cohort of the leadership program I've been building for 25 years of clinical and executive practice.</p>
+        <p>12 weeks. Wednesdays. Small by design. Free, in exchange for feedback.</p>
+        <p>Filling by trust, not ads. If a name comes to mind when you look at this — or it's yours — the link is in my bio.</p>
+        <p>I read every one personally.</p>
+        <p style="color:var(--muted);font-style:italic;">#ConnectedLeadership #LeadershipDevelopment #GroundIDLeader</p>
+      </div>
+
+      <p class="copy-hint">Bio link to add: <a href="https://groundid.net/beta" target="_blank" rel="noopener"><strong>groundid.net/beta</strong></a></p>
+    </div>
+  </div>
+
+  <!-- ASSETS -->
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">Your Share Assets</div>
+      <h2 class="section-title">What to attach with each message.</h2>
+
+      <div class="asset-row">
+        <div class="asset-icon">◐</div>
+        <div>
+          <div class="asset-name">Vertical card · 1080 × 1920</div>
+          <div class="asset-desc">Best for iMessage, SMS, Instagram Stories · File: <strong>groundid-leader-referral-card.png</strong></div>
+        </div>
+      </div>
+      <div class="asset-row">
+        <div class="asset-icon">■</div>
+        <div>
+          <div class="asset-name">Square card · 1080 × 1080</div>
+          <div class="asset-desc">Best for Instagram posts, LinkedIn image uploads · File: <strong>groundid-leader-referral-card-square.png</strong></div>
+        </div>
+      </div>
+      <div class="asset-row">
+        <div class="asset-icon">↗</div>
+        <div>
+          <div class="asset-name">Live form</div>
+          <div class="asset-desc">The link all messages point to · <a href="https://groundid.net/beta" target="_blank" rel="noopener" style="color:var(--orange-dark);font-weight:700;">groundid.net/beta</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2026 Dr. Cara Alexander &nbsp;·&nbsp;
+    <a href="https://www.drcara.net/drcarahome-1" target="_blank" rel="noopener">drcara.net</a> &nbsp;·&nbsp;
+    @drcaraa &nbsp;·&nbsp;
+    delphi.ai/drcara
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var message = btn.closest('.message');
+      var text = message.getAttribute('data-copy') || message.innerText;
+      navigator.clipboard.writeText(text).then(function () {
+        var original = btn.textContent;
+        btn.textContent = 'Copied ✓';
+        btn.classList.add('copied');
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 1800);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
