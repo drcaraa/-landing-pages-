@@ -11,6 +11,14 @@
     {
       "source": "/beta",
       "destination": "/groundid-interest.html"
+    },
+    {
+      "source": "/coffee",
+      "destination": "/coffee-landing.html"
+    },
+    {
+      "source": "/groundid-coffee",
+      "destination": "/coffee-landing.html"
     }
   ]
 }
