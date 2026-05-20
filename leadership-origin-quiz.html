@@ -806,12 +806,103 @@
       margin-bottom: 24px;
       letter-spacing: -0.01em;
     }
+    .hero-tension {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.55;
+      max-width: 620px;
+      margin: 0 auto 26px;
+    }
     .hero .lede {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--body-text);
       line-height: 1.7;
       max-width: 640px;
-      margin: 0 auto 40px;
+      margin: 0 auto 36px;
+    }
+    .hero .lede strong {
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    /* AUTHORITY / CREDIBILITY */
+    .authority {
+      padding: 76px 0;
+      background: var(--cream);
+      border-top: 1px solid rgba(160,144,128,0.18);
+    }
+    .authority-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .authority-overline {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .authority-headline {
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.35;
+      max-width: 760px;
+      margin: 0 auto 44px;
+    }
+    .authority-creds {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      border-top: 1px solid rgba(160,144,128,0.25);
+      border-bottom: 1px solid rgba(160,144,128,0.25);
+      padding: 28px 0;
+      margin-bottom: 40px;
+    }
+    .cred {
+      text-align: center;
+      padding: 0 8px;
+    }
+    .cred-stat {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--orange);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .cred-label {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--body-text);
+      line-height: 1.55;
+    }
+    .authority-quote {
+      margin: 0;
+      padding: 0;
+    }
+    .authority-quote p {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.55;
+      margin: 0 auto 14px;
+      max-width: 700px;
+    }
+    .authority-quote cite {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-style: normal;
     }
     .hero-cta-meta {
       margin-top: 18px;
@@ -1114,21 +1205,25 @@
     /* LANDING RESPONSIVE */
     @media (max-width: 980px) {
       .profile-grid { grid-template-columns: repeat(2, 1fr); }
+      .authority-creds { grid-template-columns: repeat(2, 1fr); gap: 28px 18px; }
     }
     @media (max-width: 760px) {
       .hero h1 { font-size: 2.4rem; }
+      .hero-tension { font-size: 1.1rem; }
       .benefits-grid { grid-template-columns: 1fr; gap: 36px; }
       .journey-grid { grid-template-columns: 1fr; gap: 36px; }
       .rationale-grid { grid-template-columns: 1fr; gap: 0; }
-      .section-head h2, .cta-band h2 { font-size: 1.7rem; }
+      .section-head h2, .cta-band h2, .authority-headline { font-size: 1.6rem; }
     }
     @media (max-width: 560px) {
       .landing-inner { padding: 0 22px; }
       .hero { padding: 56px 0 44px; }
       .hero h1 { font-size: 2rem; }
+      .hero-tension { font-size: 1.05rem; }
       .hero .lede { font-size: 1rem; }
-      .benefits, .profiles, .journey, .rationale, .cta-band { padding: 56px 0; }
+      .benefits, .profiles, .journey, .rationale, .cta-band, .authority { padding: 56px 0; }
       .profile-grid { grid-template-columns: 1fr; }
+      .authority-creds { grid-template-columns: 1fr; gap: 22px; padding: 24px 0; }
     }
 
     /* TRANSITIONS */
@@ -1174,15 +1269,53 @@
     <!-- HERO -->
     <section class="hero">
       <div class="landing-inner">
-        <p class="overline">Psychology-Based Leadership Assessment</p>
-        <h1>The Leadership<br>Origin Profile</h1>
-        <p class="lede">Every leader has a protective part that runs the show under pressure. Discover yours in twelve questions, and map the specific path from that pattern to Self-led leadership.</p>
-        <button class="btn-start" onclick="startQuiz()">Begin the Assessment</button>
-        <p class="hero-cta-meta">12 Questions <span class="dot">&middot;</span> 3 Minutes <span class="dot">&middot;</span> Instant Personalized Profile</p>
+        <p class="overline">Free Psychology-Based Leadership Assessment</p>
+        <h1>Find the hidden pattern driving<br>your leadership fatigue.</h1>
+
+        <p class="hero-tension">The fatigue a vacation cannot fix. The pressure you absorb before anyone asks you to. The exhaustion behind the competence.</p>
+
+        <p class="lede">Every high-performing leader carries a protective pattern that runs the show under pressure. <strong>The Leadership Origin Profile</strong> reveals which one is leading you, and the specific path forward. Built by Dr. Cara Alexander, PhD.</p>
+
+        <button class="btn-start" onclick="startQuiz()">Reveal My Leadership Profile</button>
+        <p class="hero-cta-meta">Free <span class="dot">&middot;</span> 12 Questions <span class="dot">&middot;</span> 3 Minutes <span class="dot">&middot;</span> Instant Results</p>
 
         <div class="hero-quote">
           <p>&ldquo;The only control you have is how you receive, perceive, and respond.&rdquo;</p>
           <p class="attr">&mdash; Dr. Cara Alexander</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTHORITY / CREDIBILITY -->
+    <section class="authority">
+      <div class="landing-inner">
+        <div class="authority-inner">
+          <p class="authority-overline">Built By Dr. Cara Alexander, PhD</p>
+          <h2 class="authority-headline">A psychologist and former executive who has spent 25 years inside the inner lives of leaders.</h2>
+
+          <div class="authority-creds">
+            <div class="cred">
+              <p class="cred-stat">25+ Years</p>
+              <p class="cred-label">Clinical &amp; executive expertise</p>
+            </div>
+            <div class="cred">
+              <p class="cred-stat">PhD &middot; MSW &middot; LCSW</p>
+              <p class="cred-label">Licensed clinician &amp; Georgetown-certified executive coach</p>
+            </div>
+            <div class="cred">
+              <p class="cred-stat">Faculty</p>
+              <p class="cred-label">University of Michigan &amp; USC</p>
+            </div>
+            <div class="cred">
+              <p class="cred-stat">4 Continents</p>
+              <p class="cred-label">Leaders advised across healthcare, corporate, and public service</p>
+            </div>
+          </div>
+
+          <blockquote class="authority-quote">
+            <p>&ldquo;The most capable leaders are often the ones carrying the most. The inside work is the work almost no one offers them.&rdquo;</p>
+            <cite>Dr. Cara Alexander, PhD</cite>
+          </blockquote>
         </div>
       </div>
     </section>
@@ -1311,8 +1444,8 @@
         <p class="overline">Your Origin Profile Awaits</p>
         <h2>Find out which leader part is actually running the show.</h2>
         <p class="cta-sub">Three minutes. Twelve questions. The pattern, what it is protecting, and the path forward, built for you.</p>
-        <button class="btn-start" onclick="startQuiz()">Begin the Assessment</button>
-        <p class="hero-cta-meta">12 Questions <span class="dot">&middot;</span> 3 Minutes <span class="dot">&middot;</span> Instant Personalized Profile</p>
+        <button class="btn-start" onclick="startQuiz()">Reveal My Leadership Profile</button>
+        <p class="hero-cta-meta">Free <span class="dot">&middot;</span> 12 Questions <span class="dot">&middot;</span> 3 Minutes <span class="dot">&middot;</span> Instant Results</p>
       </div>
     </section>
 
