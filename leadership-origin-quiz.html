@@ -149,20 +149,27 @@
     .btn-start {
       display: inline-block;
       font-family: var(--sans);
-      font-size: 0.82rem;
+      font-size: 0.88rem;
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--white);
       background: var(--orange);
       border: none;
-      padding: 18px 56px;
+      padding: 22px 64px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      border-radius: 3px;
+      transition: all 0.25s ease;
+      border-radius: 4px;
+      box-shadow: 0 6px 20px rgba(232, 96, 10, 0.28);
     }
     .btn-start:hover {
       background: var(--orange-bright);
+      box-shadow: 0 10px 28px rgba(232, 96, 10, 0.45);
+      transform: translateY(-1px);
+    }
+    .btn-start:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 14px rgba(232, 96, 10, 0.35);
     }
 
     .intro-quote {
@@ -782,11 +789,33 @@
       padding: 0 32px;
     }
 
-    /* HERO */
+    /* HERO — 2-column with portrait on desktop */
     .hero {
-      padding: 88px 0 64px;
-      text-align: center;
+      padding: 96px 0 80px;
       background: var(--cream);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .hero-photo {
+      position: relative;
+    }
+    .hero-photo img {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 24px 60px rgba(42, 35, 32, 0.18);
+    }
+    .hero-content {
+      text-align: left;
+    }
+    .hero .btn-start {
+      margin-top: 8px;
     }
     .hero .overline {
       font-family: var(--sans);
@@ -795,41 +824,53 @@
       color: var(--orange);
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .hero h1 {
       font-family: var(--serif);
-      font-size: 3.4rem;
+      font-size: 2.85rem;
       font-weight: 400;
       color: var(--dark);
-      line-height: 1.1;
-      margin-bottom: 24px;
+      line-height: 1.12;
+      margin-bottom: 22px;
       letter-spacing: -0.01em;
     }
     .hero-tension {
       font-family: var(--serif);
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-style: italic;
       color: var(--dark);
       line-height: 1.55;
-      max-width: 620px;
-      margin: 0 auto 26px;
+      max-width: 560px;
+      margin: 0 0 24px;
     }
     .hero .lede {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--body-text);
       line-height: 1.7;
-      max-width: 640px;
-      margin: 0 auto 36px;
+      max-width: 560px;
+      margin: 0 0 32px;
     }
     .hero .lede strong {
       color: var(--dark);
       font-weight: 600;
     }
+    .hero-cta-meta {
+      text-align: left;
+    }
+    .hero-quote {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(160,144,128,0.25);
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
 
     /* AUTHORITY / CREDIBILITY */
     .authority {
-      padding: 76px 0;
+      padding: 88px 0;
       background: var(--cream);
       border-top: 1px solid rgba(160,144,128,0.18);
     }
@@ -917,14 +958,6 @@
       margin: 0 10px;
       color: var(--orange);
     }
-    .hero-quote {
-      margin-top: 56px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(160,144,128,0.25);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
     .hero-quote p {
       font-family: var(--serif);
       font-size: 1.05rem;
@@ -941,10 +974,10 @@
       font-style: normal;
     }
 
-    /* BENEFITS 3-UP — saturated orange band, reversed-out */
+    /* BENEFITS 3-UP — deeper orange band for stronger contrast */
     .benefits {
-      padding: 80px 0;
-      background: var(--orange);
+      padding: 88px 0;
+      background: var(--orange-dark);
       color: var(--white);
     }
     .benefits-grid {
@@ -957,33 +990,34 @@
     }
     .benefit-num {
       font-family: var(--serif);
-      font-size: 1.35rem;
-      font-weight: 500;
+      font-size: 1.4rem;
+      font-weight: 600;
       color: var(--white);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 52px;
-      height: 52px;
-      border: 2px solid var(--white);
+      width: 56px;
+      height: 56px;
+      border: 2.5px solid var(--white);
       border-radius: 50%;
       margin-bottom: 22px;
       line-height: 1;
     }
     .benefit-title {
       font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 500;
+      font-size: 1.35rem;
+      font-weight: 600;
       color: var(--white);
       line-height: 1.3;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     .benefit-body {
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.92);
+      font-size: 0.98rem;
+      color: var(--white);
       line-height: 1.7;
-      max-width: 280px;
+      max-width: 290px;
       margin: 0 auto;
+      font-weight: 400;
     }
 
     /* SECTION HEADS (reused) */
@@ -1020,7 +1054,7 @@
 
     /* PROFILES 4-UP */
     .profiles {
-      padding: 80px 0;
+      padding: 88px 0;
       background: var(--cream);
     }
     .profile-grid {
@@ -1072,7 +1106,7 @@
 
     /* JOURNEY 3-STEP — soft peach, warmer than white */
     .journey {
-      padding: 80px 0;
+      padding: 88px 0;
       background: var(--orange-light);
     }
     .journey-grid {
@@ -1120,7 +1154,7 @@
 
     /* RATIONALE / WHY THIS IS DIFFERENT */
     .rationale {
-      padding: 80px 0;
+      padding: 88px 0;
       background: var(--cream);
       border-top: 1px solid rgba(160,144,128,0.12);
     }
@@ -1163,7 +1197,7 @@
 
     /* FINAL CTA BAND */
     .cta-band {
-      padding: 84px 0;
+      padding: 88px 0;
       background: var(--dark);
       text-align: center;
     }
@@ -1207,8 +1241,23 @@
       .profile-grid { grid-template-columns: repeat(2, 1fr); }
       .authority-creds { grid-template-columns: repeat(2, 1fr); gap: 28px 18px; }
     }
+    @media (max-width: 880px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .hero-content { text-align: center; }
+      .hero-content .hero-tension,
+      .hero-content .lede {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-cta-meta { text-align: center; }
+      .hero-photo { text-align: center; }
+      .hero-photo img { max-width: 300px; margin: 0 auto; }
+    }
     @media (max-width: 760px) {
-      .hero h1 { font-size: 2.4rem; }
+      .hero h1 { font-size: 2.2rem; }
       .hero-tension { font-size: 1.1rem; }
       .benefits-grid { grid-template-columns: 1fr; gap: 36px; }
       .journey-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -1217,13 +1266,14 @@
     }
     @media (max-width: 560px) {
       .landing-inner { padding: 0 22px; }
-      .hero { padding: 56px 0 44px; }
+      .hero { padding: 64px 0 52px; }
       .hero h1 { font-size: 2rem; }
       .hero-tension { font-size: 1.05rem; }
       .hero .lede { font-size: 1rem; }
-      .benefits, .profiles, .journey, .rationale, .cta-band, .authority { padding: 56px 0; }
+      .benefits, .profiles, .journey, .rationale, .cta-band, .authority { padding: 64px 0; }
       .profile-grid { grid-template-columns: 1fr; }
       .authority-creds { grid-template-columns: 1fr; gap: 22px; padding: 24px 0; }
+      .btn-start { padding: 18px 48px; font-size: 0.82rem; }
     }
 
     /* TRANSITIONS */
@@ -1268,17 +1318,24 @@
 
     <!-- HERO -->
     <section class="hero">
+      <div class="landing-inner hero-inner">
+        <div class="hero-photo">
+          <img src="dr-cara-portrait.jpg" alt="Dr. Cara Alexander, psychologist and former executive">
+        </div>
+        <div class="hero-content">
+          <p class="overline">Free Psychology-Based Leadership Assessment</p>
+          <h1>Find the hidden pattern driving your leadership fatigue.</h1>
+
+          <p class="hero-tension">The fatigue a vacation cannot fix. The pressure you absorb before anyone asks you to. The exhaustion behind the competence.</p>
+
+          <p class="lede">Every high-performing leader carries a protective pattern that runs the show under pressure. <strong>The Leadership Origin Profile</strong> reveals which one is leading you, and the specific path forward. Built by Dr. Cara Alexander.</p>
+
+          <button class="btn-start" onclick="startQuiz()">Reveal My Leadership Profile</button>
+          <p class="hero-cta-meta">Free <span class="dot">&middot;</span> 12 Questions <span class="dot">&middot;</span> 3 Minutes <span class="dot">&middot;</span> Instant Results</p>
+        </div>
+      </div>
+
       <div class="landing-inner">
-        <p class="overline">Free Psychology-Based Leadership Assessment</p>
-        <h1>Find the hidden pattern driving<br>your leadership fatigue.</h1>
-
-        <p class="hero-tension">The fatigue a vacation cannot fix. The pressure you absorb before anyone asks you to. The exhaustion behind the competence.</p>
-
-        <p class="lede">Every high-performing leader carries a protective pattern that runs the show under pressure. <strong>The Leadership Origin Profile</strong> reveals which one is leading you, and the specific path forward. Built by Dr. Cara Alexander.</p>
-
-        <button class="btn-start" onclick="startQuiz()">Reveal My Leadership Profile</button>
-        <p class="hero-cta-meta">Free <span class="dot">&middot;</span> 12 Questions <span class="dot">&middot;</span> 3 Minutes <span class="dot">&middot;</span> Instant Results</p>
-
         <div class="hero-quote">
           <p>&ldquo;The only control you have is how you receive, perceive, and respond.&rdquo;</p>
           <p class="attr">&mdash; Dr. Cara Alexander</p>
